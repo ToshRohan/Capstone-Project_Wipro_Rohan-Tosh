@@ -92,7 +92,7 @@ module.exports = defineConfig({
 
   timeout: 90000,
 
-  retries: 1,
+  retries: 0,
 
   use: {
     headless: true,
