@@ -101,7 +101,12 @@ module.exports = defineConfig({
     trace: 'on-first-retry'
   },
 
-  reporter: [['html', { open: 'always' }]],
+  reporter: [
+    ['html', { open: 'always' }],
+    ['list'],
+    ['allure-playwright']
+  ],
+  
 
   projects: [
 
