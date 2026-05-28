@@ -21,16 +21,16 @@ test.describe('IMDb Showtimes & Tickets', () => {
   });
 
   
-  // // 2
-  // test('Showtimes section is available on page or redirect exists', async ({ page }) => {
-  //   await page.goto('https://www.imdb.com/title/tt0111161/');
+  // 2
+  test('Showtimes section is available on page or redirect exists', async ({ page }) => {
+    await page.goto('https://www.imdb.com/title/tt0111161/');
 
-  //   const showtimesText = page.locator('text=/showtimes|tickets/i');
+    const showtimesText = page.locator('text=/showtimes|tickets/i');
 
-  //   const count = await showtimesText.count();
+    const count = await showtimesText.count();
 
-  //   expect(count).toBeGreaterThanOrEqual(0); 
-  // });
+    expect(count).toBeGreaterThanOrEqual(0); 
+  });
 
   // // 3
   // test('Showtimes button is clickable', async ({ page }) => {
