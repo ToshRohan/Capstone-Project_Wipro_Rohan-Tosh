@@ -1,0 +1,148 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: imdb_showtimes&tickets.spec.js >> IMDb Showtimes & Tickets >> Movie page loads successfully
+- Location: tests\imdb_showtimes&tickets.spec.js:17:7
+
+# Error details
+
+```
+Error: expect(received).toBeGreaterThan(expected)
+
+Expected: > 0
+Received:   0
+
+Call Log:
+- Timeout 5000ms exceeded while waiting on the predicate
+```
+
+# Test source
+
+```ts
+  1   | // @ts-check
+  2   | 
+  3   | import { test, expect } from '@playwright/test';
+  4   | 
+  5   | test.describe('IMDb Showtimes & Tickets', () => {
+  6   | 
+  7   |   const movieUrl = 'https://www.imdb.com/title/tt0111161/';
+  8   | 
+  9   |   test.beforeEach(async ({ page }) => {
+  10  |     await page.goto(movieUrl);
+  11  |   });
+  12  |   test.afterEach(async ({ page }) => {
+  13  |     console.log('Test completed');
+  14  |   });
+  15  | 
+  16  |   // 1
+  17  |   test('Movie page loads successfully', async ({ page }) => {
+  18  |       await expect.poll(async () => {
+  19  |       return await page.locator('h1').count();
+> 20  |     }).toBeGreaterThan(0);
+      |        ^ Error: expect(received).toBeGreaterThan(expected)
+  21  |   });
+  22  | 
+  23  |   
+  24  |   // // 2
+  25  |   // test('Showtimes section is available on page or redirect exists', async ({ page }) => {
+  26  |   //   await page.goto('https://www.imdb.com/title/tt0111161/');
+  27  | 
+  28  |   //   const showtimesText = page.locator('text=/showtimes|tickets/i');
+  29  | 
+  30  |   //   const count = await showtimesText.count();
+  31  | 
+  32  |   //   expect(count).toBeGreaterThanOrEqual(0); 
+  33  |   // });
+  34  | 
+  35  |   // // 3
+  36  |   // test('Showtimes button is clickable', async ({ page }) => {
+  37  |   //   const btn = page.getByRole('link', { name: /showtimes/i });
+  38  | 
+  39  |   //   if (await btn.count() > 0) {
+  40  |   //     await btn.first().click();
+  41  |   //   }
+  42  |   // });
+  43  | 
+  44  | //   // 4
+  45  | //   test('Navigation to showtimes page works', async ({ page }) => {
+  46  | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  47  | 
+  48  | //     if (await btn.count() > 0) {
+  49  | //       await btn.first().click();
+  50  | //       await page.waitForLoadState('domcontentloaded');
+  51  | 
+  52  | //       await expect(page).toHaveURL(/showtimes|tickets|cinemas/);
+  53  | //     }
+  54  | //   });
+  55  | 
+  56  | //   // 5
+  57  | //   test('Showtimes page content loads', async ({ page }) => {
+  58  | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  59  | 
+  60  | //     if (await btn.count() > 0) {
+  61  | //       await btn.first().click();
+  62  | //       await expect(page.locator('body')).toBeVisible();
+  63  | //     }
+  64  | //   });
+  65  | 
+  66  | //   // 6
+  67  | //   test('Location prompt appears or handled', async ({ page }) => {
+  68  | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  69  | 
+  70  | //     if (await btn.count() > 0) {
+  71  | //       await btn.first().click();
+  72  | 
+  73  | //       const location = page.locator('text=/location/i');
+  74  | //       if (await location.count() > 0) {
+  75  | //         await expect(location.first()).toBeVisible();
+  76  | //       }
+  77  | //     }
+  78  | //   });
+  79  | 
+  80  | //   // 7
+  81  | //   test('Cinema listings exist', async ({ page }) => {
+  82  | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  83  | 
+  84  | //     if (await btn.count() > 0) {
+  85  | //       await btn.first().click();
+  86  | 
+  87  | //       const cinemas = page.locator('text=/cinema|theatre|theater/i');
+  88  | //       if (await cinemas.count() > 0) {
+  89  | //         await expect(cinemas.first()).toBeVisible();
+  90  | //       }
+  91  | //     }
+  92  | //   });
+  93  | 
+  94  | //   // 8
+  95  | //   test('Showtimes are visible', async ({ page }) => {
+  96  | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  97  | 
+  98  | //     if (await btn.count() > 0) {
+  99  | //       await btn.first().click();
+  100 | 
+  101 | //       const times = page.locator('text=/\\d{1,2}:\\d{2}/'); // 10:30, 14:00 format
+  102 | //       if (await times.count() > 0) {
+  103 | //         await expect(times.first()).toBeVisible();
+  104 | //       }
+  105 | //     }
+  106 | //   });
+  107 | 
+  108 | //   // 9
+  109 | //   test('Ticket links are visible', async ({ page }) => {
+  110 | //     const btn = page.getByRole('link', { name: /showtimes/i });
+  111 | 
+  112 | //     if (await btn.count() > 0) {
+  113 | //       await btn.first().click();
+  114 | 
+  115 | //       const links = page.locator('a[href*="ticket"], a[target="_blank"]');
+  116 | //       await expect(links.first()).toBeVisible();
+  117 | //     }
+  118 | //   });
+  119 | 
+  120 | //   // 10
+```

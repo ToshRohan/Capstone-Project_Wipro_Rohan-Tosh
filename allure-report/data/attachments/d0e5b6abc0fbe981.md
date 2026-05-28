@@ -1,0 +1,485 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: imdb_homepage.spec.js >> IMDb Homepage >> Top 10 on IMDb this week
+- Location: tests\imdb_homepage.spec.js:94:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: /Top 10 on IMDb this week/i })
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByRole('link', { name: /Top 10 on IMDb this week/i })
+    - waiting for" https://www.imdb.com/" navigation to finish...
+    - navigated to "https://www.imdb.com/"
+
+```
+
+```yaml
+- navigation:
+  - link "Home":
+    - /url: /?ref_=hm_nv_home
+    - img
+  - text: Menu
+  - search:
+    - text: All
+    - combobox:
+      - textbox "Search IMDb"
+      - listbox
+    - status: 8 suggestions available
+    - button "Submit search"
+  - link "Go To IMDb Pro":
+    - /url: https://pro.imdb.com/login/ap?u=/login/lwa&imdbPageAction=signUp&rf=cons_nb_hm&ref_=cons_nb_hm
+    - img
+  - link "Watchlist":
+    - /url: /list/watchlist/?ref_=hm_nv_urwls_all
+  - link "Sign in":
+    - /url: /registration/signin/?u=%2F&ref_=hm_nv_generic_lgin
+  - link "Sign in":
+    - /url: /registration/signin/?u=%2F&ref_=hm_nv_signup_cm_btn
+  - button "Close"
+  - text: New customer?
+  - link "Create account":
+    - /url: /registration/signin/?u=%2F&ref_=hm_nv_generic_lgin
+  - text: EN
+  - status
+  - status
+- main:
+  - iframe
+  - complementary "Sponsored Content":
+    - iframe
+    - button "Get information, provide feedback or report sponsored ad": SPONSORED
+  - figure:
+    - group:
+      - img "Primetime"
+      - button "Add to Watchlist"
+    - group:
+      - img "Robert Pattinson Stars in 'Primetime'"
+      - text: Robert Pattinson Stars in 'Primetime' 1:03 Watch the Teaser
+  - figure:
+    - group:
+      - img "Victorian Psycho"
+      - button "Add to Watchlist"
+    - group:
+      - img "Maika Monroe Stars in 'Victorian Psycho'"
+      - text: Maika Monroe Stars in 'Victorian Psycho' 1:16 Watch the Spooky New Trailer
+  - figure:
+    - group:
+      - img "'The Mandalorian and Grogu' Cast Answer Fan Questions"
+      - button "Add to Watchlist"
+    - group:
+      - img "The Mandalorian Is Here for Your Questions"
+      - text: The Mandalorian Is Here for Your Questions 11:22 Watch Now
+  - figure:
+    - group:
+      - 'img "Why the ''Jack Ryan: Ghost War'' Cast Couldn''t Stop Laughing on Set"'
+      - button "Add to Watchlist"
+    - group:
+      - 'img "It Was Non-Stop Laughter on the ''Jack Ryan: Ghost War'' Cast Set"'
+      - text: "It Was Non-Stop Laughter on the 'Jack Ryan: Ghost War' Cast Set 5:19 Hear Why. Watch Now."
+  - figure:
+    - group:
+      - img "Enola Holmes 3"
+      - button "Add to Watchlist"
+    - group:
+      - img "'Enola Homes 3'"
+      - text: "'Enola Homes 3' 1:06 Watch the Trailer"
+  - figure:
+    - group:
+      - img "Vought Rising"
+      - button "Add to Watchlist"
+    - group:
+      - img "\"Vought Rising\""
+      - text: "\"Vought Rising\" 1:24 Get a First Look"
+  - figure:
+    - group:
+      - img "Spa Weekend"
+      - button "Add to Watchlist"
+    - group:
+      - img "'Spa Weekend'"
+      - text: "'Spa Weekend' 2:30 Watch the Trailer"
+  - figure:
+    - group:
+      - 'img "Avatar: The Last Airbender"'
+      - button "Add to Watchlist"
+    - group:
+      - 'img "\"Avatar: The Last Airbender\""'
+      - text: "\"Avatar: The Last Airbender\" 1:56 Season 2 Premieres June 25 on Netflix"
+  - figure:
+    - group:
+      - img "Toy Story 5"
+      - button "Add to Watchlist"
+    - group:
+      - img "'Toy Story 5'"
+      - text: "'Toy Story 5' 1:45 Watch the Trailer"
+  - figure:
+    - group:
+      - img "Rolling Credits With Danielle Macdonald"
+      - button "Add to Watchlist"
+    - group:
+      - img "Rolling With Danielle Macdonald"
+      - text: Rolling With Danielle Macdonald 4:28 Catch Up With the 'Saccharine' Star
+  - text: Up next
+  - img "Rolling Credits With Danielle Macdonald"
+  - link "4:28 Rolling With Danielle Macdonald Catch Up With the 'Saccharine' Star":
+    - /url: /video/vi3002256153/?listId=ls053181649&ref_=hm_hp_vi_10
+  - img "Primetime"
+  - link "1:03 Robert Pattinson Stars in 'Primetime' Watch the Teaser":
+    - /url: /video/vi3322727193/?listId=ls053181649&ref_=hm_hp_vi_1
+  - img "Victorian Psycho"
+  - link "1:16 Maika Monroe Stars in 'Victorian Psycho' Watch the Spooky New Trailer":
+    - /url: /video/vi1040698137/?listId=ls053181649&ref_=hm_hp_vi_2
+  - img "'The Mandalorian and Grogu' Cast Answer Fan Questions"
+  - link "11:22 The Mandalorian Is Here for Your Questions Watch Now":
+    - /url: /video/vi1325845273/?listId=ls053181649&ref_=hm_hp_vi_3
+  - 'img "Why the ''Jack Ryan: Ghost War'' Cast Couldn''t Stop Laughing on Set"'
+  - 'link "5:19 It Was Non-Stop Laughter on the ''Jack Ryan: Ghost War'' Cast Set Hear Why. Watch Now."':
+    - /url: /video/vi941542169/?listId=ls053181649&ref_=hm_hp_vi_4
+  - img "Enola Holmes 3"
+  - link "1:06 'Enola Homes 3' Watch the Trailer":
+    - /url: /video/vi4195142425/?listId=ls053181649&ref_=hm_hp_vi_5
+  - link "Browse trailers":
+    - /url: /trailers/?ref_=hm_hp_sm
+  - link "Summer Watch Guide":
+    - /url: /imdbpicks/summer-watch-guide/?ref_=hm_chip_hm_p1_csegswg
+  - link "Cannes Winners":
+    - /url: /event/ev0000147/2026/1/?ref_=hm_chip_hm_p2_csegcann
+  - link "AAPI Heritage Month":
+    - /url: /spotlight/?ref_=hm_chip_hm_p3_csegahm
+  - link "Crunchyroll Anime Awards":
+    - /url: /event/ev0025711/2026/1/?ref_=hm_chip_hm_p4_csegawds
+  - heading "Featured today" [level=3]
+  - group:
+    - group:
+      - group:
+        - img "Production art"
+        - link "List":
+          - /url: /list/ls4172120774/?ref_=hm_edcft_ls_5tw_1_i
+      - link "What We're Watching This Week":
+        - /url: /list/ls4172120774/?ref_=hm_edcft_ls_5tw_1_t
+      - link "See the list":
+        - /url: /list/ls4172120774/?ref_=hm_edcft_c_ls_5tw_1_cta
+    - group:
+      - group:
+        - img "Production art"
+        - link "Photos":
+          - /url: /imdbpicks/trending-stars/rg3677002496/mediaviewer/rm1177931266/?ref_=hm_edcft_sw_ts_2_i
+      - link "See Who's Trending on IMDb Right Now":
+        - /url: /imdbpicks/trending-stars/rg3677002496/mediaviewer/rm1177931266/?ref_=hm_edcft_sw_ts_2_t
+      - link "See the gallery":
+        - /url: /imdbpicks/trending-stars/rg3677002496/mediaviewer/rm1177931266/?ref_=hm_edcft_c_sw_ts_2_cta
+    - group:
+      - group:
+        - img "Production art"
+        - link "Photos":
+          - /url: /spotlight/asian-hollywood-stars/rg712940288/mediaviewer/rm1871432450?ref_=hm_edcft_csegahm_apahm_gal_stars_3_i
+      - link "Asian Hollywood Stars to Watch":
+        - /url: /spotlight/asian-hollywood-stars/rg712940288/mediaviewer/rm1871432450?ref_=hm_edcft_csegahm_apahm_gal_stars_3_t
+      - link "See the full gallery":
+        - /url: /spotlight/asian-hollywood-stars/rg712940288/mediaviewer/rm1871432450?ref_=hm_edcft_c_csegahm_apahm_gal_stars_3_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "List":
+          - /url: /list/ls528329180/?ref_=hm_edcft_cseghw_ls_horror_4_i
+      - link "'Backrooms' and More Horrors Are Coming":
+        - /url: /list/ls528329180/?ref_=hm_edcft_cseghw_ls_horror_4_t
+      - link "See the list":
+        - /url: /list/ls528329180/?ref_=hm_edcft_c_cseghw_ls_horror_4_cta
+    - group:
+      - group:
+        - img "Event photo"
+        - link "List":
+          - /url: /imdbpicks/stars-we-lost-in-2026/ls4154313445/mediaviewer/rm1358288386/?ref_=hm_edcft_csegbest_g_inmem26_5_i
+      - 'link "In Memoriam: Stars We Lost in 2026"':
+        - /url: /imdbpicks/stars-we-lost-in-2026/ls4154313445/mediaviewer/rm1358288386/?ref_=hm_edcft_csegbest_g_inmem26_5_t
+      - link "See more":
+        - /url: /imdbpicks/stars-we-lost-in-2026/ls4154313445/mediaviewer/rm1358288386/?ref_=hm_edcft_c_csegbest_g_inmem26_5_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "List":
+          - /url: /imdbpicks/staff-picks/?ref_=hm_edcft_ft_staffpicks_elp_6_i
+      - 'link "Staff Picks: What to Watch in May"':
+        - /url: /imdbpicks/staff-picks/?ref_=hm_edcft_ft_staffpicks_elp_6_t
+      - link "See our picks":
+        - /url: /imdbpicks/staff-picks/?ref_=hm_edcft_c_ft_staffpicks_elp_6_cta
+    - group:
+      - group:
+        - img "Production art"
+        - link "Poll":
+          - /url: /poll/FOA6lC-x77c/?ref_=hm_edcft_pls_052326_7_i
+      - 'link "Poll: Yoda vs. Grogu"':
+        - /url: /poll/FOA6lC-x77c/?ref_=hm_edcft_pls_052326_7_t
+      - link "Vote now":
+        - /url: /poll/FOA6lC-x77c/?ref_=hm_edcft_c_pls_052326_7_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "List":
+          - /url: /list/ls4172359817/?ref_=hm_edcft_li_arnosummer_8_i
+      - link "My Summer Watchlist Loves 'Boosters' and 'Backrooms'":
+        - /url: /list/ls4172359817/?ref_=hm_edcft_li_arnosummer_8_t
+      - link "See the recs":
+        - /url: /list/ls4172359817/?ref_=hm_edcft_c_li_arnosummer_8_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "Photos":
+          - /url: /imdbpicks/latest-posters/rg1624939264/mediaviewer/rm873122050?ref_=hm_edcft_hp_g_lp_9_i
+      - link "The Latest Movie and TV Posters":
+        - /url: /imdbpicks/latest-posters/rg1624939264/mediaviewer/rm873122050?ref_=hm_edcft_hp_g_lp_9_t
+      - link "See more posters":
+        - /url: /imdbpicks/latest-posters/rg1624939264/mediaviewer/rm873122050?ref_=hm_edcft_c_hp_g_lp_9_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "List":
+          - /url: /list/ls521170945/?ref_=hm_edcft_ft_ls_tr_10_i
+      - link "Theatrical Releases You Can Stream or Rent":
+        - /url: /list/ls521170945/?ref_=hm_edcft_ft_ls_tr_10_t
+      - link "See the list":
+        - /url: /list/ls521170945/?ref_=hm_edcft_c_ft_ls_tr_10_cta
+    - group:
+      - group:
+        - img "Production art"
+        - link "List":
+          - /url: /list/ls540779500/?ref_=hm_edcft_csegspot_apahmwatchlist_11_i
+      - link "IMDb's Picks For Asian Pacific American Heritage Month":
+        - /url: /list/ls540779500/?ref_=hm_edcft_csegspot_apahmwatchlist_11_t
+      - link "See the list":
+        - /url: /list/ls540779500/?ref_=hm_edcft_c_csegspot_apahmwatchlist_11_cta
+    - group:
+      - group:
+        - img "Production art"
+        - link "Photos":
+          - /url: /gallery/rg1641716480/mediaviewer/rm3090533890/?ref_=hm_edcft_ft_g_pwl_12_i
+      - link "The Best Photos on the Internet Right Now":
+        - /url: /gallery/rg1641716480/mediaviewer/rm3090533890/?ref_=hm_edcft_ft_g_pwl_12_t
+      - link "See the gallery":
+        - /url: /gallery/rg1641716480/mediaviewer/rm3090533890/?ref_=hm_edcft_c_ft_g_pwl_12_cta
+    - group:
+      - group:
+        - img "Poster"
+        - link "List":
+          - /url: /whats-on-tv/renew-cancel/ls063853872/mediaviewer/rm646297090/?ref_=hm_edcft_ft_ls_rc_13_i
+      - 'link "TV Tracker: Renewed and Canceled Shows"':
+        - /url: /whats-on-tv/renew-cancel/ls063853872/mediaviewer/rm646297090/?ref_=hm_edcft_ft_ls_rc_13_t
+      - link "Check the status":
+        - /url: /whats-on-tv/renew-cancel/ls063853872/mediaviewer/rm646297090/?ref_=hm_edcft_c_ft_ls_rc_13_cta
+  - complementary "Sponsored Content":
+    - iframe
+    - button "Get information, provide feedback or report sponsored ad": SPONSORED
+  - link "Most popular celebrities":
+    - /url: /chart/starmeter/?ref_=hm_mpc_sm
+    - heading "Most popular celebrities" [level=3]
+  - heading "What to watch" [level=3]
+  - link "Get more recommendations":
+    - /url: /what-to-watch/?ref_=hm_watch_btn
+  - heading "Explore what’s streaming" [level=3]
+  - link "Set your preferred services":
+    - /url: /preferences/preferredservices/?ref_=hm_stp_btn
+  - heading "Explore movies & TV shows" [level=3]
+  - heading "More to explore" [level=3]
+- heading "Recently viewed" [level=3]
+- text: You have no recently viewed pages
+- contentinfo:
+  - link "Sign in for more access":
+    - /url: /registration/signin/?u=%2F&ref_=hm_ftr_reg
+  - text: Follow IMDb on social
+  - link "TikTok":
+    - /url: https://www.tiktok.com/@imdb
+  - link "Instagram":
+    - /url: https://instagram.com/imdb
+  - link "Twitter":
+    - /url: https://twitter.com/imdb
+  - link "YouTube":
+    - /url: https://youtube.com/imdb/
+  - link "Facebook":
+    - /url: https://facebook.com/imdb
+  - text: Get the IMDb app For Android and iOS
+  - group:
+    - img "Get the IMDb app"
+    - link "For Android and iOS":
+      - /url: https://slyb.app.link/Aa96cLcBeAb
+  - link "Help":
+    - /url: https://help.imdb.com/imdb
+  - link "Site Index":
+    - /url: https://help.imdb.com/article/imdb/general-information/imdb-site-index/GNCX7BHNSPBTFALQ#so
+  - link "IMDbPro":
+    - /url: https://pro.imdb.com?ref_=cons_tf_pro&rf=cons_tf_pro
+  - link "Box Office Mojo":
+    - /url: https://www.boxofficemojo.com
+  - link "License IMDb Data":
+    - /url: https://developer.imdb.com/
+  - link "Press Room":
+    - /url: /pressroom/?ref_=hm_ftr
+  - link "Advertising":
+    - /url: https://advertising.amazon.com/resources/ad-specs/imdb/
+  - link "Jobs":
+    - /url: https://www.amazon.jobs/en/teams/imdb
+  - link "Conditions of Use":
+    - /url: /conditions/?ref_=hm_ftr
+  - link "Privacy Policy":
+    - /url: /privacy/?ref_=hm_ftr
+  - link "Your Ads Privacy Choices":
+    - /url: /privacy/redirect/?ref_=hm_ftr
+    - img
+  - link "Your Ads Privacy Choices":
+    - /url: /privacy/redirect/?ref_=hm_ftr
+  - img "IMDb, an Amazon company"
+  - paragraph: © 1990-2026 by IMDb.com, Inc.
+- button "Back to top"
+- img
+- status
+- img
+- alert
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect } from '@playwright/test';
+  2   | 
+  3   | test.describe('IMDb Homepage', () => {
+  4   | 
+  5   | test.beforeEach(async ({ page }) => {
+  6   |   await page.goto('https://www.imdb.com/');
+  7   | });
+  8   | 
+  9   | test.afterEach(async ({ page }) => {
+  10  |     console.log('Test completed');
+  11  | });
+  12  | 
+  13  | // //1
+  14  | // test('suggestion search', async ({ page }) => {
+  15  | // //   await page.goto('https://www.imdb.com/');
+  16  | //   await page.getByTestId('suggestion-search').click();
+  17  | //   await page.getByTestId('suggestion-search').fill('The Prestige');
+  18  | 
+  19  | //   await expect(page.getByTestId('suggestion-search'))
+  20  | //     .toHaveValue('The Prestige');
+  21  | // });
+  22  | 
+  23  | // //2
+  24  | // test('play trailer', async ({ page }) => {
+  25  | // //   await page.goto('https://www.imdb.com/');
+  26  | //   const page2Promise = page.waitForEvent('popup');
+  27  | //   await page.locator('iframe[name="inline20"]').contentFrame().getByRole('link', { name: 'Sponsored Content' }).click();
+  28  | //   const page2 = await page2Promise;
+  29  | //   await expect(page2).toHaveTitle(/.*/);
+  30  | // });
+  31  | 
+  32  | // //3
+  33  | // test('open navigation drawer', async ({ page }) => {
+  34  |   
+  35  | //   await page.getByLabel('Open navigation drawer').click();
+  36  | //   await expect(page.locator('body')).toContainText('IMDb');
+  37  | // });
+  38  | 
+  39  | // //4
+  40  | // test('watchlist', async ({ page }) => {
+  41  | //   await page.getByRole('link', { name: 'Watchlist' }).click();
+  42  | //   await expect(page).toHaveURL(/watchlist/);
+  43  | 
+  44  | // });
+  45  | 
+  46  | //5
+  47  | test('summer watch guide', async ({ page }) => {
+  48  |   await page.getByRole('link', { name: 'Summer Watch Guide' }).first().click();
+  49  |   await page.getByRole('link', { name: 'Mortal Kombat II', exact: true }).click();
+  50  |   await expect(page).toHaveURL(/title|movie/i);
+  51  | });
+  52  | 
+  53  | // //6
+  54  | // test('most popular celebrities', async ({ page }) => {
+  55  | //   await page.getByRole('link', { name: 'Most popular celebrities' }).click();
+  56  | //   await page.locator('a').filter({ hasText: 'Anne Hathaway' }).click();
+  57  | //   await expect(page.locator('body')).toContainText('Anne Hathaway');
+  58  | // });
+  59  | 
+  60  | // //7
+  61  | // test('language selection', async ({ page }) => {
+  62  | //   await page.getByText('EN', { exact: true }).click();
+  63  | //   await page.getByRole('menuitem', { name: 'हिंदी (भारत)' }).click();
+  64  | //   await expect(page.getByText('मेनू')).toBeVisible();
+  65  | // });
+  66  | 
+  67  | // //8
+  68  | // test('imdb pro', async ({ page }) => {
+  69  | //   await page.getByRole('link', { name: 'Go To IMDb Pro' }).click();
+  70  | //   await expect(page).toHaveURL(/pro/);
+  71  | // });
+  72  | 
+  73  | // //9
+  74  | // test('fan favorites', async ({ page }) => {
+  75  | //   await page.getByRole('link', { name: 'Fan favorites' }).click();
+  76  | //   await page.getByRole('link', { name: 'View title page for Dacoit: A' }).first().click();
+  77  | // await expect(page).toHaveURL(/fan|favorite/i);
+  78  | // });
+  79  | 
+  80  | // //10
+  81  | // test('test', async ({ page }) => {
+  82  | //   await page.getByRole('link', { name: 'Cannes Red Carpet' }).click();
+  83  | //   await expect(page).toHaveURL(/cannes/);
+  84  | // });
+  85  | 
+  86  | // //11
+  87  | // test('Mobile apps', async ({ page }) => {
+  88  | //   await page.getByRole('link', { name: 'For Android and iOS' }).click();
+  89  | //   await page.goto('https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525');
+  90  | //   await expect(page).toHaveURL(/apple/);
+  91  | // });
+  92  | 
+  93  | //12
+  94  | test('Top 10 on IMDb this week', async ({ page }) => {
+  95  |  const top10Link = page.getByRole('link', { name: /Top 10 on IMDb this week/i });
+> 96  |   await expect(top10Link).toBeVisible();
+      |                           ^ Error: expect(locator).toBeVisible() failed
+  97  |   await top10Link.click();
+  98  |   await expect(page).not.toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
+  99  | });
+  100 | 
+  101 | 
+  102 | // //13
+  103 | // test('In theaters navigation', async ({ page }) => {
+  104 | 
+  105 | //   const inTheatersLink = page.getByRole('link', { name: /In theaters/i }).first();
+  106 | //   await inTheatersLink.click();
+  107 | 
+  108 | //   await expect(page).toHaveURL(/.*browse\/cinema/);
+  109 | // });
+  110 | 
+  111 | // //14
+  112 | // test('Born today page navigation', async ({ page }) => {
+  113 | //   await page.getByRole('link', { name: 'Born today' }).click();
+  114 | //   const heading = page.getByRole('heading', { name: 'Born today', exact: true });
+  115 | //   await expect(heading).toBeVisible();
+  116 | // });
+  117 | 
+  118 | // //15
+  119 | // test('Sign in', async ({ page }) => {
+  120 | //   // await page.getByRole('link', { name: 'Sign in', exact: true }).click();
+  121 | //   // await page.getByTestId('create_account_aap').click();
+  122 | //   // await page.getByRole('heading', { name: 'Sign in to IMDb using your' }).click();
+  123 | 
+  124 | //   await page.getByRole('link', { name: 'Sign in', exact: true }).click();
+  125 | 
+  126 | //   const signInHeading = page.getByRole('heading', { name: /Sign in/i });
+  127 | //   await expect(signInHeading).toBeVisible();
+  128 | // });
+  129 | 
+  130 | });
+```

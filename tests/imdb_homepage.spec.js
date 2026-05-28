@@ -10,31 +10,31 @@ test.afterEach(async ({ page }) => {
     console.log('Test completed');
 });
 
-// //1
-// test('suggestion search', async ({ page }) => {
-// //   await page.goto('https://www.imdb.com/');
-//   await page.getByTestId('suggestion-search').click();
-//   await page.getByTestId('suggestion-search').fill('The Prestige');
+//1
+test('suggestion search', async ({ page }) => {
+//   await page.goto('https://www.imdb.com/');
+  await page.getByTestId('suggestion-search').click();
+  await page.getByTestId('suggestion-search').fill('The Prestige');
 
-//   await expect(page.getByTestId('suggestion-search'))
-//     .toHaveValue('The Prestige');
-// });
+  await expect(page.getByTestId('suggestion-search'))
+    .toHaveValue('The Prestige');
+});
 
-// //2
-// test('play trailer', async ({ page }) => {
-// //   await page.goto('https://www.imdb.com/');
-//   const page2Promise = page.waitForEvent('popup');
-//   await page.locator('iframe[name="inline20"]').contentFrame().getByRole('link', { name: 'Sponsored Content' }).click();
-//   const page2 = await page2Promise;
-//   await expect(page2).toHaveTitle(/.*/);
-// });
+//2
+test('play trailer', async ({ page }) => {
+//   await page.goto('https://www.imdb.com/');
+  const page2Promise = page.waitForEvent('popup');
+  await page.locator('iframe[name="inline20"]').contentFrame().getByRole('link', { name: 'Sponsored Content' }).click();
+  const page2 = await page2Promise;
+  await expect(page2).toHaveTitle(/.*/);
+});
 
-// //3
-// test('open navigation drawer', async ({ page }) => {
+//3
+test('open navigation drawer', async ({ page }) => {
   
-//   await page.getByLabel('Open navigation drawer').click();
-//   await expect(page.locator('body')).toContainText('IMDb');
-// });
+  await page.getByLabel('Open navigation drawer').click();
+  await expect(page.locator('body')).toContainText('IMDb');
+});
 
 // //4
 // test('watchlist', async ({ page }) => {
@@ -90,12 +90,12 @@ test.afterEach(async ({ page }) => {
 //   await expect(page).toHaveURL(/apple/);
 // });
 
-//12
-test('Top 10 on IMDb this week', async ({ page }) => {
-  await page.goto('https://www.imdb.com/');
-  await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
-  await expect(page).toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
-});
+// //12
+// test('Top 10 on IMDb this week', async ({ page }) => {
+//   await page.goto('https://www.imdb.com/');
+//   await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
+//   await expect(page).toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
+// });
 
 
 // //13
