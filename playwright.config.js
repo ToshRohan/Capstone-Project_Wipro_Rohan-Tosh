@@ -102,9 +102,8 @@ module.exports = defineConfig({
   },
 
   reporter: [
-    ['html', { open: 'always' }],
-    ['list'],
-    ['allure-playwright']
+    ['line'], // Optional: keeps console output clean
+    ['allure-playwright', { resultsDir: 'allure-results' }]
   ],
   
 
