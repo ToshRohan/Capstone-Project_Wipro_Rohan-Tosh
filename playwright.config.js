@@ -102,8 +102,8 @@ module.exports = defineConfig({
   },
 
   reporter: [
-    ['line'], // Optional: keeps console output clean
-    ['allure-playwright', { resultsDir: 'allure-results' }]
+     ['line'],
+     ['allure-playwright', { resultsDir: process.env.ALLURE_RESULTS_DIR || 'allure-results' }]
   ],
   
 
