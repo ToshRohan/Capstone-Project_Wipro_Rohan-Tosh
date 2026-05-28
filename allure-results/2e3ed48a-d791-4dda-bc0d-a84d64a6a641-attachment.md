@@ -1,0 +1,3607 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: imdb_top250movies.spec.js >> IMDb Top 250 Movies >> movie posters load correctly
+- Location: tests\imdb_top250movies.spec.js:48:7
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: 'View ’12 Angry Men’ Poster' })
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByRole('link', { name: 'View ’12 Angry Men’ Poster' })
+
+```
+
+```yaml
+- navigation:
+  - link "Home":
+    - /url: /?ref_=chttp_nv_home
+    - img
+  - text: Menu
+  - search:
+    - text: All
+    - combobox:
+      - textbox "Search IMDb"
+      - listbox
+    - status: 8 suggestions available
+    - button "Submit search"
+  - link "Go To IMDb Pro":
+    - /url: https://pro.imdb.com/login/ap?u=/login/lwa&imdbPageAction=signUp&rf=cons_nb_hm&ref_=cons_nb_hm
+    - img
+  - link "Watchlist":
+    - /url: /list/watchlist/?ref_=chttp_nv_urwls_all
+  - link "Sign in":
+    - /url: /registration/signin/?u=%2Fchart%2Ftop%2F&ref_=chttp_nv_generic_lgin
+  - link "Sign in":
+    - /url: /registration/signin/?u=%2Fchart%2Ftop%2F&ref_=chttp_nv_signup_cm_btn
+  - button "Close"
+  - text: New customer?
+  - link "Create account":
+    - /url: /registration/signin/?u=%2Fchart%2Ftop%2F&ref_=chttp_nv_generic_lgin
+  - text: EN
+  - status
+  - status
+- main:
+  - iframe
+  - text: IMDb Charts
+  - button "Share on social media"
+  - heading "IMDb Top 250 movies" [level=1]
+  - text: As rated by regular IMDb voters.
+  - progressbar "0 OF 250 WATCHED"
+  - text: 250 Titles
+  - button "Detailed view"
+  - button "Grid view"
+  - 'button "Selected: Compact view"'
+  - button "Open filter prompt"
+  - text: Sort by
+  - combobox "Sort by":
+    - option "Ranking" [selected]
+    - option "IMDb rating"
+    - option "Release date"
+    - option "Number of ratings"
+    - option "Alphabetical"
+    - option "Popularity"
+    - option "Runtime"
+  - button "Ascending sort order"
+  - group:
+    - img "Tim Robbins in The Shawshank Redemption (1994)"
+    - button "Add to Watchlist"
+    - link "View title page for The Shawshank Redemption":
+      - /url: /title/tt0111161/?ref_=chttp_i_1
+  - text: "#1"
+  - link "The Shawshank Redemption":
+    - /url: /title/tt0111161/?ref_=chttp_t_1
+    - heading "The Shawshank Redemption" [level=3]
+  - text: 1994 2h 22m R 9.3 (3.2M)
+  - button "Rate The Shawshank Redemption": Rate
+  - button "Mark The Shawshank Redemption as watched": Mark as watched
+  - button "See more information about The Shawshank Redemption"
+  - group:
+    - img "Marlon Brando in The Godfather (1972)"
+    - button "Add to Watchlist"
+    - link "View title page for The Godfather":
+      - /url: /title/tt0068646/?ref_=chttp_i_2
+  - text: "#2"
+  - link "The Godfather":
+    - /url: /title/tt0068646/?ref_=chttp_t_2
+    - heading "The Godfather" [level=3]
+  - text: 1972 2h 55m R 9.2 (2.2M)
+  - button "Rate The Godfather": Rate
+  - button "Mark The Godfather as watched": Mark as watched
+  - button "See more information about The Godfather"
+  - group:
+    - img "Christian Bale in The Dark Knight (2008)"
+    - button "Add to Watchlist"
+    - link "View title page for The Dark Knight":
+      - /url: /title/tt0468569/?ref_=chttp_i_3
+  - text: "#3"
+  - link "The Dark Knight":
+    - /url: /title/tt0468569/?ref_=chttp_t_3
+    - heading "The Dark Knight" [level=3]
+  - text: 2008 2h 32m PG-13 9.1 (3.2M)
+  - button "Rate The Dark Knight": Rate
+  - button "Mark The Dark Knight as watched": Mark as watched
+  - button "See more information about The Dark Knight"
+  - group:
+    - img "Al Pacino in The Godfather Part II (1974)"
+    - button "Add to Watchlist"
+    - link "View title page for The Godfather Part II":
+      - /url: /title/tt0071562/?ref_=chttp_i_4
+  - text: "#4"
+  - link "The Godfather Part II":
+    - /url: /title/tt0071562/?ref_=chttp_t_4
+    - heading "The Godfather Part II" [level=3]
+  - text: 1974 3h 22m R 9.0 (1.5M)
+  - button "Rate The Godfather Part II": Rate
+  - button "Mark The Godfather Part II as watched": Mark as watched
+  - button "See more information about The Godfather Part II"
+  - group:
+    - img "Henry Fonda, Martin Balsam, Jack Klugman, Lee J. Cobb, Ed Begley, Edward Binns, John Fiedler, E.G. Marshall, Joseph Sweeney, George Voskovec, Jack Warden, and Robert Webber in 12 Angry Men (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for 12 Angry Men":
+      - /url: /title/tt0050083/?ref_=chttp_i_5
+  - text: "#5"
+  - link "12 Angry Men":
+    - /url: /title/tt0050083/?ref_=chttp_t_5
+    - heading "12 Angry Men" [level=3]
+  - text: 1957 1h 36m Approved 9.0 (985K)
+  - button "Rate 12 Angry Men": Rate
+  - button "Mark 12 Angry Men as watched": Mark as watched
+  - button "See more information about 12 Angry Men"
+  - group:
+    - 'img "Liv Tyler, Sean Astin, Elijah Wood, Viggo Mortensen, Ian McKellen, and Andy Serkis in The Lord of the Rings: The Return of the King (2003)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for The Lord of the Rings: The Return of the King"':
+      - /url: /title/tt0167260/?ref_=chttp_i_6
+  - text: "#6"
+  - 'link "The Lord of the Rings: The Return of the King"':
+    - /url: /title/tt0167260/?ref_=chttp_t_6
+    - 'heading "The Lord of the Rings: The Return of the King" [level=3]'
+  - text: 2003 3h 21m PG-13 9.0 (2.2M)
+  - 'button "Rate The Lord of the Rings: The Return of the King"': Rate
+  - 'button "Mark The Lord of the Rings: The Return of the King as watched"': Mark as watched
+  - 'button "See more information about The Lord of the Rings: The Return of the King"'
+  - group:
+    - img "Schindler's List (1993)"
+    - button "Add to Watchlist"
+    - link "View title page for Schindler's List":
+      - /url: /title/tt0108052/?ref_=chttp_i_7
+  - text: "#7"
+  - link "Schindler's List":
+    - /url: /title/tt0108052/?ref_=chttp_t_7
+    - heading "Schindler's List" [level=3]
+  - text: 1993 3h 15m R 9.0 (1.6M)
+  - button "Rate Schindler's List": Rate
+  - button "Mark Schindler's List as watched": Mark as watched
+  - button "See more information about Schindler's List"
+  - group:
+    - 'img "Liv Tyler, Sean Astin, Sean Bean, Elijah Wood, Cate Blanchett, Viggo Mortensen, Ian McKellen, Orlando Bloom, Billy Boyd, Dominic Monaghan, and John Rhys-Davies in The Lord of the Rings: The Fellowship of the Ring (2001)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for The Lord of the Rings: The Fellowship of the Ring"':
+      - /url: /title/tt0120737/?ref_=chttp_i_8
+  - text: "#8"
+  - 'link "The Lord of the Rings: The Fellowship of the Ring"':
+    - /url: /title/tt0120737/?ref_=chttp_t_8
+    - 'heading "The Lord of the Rings: The Fellowship of the Ring" [level=3]'
+  - text: 2001 2h 58m PG-13 8.9 (2.2M)
+  - 'button "Rate The Lord of the Rings: The Fellowship of the Ring"': Rate
+  - 'button "Mark The Lord of the Rings: The Fellowship of the Ring as watched"': Mark as watched
+  - 'button "See more information about The Lord of the Rings: The Fellowship of the Ring"'
+  - group:
+    - img "Uma Thurman in Pulp Fiction (1994)"
+    - button "Add to Watchlist"
+    - link "View title page for Pulp Fiction":
+      - /url: /title/tt0110912/?ref_=chttp_i_9
+  - text: "#9"
+  - link "Pulp Fiction":
+    - /url: /title/tt0110912/?ref_=chttp_t_9
+    - heading "Pulp Fiction" [level=3]
+  - text: 1994 2h 34m R 8.8 (2.4M)
+  - button "Rate Pulp Fiction": Rate
+  - button "Mark Pulp Fiction as watched": Mark as watched
+  - button "See more information about Pulp Fiction"
+  - group:
+    - img "The Good, the Bad and the Ugly (1966)"
+    - button "Add to Watchlist"
+    - link "View title page for The Good, the Bad and the Ugly":
+      - /url: /title/tt0060196/?ref_=chttp_i_10
+  - text: "#10"
+  - link "The Good, the Bad and the Ugly":
+    - /url: /title/tt0060196/?ref_=chttp_t_10
+    - heading "The Good, the Bad and the Ugly" [level=3]
+  - text: 1966 2h 58m R 8.8 (892K)
+  - button "Rate The Good, the Bad and the Ugly": Rate
+  - button "Mark The Good, the Bad and the Ugly as watched": Mark as watched
+  - button "See more information about The Good, the Bad and the Ugly"
+  - group:
+    - 'img "Liv Tyler, Sean Astin, Christopher Lee, Elijah Wood, Viggo Mortensen, Miranda Otto, Ian McKellen, Orlando Bloom, John Rhys-Davies, and Andy Serkis in The Lord of the Rings: The Two Towers (2002)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for The Lord of the Rings: The Two Towers"':
+      - /url: /title/tt0167261/?ref_=chttp_i_11
+  - text: "#11"
+  - 'link "The Lord of the Rings: The Two Towers"':
+    - /url: /title/tt0167261/?ref_=chttp_t_11
+    - 'heading "The Lord of the Rings: The Two Towers" [level=3]'
+  - text: 2002 2h 59m PG-13 8.8 (2M)
+  - 'button "Rate The Lord of the Rings: The Two Towers"': Rate
+  - 'button "Mark The Lord of the Rings: The Two Towers as watched"': Mark as watched
+  - 'button "See more information about The Lord of the Rings: The Two Towers"'
+  - group:
+    - img "Tom Hanks in Forrest Gump (1994)"
+    - button "Add to Watchlist"
+    - link "View title page for Forrest Gump":
+      - /url: /title/tt0109830/?ref_=chttp_i_12
+  - text: "#12"
+  - link "Forrest Gump":
+    - /url: /title/tt0109830/?ref_=chttp_t_12
+    - heading "Forrest Gump" [level=3]
+  - text: 1994 2h 22m PG-13 8.8 (2.5M)
+  - button "Rate Forrest Gump": Rate
+  - button "Mark Forrest Gump as watched": Mark as watched
+  - button "See more information about Forrest Gump"
+  - group:
+    - img "Brad Pitt and Edward Norton in Fight Club (1999)"
+    - button "Add to Watchlist"
+    - link "View title page for Fight Club":
+      - /url: /title/tt0137523/?ref_=chttp_i_13
+  - text: "#13"
+  - link "Fight Club":
+    - /url: /title/tt0137523/?ref_=chttp_t_13
+    - heading "Fight Club" [level=3]
+  - text: 1999 2h 19m R 8.8 (2.6M)
+  - button "Rate Fight Club": Rate
+  - button "Mark Fight Club as watched": Mark as watched
+  - button "See more information about Fight Club"
+  - group:
+    - img "Leonardo DiCaprio, Joseph Gordon-Levitt, Tom Hardy, Elliot Page, Ken Watanabe, and Dileep Rao in Inception (2010)"
+    - button "Add to Watchlist"
+    - link "View title page for Inception":
+      - /url: /title/tt1375666/?ref_=chttp_i_14
+  - text: "#14"
+  - link "Inception":
+    - /url: /title/tt1375666/?ref_=chttp_t_14
+    - heading "Inception" [level=3]
+  - text: 2010 2h 28m PG-13 8.8 (2.8M)
+  - button "Rate Inception": Rate
+  - button "Mark Inception as watched": Mark as watched
+  - button "See more information about Inception"
+  - group:
+    - 'img "Harrison Ford, Anthony Daniels, Carrie Fisher, Mark Hamill, James Earl Jones, David Prowse, Kenny Baker, and Peter Mayhew in Star Wars: Episode V - The Empire Strikes Back (1980)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Star Wars: Episode V - The Empire Strikes Back"':
+      - /url: /title/tt0080684/?ref_=chttp_i_15
+  - text: "#15"
+  - 'link "Star Wars: Episode V - The Empire Strikes Back"':
+    - /url: /title/tt0080684/?ref_=chttp_t_15
+    - 'heading "Star Wars: Episode V - The Empire Strikes Back" [level=3]'
+  - text: 1980 2h 4m PG 8.7 (1.5M)
+  - 'button "Rate Star Wars: Episode V - The Empire Strikes Back"': Rate
+  - 'button "Mark Star Wars: Episode V - The Empire Strikes Back as watched"': Mark as watched
+  - 'button "See more information about Star Wars: Episode V - The Empire Strikes Back"'
+  - group:
+    - img "Keanu Reeves, Laurence Fishburne, Joe Pantoliano, and Carrie-Anne Moss in The Matrix (1999)"
+    - button "Add to Watchlist"
+    - link "View title page for The Matrix":
+      - /url: /title/tt0133093/?ref_=chttp_i_16
+  - text: "#16"
+  - link "The Matrix":
+    - /url: /title/tt0133093/?ref_=chttp_t_16
+    - heading "The Matrix" [level=3]
+  - text: 1999 2h 16m R 8.7 (2.3M)
+  - button "Rate The Matrix": Rate
+  - button "Mark The Matrix as watched": Mark as watched
+  - button "See more information about The Matrix"
+  - group:
+    - img "Robert De Niro, Ray Liotta, and Joe Pesci in GoodFellas (1990)"
+    - button "Add to Watchlist"
+    - link "View title page for GoodFellas":
+      - /url: /title/tt0099685/?ref_=chttp_i_17
+  - text: "#17"
+  - link "GoodFellas":
+    - /url: /title/tt0099685/?ref_=chttp_t_17
+    - heading "GoodFellas" [level=3]
+  - text: 1990 2h 25m R 8.7 (1.4M)
+  - button "Rate GoodFellas": Rate
+  - button "Mark GoodFellas as watched": Mark as watched
+  - button "See more information about GoodFellas"
+  - group:
+    - img "Matthew McConaughey in Interstellar (2014)"
+    - button "Add to Watchlist"
+    - link "View title page for Interstellar":
+      - /url: /title/tt0816692/?ref_=chttp_i_18
+  - text: "#18"
+  - link "Interstellar":
+    - /url: /title/tt0816692/?ref_=chttp_t_18
+    - heading "Interstellar" [level=3]
+  - text: 2014 2h 49m PG-13 8.7 (2.5M)
+  - button "Rate Interstellar": Rate
+  - button "Mark Interstellar as watched": Mark as watched
+  - button "See more information about Interstellar"
+  - group:
+    - img "Jack Nicholson in One Flew Over the Cuckoo's Nest (1975)"
+    - button "Add to Watchlist"
+    - link "View title page for One Flew Over the Cuckoo's Nest":
+      - /url: /title/tt0073486/?ref_=chttp_i_19
+  - text: "#19"
+  - link "One Flew Over the Cuckoo's Nest":
+    - /url: /title/tt0073486/?ref_=chttp_t_19
+    - heading "One Flew Over the Cuckoo's Nest" [level=3]
+  - text: 1975 2h 13m R 8.6 (1.2M)
+  - button "Rate One Flew Over the Cuckoo's Nest": Rate
+  - button "Mark One Flew Over the Cuckoo's Nest as watched": Mark as watched
+  - button "See more information about One Flew Over the Cuckoo's Nest"
+  - group:
+    - img "Brad Pitt and Morgan Freeman in Seven (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Seven":
+      - /url: /title/tt0114369/?ref_=chttp_i_20
+  - text: "#20"
+  - link "Seven":
+    - /url: /title/tt0114369/?ref_=chttp_t_20
+    - heading "Seven" [level=3]
+  - text: 1995 2h 7m R 8.6 (2M)
+  - button "Rate Seven": Rate
+  - button "Mark Seven as watched": Mark as watched
+  - button "See more information about Seven"
+  - group:
+    - img "James Stewart and Donna Reed in It's a Wonderful Life (1946)"
+    - button "Add to Watchlist"
+    - link "View title page for It's a Wonderful Life":
+      - /url: /title/tt0038650/?ref_=chttp_i_21
+  - text: "#21"
+  - link "It's a Wonderful Life":
+    - /url: /title/tt0038650/?ref_=chttp_t_21
+    - heading "It's a Wonderful Life" [level=3]
+  - text: 1946 2h 10m PG 8.6 (555K)
+  - button "Rate It's a Wonderful Life": Rate
+  - button "Mark It's a Wonderful Life as watched": Mark as watched
+  - button "See more information about It's a Wonderful Life"
+  - group:
+    - img "Jodie Foster in The Silence of the Lambs (1991)"
+    - button "Add to Watchlist"
+    - link "View title page for The Silence of the Lambs":
+      - /url: /title/tt0102926/?ref_=chttp_i_22
+  - text: "#22"
+  - link "The Silence of the Lambs":
+    - /url: /title/tt0102926/?ref_=chttp_t_22
+    - heading "The Silence of the Lambs" [level=3]
+  - text: 1991 1h 58m R 8.6 (1.7M)
+  - button "Rate The Silence of the Lambs": Rate
+  - button "Mark The Silence of the Lambs as watched": Mark as watched
+  - button "See more information about The Silence of the Lambs"
+  - group:
+    - img "Tom Hanks, Matt Damon, Tom Sizemore, and Edward Burns in Saving Private Ryan (1998)"
+    - button "Add to Watchlist"
+    - link "View title page for Saving Private Ryan":
+      - /url: /title/tt0120815/?ref_=chttp_i_23
+  - text: "#23"
+  - link "Saving Private Ryan":
+    - /url: /title/tt0120815/?ref_=chttp_t_23
+    - heading "Saving Private Ryan" [level=3]
+  - text: 1998 2h 49m R 8.6 (1.6M)
+  - button "Rate Saving Private Ryan": Rate
+  - button "Mark Saving Private Ryan as watched": Mark as watched
+  - button "See more information about Saving Private Ryan"
+  - group:
+    - img "Toshirō Mifune, Minoru Chiaki, Yoshio Inaba, Daisuke Katō, Isao Kimura, Seiji Miyaguchi, Takashi Shimura, and Keiko Tsushima in Seven Samurai (1954)"
+    - button "Add to Watchlist"
+    - link "View title page for Seven Samurai":
+      - /url: /title/tt0047478/?ref_=chttp_i_24
+  - text: "#24"
+  - link "Seven Samurai":
+    - /url: /title/tt0047478/?ref_=chttp_t_24
+    - heading "Seven Samurai" [level=3]
+  - text: 1954 3h 27m Not Rated 8.6 (402K)
+  - button "Rate Seven Samurai": Rate
+  - button "Mark Seven Samurai as watched": Mark as watched
+  - button "See more information about Seven Samurai"
+  - group:
+    - img "Movie Poster"
+    - button "Add to Watchlist"
+    - link "View title page for The Green Mile":
+      - /url: /title/tt0120689/?ref_=chttp_i_25
+  - text: "#25"
+  - link "The Green Mile":
+    - /url: /title/tt0120689/?ref_=chttp_t_25
+    - heading "The Green Mile" [level=3]
+  - text: 1999 3h 9m R 8.6 (1.6M)
+  - button "Rate The Green Mile": Rate
+  - button "Mark The Green Mile as watched": Mark as watched
+  - button "See more information about The Green Mile"
+  - group:
+    - img "Alice Braga, Leandro Firmino, Alexandre Rodrigues, Inhabitants of Belo Vale Boa Morte and Cidade de Congonhas, and Paige Ellens in City of God (2002)"
+    - button "Add to Watchlist"
+    - link "View title page for City of God":
+      - /url: /title/tt0317248/?ref_=chttp_i_26
+  - text: "#26"
+  - link "City of God":
+    - /url: /title/tt0317248/?ref_=chttp_t_26
+    - heading "City of God" [level=3]
+  - text: 2002 2h 10m R 8.6 (872K)
+  - button "Rate City of God": Rate
+  - button "Mark City of God as watched": Mark as watched
+  - button "See more information about City of God"
+  - group:
+    - img "Roberto Benigni, Nicoletta Braschi, and Giorgio Cantarini in Life Is Beautiful (1997)"
+    - button "Add to Watchlist"
+    - link "View title page for Life Is Beautiful":
+      - /url: /title/tt0118799/?ref_=chttp_i_27
+  - text: "#27"
+  - link "Life Is Beautiful":
+    - /url: /title/tt0118799/?ref_=chttp_t_27
+    - heading "Life Is Beautiful" [level=3]
+  - text: 1997 1h 56m PG-13 8.6 (814K)
+  - button "Rate Life Is Beautiful": Rate
+  - button "Mark Life Is Beautiful as watched": Mark as watched
+  - button "See more information about Life Is Beautiful"
+  - group:
+    - 'img "Arnold Schwarzenegger and John Pantellas in Terminator 2: Judgment Day (1991)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Terminator 2: Judgment Day"':
+      - /url: /title/tt0103064/?ref_=chttp_i_28
+  - text: "#28"
+  - 'link "Terminator 2: Judgment Day"':
+    - /url: /title/tt0103064/?ref_=chttp_t_28
+    - 'heading "Terminator 2: Judgment Day" [level=3]'
+  - text: 1991 2h 17m R 8.6 (1.3M)
+  - 'button "Rate Terminator 2: Judgment Day"': Rate
+  - 'button "Mark Terminator 2: Judgment Day as watched"': Mark as watched
+  - 'button "See more information about Terminator 2: Judgment Day"'
+  - group:
+    - img "Michael J. Fox in Back to the Future (1985)"
+    - button "Add to Watchlist"
+    - link "View title page for Back to the Future":
+      - /url: /title/tt0088763/?ref_=chttp_i_29
+  - text: "#29"
+  - link "Back to the Future":
+    - /url: /title/tt0088763/?ref_=chttp_t_29
+    - heading "Back to the Future" [level=3]
+  - text: 1985 1h 56m PG 8.5 (1.5M)
+  - button "Rate Back to the Future": Rate
+  - button "Mark Back to the Future as watched": Mark as watched
+  - button "See more information about Back to the Future"
+  - group:
+    - 'img "Anthony Daniels, Carrie Fisher, Mark Hamill, James Earl Jones, David Prowse, and Kenny Baker in Star Wars: Episode IV - A New Hope (1977)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Star Wars: Episode IV - A New Hope"':
+      - /url: /title/tt0076759/?ref_=chttp_i_30
+  - text: "#30"
+  - 'link "Star Wars: Episode IV - A New Hope"':
+    - /url: /title/tt0076759/?ref_=chttp_t_30
+    - 'heading "Star Wars: Episode IV - A New Hope" [level=3]'
+  - text: 1977 2h 1m PG 8.6 (1.6M)
+  - 'button "Rate Star Wars: Episode IV - A New Hope"': Rate
+  - 'button "Mark Star Wars: Episode IV - A New Hope as watched"': Mark as watched
+  - 'button "See more information about Star Wars: Episode IV - A New Hope"'
+  - group:
+    - img "Spirited Away (2001)"
+    - button "Add to Watchlist"
+    - link "View title page for Spirited Away":
+      - /url: /title/tt0245429/?ref_=chttp_i_31
+  - text: "#31"
+  - link "Spirited Away":
+    - /url: /title/tt0245429/?ref_=chttp_t_31
+    - heading "Spirited Away" [level=3]
+  - text: 2001 2h 4m PG 8.6 (969K)
+  - button "Rate Spirited Away": Rate
+  - button "Mark Spirited Away as watched": Mark as watched
+  - button "See more information about Spirited Away"
+  - group:
+    - img "Russell Crowe in Gladiator (2000)"
+    - button "Add to Watchlist"
+    - link "View title page for Gladiator":
+      - /url: /title/tt0172495/?ref_=chttp_i_32
+  - text: "#32"
+  - link "Gladiator":
+    - /url: /title/tt0172495/?ref_=chttp_t_32
+    - heading "Gladiator" [level=3]
+  - text: 2000 2h 35m R 8.5 (1.9M)
+  - button "Rate Gladiator": Rate
+  - button "Mark Gladiator as watched": Mark as watched
+  - button "See more information about Gladiator"
+  - group:
+    - img "Adrien Brody in The Pianist (2002)"
+    - button "Add to Watchlist"
+    - link "View title page for The Pianist":
+      - /url: /title/tt0253474/?ref_=chttp_i_33
+  - text: "#33"
+  - link "The Pianist":
+    - /url: /title/tt0253474/?ref_=chttp_t_33
+    - heading "The Pianist" [level=3]
+  - text: 2002 2h 30m R 8.5 (1M)
+  - button "Rate The Pianist": Rate
+  - button "Mark The Pianist as watched": Mark as watched
+  - button "See more information about The Pianist"
+  - group:
+    - 'img "Uma Thurman in Kill Bill: The Whole Bloody Affair (2004)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Kill Bill: The Whole Bloody Affair"':
+      - /url: /title/tt6019206/?ref_=chttp_i_34
+  - text: "#34"
+  - 'link "Kill Bill: The Whole Bloody Affair"':
+    - /url: /title/tt6019206/?ref_=chttp_t_34
+    - 'heading "Kill Bill: The Whole Bloody Affair" [level=3]'
+  - text: 2004 4h 13m Not Rated 8.7 (41K)
+  - 'button "Rate Kill Bill: The Whole Bloody Affair"': Rate
+  - 'button "Mark Kill Bill: The Whole Bloody Affair as watched"': Mark as watched
+  - 'button "See more information about Kill Bill: The Whole Bloody Affair"'
+  - group:
+    - img "Song Kang-ho, Jung Ik-han, Jung Hyun-jun, Lee Joo-hyung, Lee Ji-hye, Lee Sun-kyun, Cho Yeo-jeong, Park Myeong-hoon, Park Keun-rok, Jang Hye-jin, Lee Jeong-eun, Choi Woo-sik, Park Seo-joon, Park So-dam, and Jung Ji-so in Parasite (2019)"
+    - button "Add to Watchlist"
+    - link "View title page for Parasite":
+      - /url: /title/tt6751668/?ref_=chttp_i_35
+  - text: "#35"
+  - link "Parasite":
+    - /url: /title/tt6751668/?ref_=chttp_t_35
+    - heading "Parasite" [level=3]
+  - text: 2019 2h 12m R 8.5 (1.2M)
+  - button "Rate Parasite": Rate
+  - button "Mark Parasite as watched": Mark as watched
+  - button "See more information about Parasite"
+  - group:
+    - img "Corinne Orr, Ayano Shiraishi, Tsutomu Tatsumi, J. Robert Spencer, Emily Neves, and Adam Gibbs in Grave of the Fireflies (1988)"
+    - button "Add to Watchlist"
+    - link "View title page for Grave of the Fireflies":
+      - /url: /title/tt0095327/?ref_=chttp_i_36
+  - text: "#36"
+  - link "Grave of the Fireflies":
+    - /url: /title/tt0095327/?ref_=chttp_t_36
+    - heading "Grave of the Fireflies" [level=3]
+  - text: 1988 1h 28m Not Rated 8.5 (386K)
+  - button "Rate Grave of the Fireflies": Rate
+  - button "Mark Grave of the Fireflies as watched": Mark as watched
+  - button "See more information about Grave of the Fireflies"
+  - group:
+    - img "Anthony Perkins, John Gavin, Janet Leigh, and Heather Dawn May in Psycho (1960)"
+    - button "Add to Watchlist"
+    - link "View title page for Psycho":
+      - /url: /title/tt0054215/?ref_=chttp_i_37
+  - text: "#37"
+  - link "Psycho":
+    - /url: /title/tt0054215/?ref_=chttp_t_37
+    - heading "Psycho" [level=3]
+  - text: 1960 1h 49m R 8.5 (786K)
+  - button "Rate Psycho": Rate
+  - button "Mark Psycho as watched": Mark as watched
+  - button "See more information about Psycho"
+  - group:
+    - img "Matthew Broderick and James Earl Jones in The Lion King (1994)"
+    - button "Add to Watchlist"
+    - link "View title page for The Lion King":
+      - /url: /title/tt0110357/?ref_=chttp_i_38
+  - text: "#38"
+  - link "The Lion King":
+    - /url: /title/tt0110357/?ref_=chttp_t_38
+    - heading "The Lion King" [level=3]
+  - text: 1994 1h 28m G 8.5 (1.3M)
+  - button "Rate The Lion King": Rate
+  - button "Mark The Lion King as watched": Mark as watched
+  - button "See more information about The Lion King"
+  - group:
+    - img "Harakiri (1962)"
+    - button "Add to Watchlist"
+    - link "View title page for Harakiri":
+      - /url: /title/tt0056058/?ref_=chttp_i_39
+  - text: "#39"
+  - link "Harakiri":
+    - /url: /title/tt0056058/?ref_=chttp_t_39
+    - heading "Harakiri" [level=3]
+  - text: 1962 2h 13m Not Rated 8.6 (91K)
+  - button "Rate Harakiri": Rate
+  - button "Mark Harakiri as watched": Mark as watched
+  - button "See more information about Harakiri"
+  - group:
+    - img "Leonardo DiCaprio, Jack Nicholson, and Matt Damon in The Departed (2006)"
+    - button "Add to Watchlist"
+    - link "View title page for The Departed":
+      - /url: /title/tt0407887/?ref_=chttp_i_40
+  - text: "#40"
+  - link "The Departed":
+    - /url: /title/tt0407887/?ref_=chttp_t_40
+    - heading "The Departed" [level=3]
+  - text: 2006 2h 31m R 8.5 (1.6M)
+  - button "Rate The Departed": Rate
+  - button "Mark The Departed as watched": Mark as watched
+  - button "See more information about The Departed"
+  - group:
+    - img "Miles Teller in Whiplash (2014)"
+    - button "Add to Watchlist"
+    - link "View title page for Whiplash":
+      - /url: /title/tt2582802/?ref_=chttp_i_41
+  - text: "#41"
+  - link "Whiplash":
+    - /url: /title/tt2582802/?ref_=chttp_t_41
+    - heading "Whiplash" [level=3]
+  - text: 2014 1h 46m R 8.5 (1.2M)
+  - button "Rate Whiplash": Rate
+  - button "Mark Whiplash as watched": Mark as watched
+  - button "See more information about Whiplash"
+  - group:
+    - img "The Prestige (2006)"
+    - button "Add to Watchlist"
+    - link "View title page for The Prestige":
+      - /url: /title/tt0482571/?ref_=chttp_i_42
+  - text: "#42"
+  - link "The Prestige":
+    - /url: /title/tt0482571/?ref_=chttp_t_42
+    - heading "The Prestige" [level=3]
+  - text: 2006 2h 10m PG-13 8.5 (1.6M)
+  - button "Rate The Prestige": Rate
+  - button "Mark The Prestige as watched": Mark as watched
+  - button "See more information about The Prestige"
+  - group:
+    - img "Edward Norton in American History X (1998)"
+    - button "Add to Watchlist"
+    - link "View title page for American History X":
+      - /url: /title/tt0120586/?ref_=chttp_i_43
+  - text: "#43"
+  - link "American History X":
+    - /url: /title/tt0120586/?ref_=chttp_t_43
+    - heading "American History X" [level=3]
+  - text: 1998 1h 59m R 8.5 (1.3M)
+  - button "Rate American History X": Rate
+  - button "Mark American History X as watched": Mark as watched
+  - button "See more information about American History X"
+  - group:
+    - 'img "Natalie Portman and Jean Reno in Léon: The Professional (1994)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Léon: The Professional"':
+      - /url: /title/tt0110413/?ref_=chttp_i_44
+  - text: "#44"
+  - 'link "Léon: The Professional"':
+    - /url: /title/tt0110413/?ref_=chttp_t_44
+    - 'heading "Léon: The Professional" [level=3]'
+  - text: 1994 1h 50m R 8.5 (1.4M)
+  - 'button "Rate Léon: The Professional"': Rate
+  - 'button "Mark Léon: The Professional as watched"': Mark as watched
+  - 'button "See more information about Léon: The Professional"'
+  - group:
+    - 'img "Tobey Maguire, Elizabeth Perkins, Josh Keaton, Ziggy Marley, Jason Schwartzman, Rachel Dratch, Taran Killam, Yuri Lowenthal, Peggy Lu, Cliff Robertson, J.K. Simmons, Peter Sohn, Luna Lauren Velez, Shea Whigham, Mahershala Ali, Kathryn Hahn, Lorraine Velez, Oscar Isaac, Jorma Taccone, Andy Samberg, Andrew Garfield, Nic Novicki, Jake Johnson, Donald Glover, Daniel Kaluuya, Greta Lee, Hailee Steinfeld, Brian Tyree Henry, Atsuko Okatsuka, Melissa Sturm, Nicole Delaney, Amandla Stenberg, Karan Soni, Shameik Moore, Jack Quaid, Kimiko Glenn, Issa Rae, Sofia Barclay, Nina Lentini, Danielle Perez, Jharrel Jerome, Ayo Edebiri, and Metro Boomin in Spider-Man: Across the Spider-Verse (2023)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Spider-Man: Across the Spider-Verse"':
+      - /url: /title/tt9362722/?ref_=chttp_i_45
+  - text: "#45"
+  - 'link "Spider-Man: Across the Spider-Verse"':
+    - /url: /title/tt9362722/?ref_=chttp_t_45
+    - 'heading "Spider-Man: Across the Spider-Verse" [level=3]'
+  - text: 2023 2h 20m PG 8.5 (526K)
+  - 'button "Rate Spider-Man: Across the Spider-Verse"': Rate
+  - 'button "Mark Spider-Man: Across the Spider-Verse as watched"': Mark as watched
+  - 'button "See more information about Spider-Man: Across the Spider-Verse"'
+  - group:
+    - img "Salvatore Cascio, Marco Leonardi, Agnese Nano, and Philippe Noiret in Cinema Paradiso (1988)"
+    - button "Add to Watchlist"
+    - link "View title page for Cinema Paradiso":
+      - /url: /title/tt0095765/?ref_=chttp_i_46
+  - text: "#46"
+  - link "Cinema Paradiso":
+    - /url: /title/tt0095765/?ref_=chttp_t_46
+    - heading "Cinema Paradiso" [level=3]
+  - text: 1988 2h 54m PG 8.5 (318K)
+  - button "Rate Cinema Paradiso": Rate
+  - button "Mark Cinema Paradiso as watched": Mark as watched
+  - button "See more information about Cinema Paradiso"
+  - group:
+    - img "Ingrid Bergman, Humphrey Bogart, Peter Lorre, Claude Rains, Sydney Greenstreet, Paul Henreid, and Conrad Veidt in Casablanca (1942)"
+    - button "Add to Watchlist"
+    - link "View title page for Casablanca":
+      - /url: /title/tt0034583/?ref_=chttp_i_47
+  - text: "#47"
+  - link "Casablanca":
+    - /url: /title/tt0034583/?ref_=chttp_t_47
+    - heading "Casablanca" [level=3]
+  - text: 1942 1h 42m PG 8.5 (656K)
+  - button "Rate Casablanca": Rate
+  - button "Mark Casablanca as watched": Mark as watched
+  - button "See more information about Casablanca"
+  - group:
+    - img "François Cluzet and Omar Sy in The Intouchables (2011)"
+    - button "Add to Watchlist"
+    - link "View title page for The Intouchables":
+      - /url: /title/tt1675434/?ref_=chttp_i_48
+  - text: "#48"
+  - link "The Intouchables":
+    - /url: /title/tt1675434/?ref_=chttp_t_48
+    - heading "The Intouchables" [level=3]
+  - text: 2011 1h 52m R 8.5 (1M)
+  - button "Rate The Intouchables": Rate
+  - button "Mark The Intouchables as watched": Mark as watched
+  - button "See more information about The Intouchables"
+  - group:
+    - img "Kevin Spacey, Stephen Baldwin, Gabriel Byrne, Benicio Del Toro, and Kevin Pollak in The Usual Suspects (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for The Usual Suspects":
+      - /url: /title/tt0114814/?ref_=chttp_i_49
+  - text: "#49"
+  - link "The Usual Suspects":
+    - /url: /title/tt0114814/?ref_=chttp_t_49
+    - heading "The Usual Suspects" [level=3]
+  - text: 1995 1h 46m R 8.5 (1.2M)
+  - button "Rate The Usual Suspects": Rate
+  - button "Mark The Usual Suspects as watched": Mark as watched
+  - button "See more information about The Usual Suspects"
+  - group:
+    - img "Leonardo DiCaprio, Jamie Foxx, and Christoph Waltz in Django Unchained (2012)"
+    - button "Add to Watchlist"
+    - link "View title page for Django Unchained":
+      - /url: /title/tt1853728/?ref_=chttp_i_50
+  - text: "#50"
+  - link "Django Unchained":
+    - /url: /title/tt1853728/?ref_=chttp_t_50
+    - heading "Django Unchained" [level=3]
+  - text: 2012 2h 45m R 8.5 (1.9M)
+  - button "Rate Django Unchained": Rate
+  - button "Mark Django Unchained as watched": Mark as watched
+  - button "See more information about Django Unchained"
+  - group:
+    - img "Alien (1979)"
+    - button "Add to Watchlist"
+    - link "View title page for Alien":
+      - /url: /title/tt0078748/?ref_=chttp_i_51
+  - text: "#51"
+  - link "Alien":
+    - /url: /title/tt0078748/?ref_=chttp_t_51
+    - heading "Alien" [level=3]
+  - text: 1979 1h 57m R 8.5 (1.1M)
+  - button "Rate Alien": Rate
+  - button "Mark Alien as watched": Mark as watched
+  - button "See more information about Alien"
+  - group:
+    - img "Grace Kelly, James Stewart, Georgine Darcy, Judith Evelyn, and Harry Landers in Rear Window (1954)"
+    - button "Add to Watchlist"
+    - link "View title page for Rear Window":
+      - /url: /title/tt0047396/?ref_=chttp_i_52
+  - text: "#52"
+  - link "Rear Window":
+    - /url: /title/tt0047396/?ref_=chttp_t_52
+    - heading "Rear Window" [level=3]
+  - text: 1954 1h 52m PG 8.4 (569K)
+  - button "Rate Rear Window": Rate
+  - button "Mark Rear Window as watched": Mark as watched
+  - button "See more information about Rear Window"
+  - group:
+    - img "Charles Chaplin in Modern Times (1936)"
+    - button "Add to Watchlist"
+    - link "View title page for Modern Times":
+      - /url: /title/tt0027977/?ref_=chttp_i_53
+  - text: "#53"
+  - link "Modern Times":
+    - /url: /title/tt0027977/?ref_=chttp_t_53
+    - heading "Modern Times" [level=3]
+  - text: 1936 1h 27m G 8.5 (285K)
+  - button "Rate Modern Times": Rate
+  - button "Mark Modern Times as watched": Mark as watched
+  - button "See more information about Modern Times"
+  - group:
+    - img "Once Upon a Time in the West (1968)"
+    - button "Add to Watchlist"
+    - link "View title page for Once Upon a Time in the West":
+      - /url: /title/tt0064116/?ref_=chttp_i_54
+  - text: "#54"
+  - link "Once Upon a Time in the West":
+    - /url: /title/tt0064116/?ref_=chttp_t_54
+    - heading "Once Upon a Time in the West" [level=3]
+  - text: 1968 2h 25m PG-13 8.5 (385K)
+  - button "Rate Once Upon a Time in the West": Rate
+  - button "Mark Once Upon a Time in the West as watched": Mark as watched
+  - button "See more information about Once Upon a Time in the West"
+  - group:
+    - img "Charles Chaplin in City Lights (1931)"
+    - button "Add to Watchlist"
+    - link "View title page for City Lights":
+      - /url: /title/tt0021749/?ref_=chttp_i_55
+  - text: "#55"
+  - link "City Lights":
+    - /url: /title/tt0021749/?ref_=chttp_t_55
+    - heading "City Lights" [level=3]
+  - text: 1931 1h 27m G 8.5 (217K)
+  - button "Rate City Lights": Rate
+  - button "Mark City Lights as watched": Mark as watched
+  - button "See more information about City Lights"
+  - group:
+    - img "Marlon Brando and Martin Sheen in Apocalypse Now (1979)"
+    - button "Add to Watchlist"
+    - link "View title page for Apocalypse Now":
+      - /url: /title/tt0078788/?ref_=chttp_i_56
+  - text: "#56"
+  - link "Apocalypse Now":
+    - /url: /title/tt0078788/?ref_=chttp_t_56
+    - heading "Apocalypse Now" [level=3]
+  - text: 1979 2h 27m R 8.4 (771K)
+  - button "Rate Apocalypse Now": Rate
+  - button "Mark Apocalypse Now as watched": Mark as watched
+  - button "See more information about Apocalypse Now"
+  - group:
+    - img "WALL·E (2008)"
+    - button "Add to Watchlist"
+    - link "View title page for WALL·E":
+      - /url: /title/tt0910970/?ref_=chttp_i_57
+  - text: "#57"
+  - link "WALL·E":
+    - /url: /title/tt0910970/?ref_=chttp_t_57
+    - heading "WALL·E" [level=3]
+  - text: 2008 1h 38m G 8.4 (1.3M)
+  - button "Rate WALL·E": Rate
+  - button "Mark WALL·E as watched": Mark as watched
+  - button "See more information about WALL·E"
+  - group:
+    - img "Memento (2000)"
+    - button "Add to Watchlist"
+    - link "View title page for Memento":
+      - /url: /title/tt0209144/?ref_=chttp_i_58
+  - text: "#58"
+  - link "Memento":
+    - /url: /title/tt0209144/?ref_=chttp_t_58
+    - heading "Memento" [level=3]
+  - text: 2000 1h 53m R 8.4 (1.4M)
+  - button "Rate Memento": Rate
+  - button "Mark Memento as watched": Mark as watched
+  - button "See more information about Memento"
+  - group:
+    - 'img "Javier Bardem, Josh Brolin, Stellan Skarsgård, Rebecca Ferguson, Dave Bautista, Austin Butler, Timothée Chalamet, Zendaya, Florence Pugh, and Souheila Yacoub in Dune: Part Two (2024)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Dune: Part Two"':
+      - /url: /title/tt15239678/?ref_=chttp_i_59
+  - text: "#59"
+  - 'link "Dune: Part Two"':
+    - /url: /title/tt15239678/?ref_=chttp_t_59
+    - 'heading "Dune: Part Two" [level=3]'
+  - text: 2024 2h 46m PG-13 8.4 (753K)
+  - 'button "Rate Dune: Part Two"': Rate
+  - 'button "Mark Dune: Part Two as watched"': Mark as watched
+  - 'button "See more information about Dune: Part Two"'
+  - group:
+    - img
+    - button "Add to Watchlist"
+    - 'link "View title page for Avengers: Infinity War"':
+      - /url: /title/tt4154756/?ref_=chttp_i_60
+  - text: "#60"
+  - 'link "Avengers: Infinity War"':
+    - /url: /title/tt4154756/?ref_=chttp_t_60
+    - 'heading "Avengers: Infinity War" [level=3]'
+  - text: 2018 2h 29m PG-13 8.4 (1.4M)
+  - 'button "Rate Avengers: Infinity War"': Rate
+  - 'button "Mark Avengers: Infinity War as watched"': Mark as watched
+  - 'button "See more information about Avengers: Infinity War"'
+  - group:
+    - img "Harrison Ford, Karen Allen, Paul Freeman, Wolf Kahler, Ronald Lacey, and Terry Richards in Raiders of the Lost Ark (1981)"
+    - button "Add to Watchlist"
+    - link "View title page for Raiders of the Lost Ark":
+      - /url: /title/tt0082971/?ref_=chttp_i_61
+  - text: "#61"
+  - link "Raiders of the Lost Ark":
+    - /url: /title/tt0082971/?ref_=chttp_t_61
+    - heading "Raiders of the Lost Ark" [level=3]
+  - text: 1981 1h 55m PG 8.4 (1.1M)
+  - button "Rate Raiders of the Lost Ark": Rate
+  - button "Mark Raiders of the Lost Ark as watched": Mark as watched
+  - button "See more information about Raiders of the Lost Ark"
+  - group:
+    - img "Martina Gedeck, Sebastian Koch, and Ulrich Mühe in The Lives of Others (2006)"
+    - button "Add to Watchlist"
+    - link "View title page for The Lives of Others":
+      - /url: /title/tt0405094/?ref_=chttp_i_62
+  - text: "#62"
+  - link "The Lives of Others":
+    - /url: /title/tt0405094/?ref_=chttp_t_62
+    - heading "The Lives of Others" [level=3]
+  - text: 2006 2h 17m R 8.4 (444K)
+  - button "Rate The Lives of Others": Rate
+  - button "Mark The Lives of Others as watched": Mark as watched
+  - button "See more information about The Lives of Others"
+  - group:
+    - 'img "Spider-Man: Into the Spider-Verse (2018)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Spider-Man: Into the Spider-Verse"':
+      - /url: /title/tt4633694/?ref_=chttp_i_63
+  - text: "#63"
+  - 'link "Spider-Man: Into the Spider-Verse"':
+    - /url: /title/tt4633694/?ref_=chttp_t_63
+    - 'heading "Spider-Man: Into the Spider-Verse" [level=3]'
+  - text: 2018 1h 57m PG 8.4 (791K)
+  - 'button "Rate Spider-Man: Into the Spider-Verse"': Rate
+  - 'button "Mark Spider-Man: Into the Spider-Verse as watched"': Mark as watched
+  - 'button "See more information about Spider-Man: Into the Spider-Verse"'
+  - group:
+    - img "William Holden, Nancy Olson, and Gloria Swanson in Sunset Boulevard (1950)"
+    - button "Add to Watchlist"
+    - link "View title page for Sunset Boulevard":
+      - /url: /title/tt0043014/?ref_=chttp_i_64
+  - text: "#64"
+  - link "Sunset Boulevard":
+    - /url: /title/tt0043014/?ref_=chttp_t_64
+    - heading "Sunset Boulevard" [level=3]
+  - text: 1950 1h 50m Approved 8.4 (261K)
+  - button "Rate Sunset Boulevard": Rate
+  - button "Mark Sunset Boulevard as watched": Mark as watched
+  - button "See more information about Sunset Boulevard"
+  - group:
+    - img "Witness for the Prosecution (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for Witness for the Prosecution":
+      - /url: /title/tt0051201/?ref_=chttp_i_65
+  - text: "#65"
+  - link "Witness for the Prosecution":
+    - /url: /title/tt0051201/?ref_=chttp_t_65
+    - heading "Witness for the Prosecution" [level=3]
+  - text: 1957 1h 56m Approved 8.4 (162K)
+  - button "Rate Witness for the Prosecution": Rate
+  - button "Mark Witness for the Prosecution as watched": Mark as watched
+  - button "See more information about Witness for the Prosecution"
+  - group:
+    - img "Kirk Douglas in Paths of Glory (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for Paths of Glory":
+      - /url: /title/tt0050825/?ref_=chttp_i_66
+  - text: "#66"
+  - link "Paths of Glory":
+    - /url: /title/tt0050825/?ref_=chttp_t_66
+    - heading "Paths of Glory" [level=3]
+  - text: 1957 1h 28m Approved 8.4 (239K)
+  - button "Rate Paths of Glory": Rate
+  - button "Mark Paths of Glory as watched": Mark as watched
+  - button "See more information about Paths of Glory"
+  - group:
+    - img "The Shining (1980)"
+    - button "Add to Watchlist"
+    - link "View title page for The Shining":
+      - /url: /title/tt0081505/?ref_=chttp_i_67
+  - text: "#67"
+  - link "The Shining":
+    - /url: /title/tt0081505/?ref_=chttp_t_67
+    - heading "The Shining" [level=3]
+  - text: 1980 2h 26m R 8.4 (1.2M)
+  - button "Rate The Shining": Rate
+  - button "Mark The Shining as watched": Mark as watched
+  - button "See more information about The Shining"
+  - group:
+    - img "Charles Chaplin and Paulette Goddard in The Great Dictator (1940)"
+    - button "Add to Watchlist"
+    - link "View title page for The Great Dictator":
+      - /url: /title/tt0032553/?ref_=chttp_i_68
+  - text: "#68"
+  - link "The Great Dictator":
+    - /url: /title/tt0032553/?ref_=chttp_t_68
+    - heading "The Great Dictator" [level=3]
+  - text: 1940 2h 5m G 8.4 (259K)
+  - button "Rate The Great Dictator": Rate
+  - button "Mark The Great Dictator as watched": Mark as watched
+  - button "See more information about The Great Dictator"
+  - group:
+    - img "Brad Pitt, Til Schweiger, Daniel Brühl, Mélanie Laurent, Eli Roth, Christoph Waltz, and Diane Kruger in Inglourious Basterds (2009)"
+    - button "Add to Watchlist"
+    - link "View title page for Inglourious Basterds":
+      - /url: /title/tt0361748/?ref_=chttp_i_69
+  - text: "#69"
+  - link "Inglourious Basterds":
+    - /url: /title/tt0361748/?ref_=chttp_t_69
+    - heading "Inglourious Basterds" [level=3]
+  - text: 2009 2h 33m R 8.4 (1.8M)
+  - button "Rate Inglourious Basterds": Rate
+  - button "Mark Inglourious Basterds as watched": Mark as watched
+  - button "See more information about Inglourious Basterds"
+  - group:
+    - img "Sigourney Weaver and Carrie Henn in Aliens (1986)"
+    - button "Add to Watchlist"
+    - link "View title page for Aliens":
+      - /url: /title/tt0090605/?ref_=chttp_i_70
+  - text: "#70"
+  - link "Aliens":
+    - /url: /title/tt0090605/?ref_=chttp_t_70
+    - heading "Aliens" [level=3]
+  - text: 1986 2h 17m R 8.4 (841K)
+  - button "Rate Aliens": Rate
+  - button "Mark Aliens as watched": Mark as watched
+  - button "See more information about Aliens"
+  - group:
+    - img "Vikrant Massey in 12th Fail (2023)"
+    - button "Add to Watchlist"
+    - link "View title page for 12th Fail":
+      - /url: /title/tt23849204/?ref_=chttp_i_71
+  - text: "#71"
+  - link "12th Fail":
+    - /url: /title/tt23849204/?ref_=chttp_t_71
+    - heading "12th Fail" [level=3]
+  - text: 2023 2h 27m 8.7 (172K)
+  - button "Rate 12th Fail": Rate
+  - button "Mark 12th Fail as watched": Mark as watched
+  - button "See more information about 12th Fail"
+  - group:
+    - img "Toshirō Mifune, Kenjirō Ishiyama, Kyōko Kagawa, and Tatsuya Nakadai in High and Low (1963)"
+    - button "Add to Watchlist"
+    - link "View title page for High and Low":
+      - /url: /title/tt0057565/?ref_=chttp_i_72
+  - text: "#72"
+  - link "High and Low":
+    - /url: /title/tt0057565/?ref_=chttp_t_72
+    - heading "High and Low" [level=3]
+  - text: 1963 2h 23m Not Rated 8.4 (72K)
+  - button "Rate High and Low": Rate
+  - button "Mark High and Low as watched": Mark as watched
+  - button "See more information about High and Low"
+  - group:
+    - img
+    - button "Add to Watchlist"
+    - 'link "View title page for Avengers: Endgame"':
+      - /url: /title/tt4154796/?ref_=chttp_i_73
+  - text: "#73"
+  - 'link "Avengers: Endgame"':
+    - /url: /title/tt4154796/?ref_=chttp_t_73
+    - 'heading "Avengers: Endgame" [level=3]'
+  - text: 2019 3h 1m PG-13 8.4 (1.4M)
+  - 'button "Rate Avengers: Endgame"': Rate
+  - 'button "Mark Avengers: Endgame as watched"': Mark as watched
+  - 'button "See more information about Avengers: Endgame"'
+  - group:
+    - img "Robin Williams and Matt Damon in Good Will Hunting (1997)"
+    - button "Add to Watchlist"
+    - link "View title page for Good Will Hunting":
+      - /url: /title/tt0119217/?ref_=chttp_i_74
+  - text: "#74"
+  - link "Good Will Hunting":
+    - /url: /title/tt0119217/?ref_=chttp_t_74
+    - heading "Good Will Hunting" [level=3]
+  - text: 1997 2h 6m R 8.4 (1.2M)
+  - button "Rate Good Will Hunting": Rate
+  - button "Mark Good Will Hunting as watched": Mark as watched
+  - button "See more information about Good Will Hunting"
+  - group:
+    - img "Morgan Freeman, Gary Oldman, Christian Bale, Michael Caine, Matthew Modine, Anne Hathaway, Marion Cotillard, and Joseph Gordon-Levitt in The Dark Knight Rises (2012)"
+    - button "Add to Watchlist"
+    - link "View title page for The Dark Knight Rises":
+      - /url: /title/tt1345836/?ref_=chttp_i_75
+  - text: "#75"
+  - link "The Dark Knight Rises":
+    - /url: /title/tt1345836/?ref_=chttp_t_75
+    - heading "The Dark Knight Rises" [level=3]
+  - text: 2012 2h 44m PG-13 8.4 (2M)
+  - button "Rate The Dark Knight Rises": Rate
+  - button "Mark The Dark Knight Rises as watched": Mark as watched
+  - button "See more information about The Dark Knight Rises"
+  - group:
+    - img "Alfonso Arau, Benjamin Bratt, Alanna Ubach, Gael García Bernal, Dyana Ortelli, Herbert Siguenza, and Anthony Gonzalez in Coco (2017)"
+    - button "Add to Watchlist"
+    - link "View title page for Coco":
+      - /url: /title/tt2380307/?ref_=chttp_i_76
+  - text: "#76"
+  - link "Coco":
+    - /url: /title/tt2380307/?ref_=chttp_t_76
+    - heading "Coco" [level=3]
+  - text: 2017 1h 45m PG 8.4 (709K)
+  - button "Rate Coco": Rate
+  - button "Mark Coco as watched": Mark as watched
+  - button "See more information about Coco"
+  - group:
+    - img "Amadeus (1984)"
+    - button "Add to Watchlist"
+    - link "View title page for Amadeus":
+      - /url: /title/tt0086879/?ref_=chttp_i_77
+  - text: "#77"
+  - link "Amadeus":
+    - /url: /title/tt0086879/?ref_=chttp_t_77
+    - heading "Amadeus" [level=3]
+  - text: 1984 2h 40m PG 8.4 (469K)
+  - button "Rate Amadeus": Rate
+  - button "Mark Amadeus as watched": Mark as watched
+  - button "See more information about Amadeus"
+  - group:
+    - img "Tom Hanks, R. Lee Ermey, Tim Allen, Annie Potts, John Ratzenberger, Wallace Shawn, Jim Varney, and Don Rickles in Toy Story (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Toy Story":
+      - /url: /title/tt0114709/?ref_=chttp_i_78
+  - text: "#78"
+  - link "Toy Story":
+    - /url: /title/tt0114709/?ref_=chttp_t_78
+    - heading "Toy Story" [level=3]
+  - text: 1995 1h 21m G 8.3 (1.2M)
+  - button "Rate Toy Story": Rate
+  - button "Mark Toy Story as watched": Mark as watched
+  - button "See more information about Toy Story"
+  - group:
+    - img "Your Name. (2016)"
+    - button "Add to Watchlist"
+    - link "View title page for Your Name.":
+      - /url: /title/tt5311514/?ref_=chttp_i_79
+  - text: "#79"
+  - link "Your Name.":
+    - /url: /title/tt5311514/?ref_=chttp_t_79
+    - heading "Your Name." [level=3]
+  - text: 2016 1h 46m 8.4 (394K)
+  - button "Rate Your Name.": Rate
+  - button "Mark Your Name. as watched": Mark as watched
+  - button "See more information about Your Name."
+  - group:
+    - img "Das Boot (1981)"
+    - button "Add to Watchlist"
+    - link "View title page for Das Boot":
+      - /url: /title/tt0082096/?ref_=chttp_i_80
+  - text: "#80"
+  - link "Das Boot":
+    - /url: /title/tt0082096/?ref_=chttp_t_80
+    - heading "Das Boot" [level=3]
+  - text: 1981 2h 29m 8.3 (288K)
+  - button "Rate Das Boot": Rate
+  - button "Mark Das Boot as watched": Mark as watched
+  - button "See more information about Das Boot"
+  - group:
+    - img "Mel Gibson in Braveheart (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Braveheart":
+      - /url: /title/tt0112573/?ref_=chttp_i_81
+  - text: "#81"
+  - link "Braveheart":
+    - /url: /title/tt0112573/?ref_=chttp_t_81
+    - heading "Braveheart" [level=3]
+  - text: 1995 2h 58m R 8.3 (1.2M)
+  - button "Rate Braveheart": Rate
+  - button "Mark Braveheart as watched": Mark as watched
+  - button "See more information about Braveheart"
+  - group:
+    - img "Oldboy (2003)"
+    - button "Add to Watchlist"
+    - link "View title page for Oldboy":
+      - /url: /title/tt0364569/?ref_=chttp_i_82
+  - text: "#82"
+  - link "Oldboy":
+    - /url: /title/tt0364569/?ref_=chttp_t_82
+    - heading "Oldboy" [level=3]
+  - text: 2003 2h R 8.3 (720K)
+  - button "Rate Oldboy": Rate
+  - button "Mark Oldboy as watched": Mark as watched
+  - button "See more information about Oldboy"
+  - group:
+    - img "Gillian Anderson, Claire Danes, Yuriko Ishida, and Akihiro Miwa in Princess Mononoke (1997)"
+    - button "Add to Watchlist"
+    - link "View title page for Princess Mononoke":
+      - /url: /title/tt0119698/?ref_=chttp_i_83
+  - text: "#83"
+  - link "Princess Mononoke":
+    - /url: /title/tt0119698/?ref_=chttp_t_83
+    - heading "Princess Mononoke" [level=3]
+  - text: 1997 2h 13m PG-13 8.3 (484K)
+  - button "Rate Princess Mononoke": Rate
+  - button "Mark Princess Mononoke as watched": Mark as watched
+  - button "See more information about Princess Mononoke"
+  - group:
+    - 'img "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"':
+      - /url: /title/tt0057012/?ref_=chttp_i_84
+  - text: "#84"
+  - 'link "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"':
+    - /url: /title/tt0057012/?ref_=chttp_t_84
+    - 'heading "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb" [level=3]'
+  - text: 1964 1h 35m PG 8.3 (551K)
+  - 'button "Rate Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"': Rate
+  - 'button "Mark Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb as watched"': Mark as watched
+  - 'button "See more information about Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"'
+  - group:
+    - img "Sharman Joshi, Aamir Khan, and Madhavan in 3 Idiots (2009)"
+    - button "Add to Watchlist"
+    - link "View title page for 3 Idiots":
+      - /url: /title/tt1187043/?ref_=chttp_i_85
+  - text: "#85"
+  - link "3 Idiots":
+    - /url: /title/tt1187043/?ref_=chttp_t_85
+    - heading "3 Idiots" [level=3]
+  - text: 2009 2h 50m PG-13 8.4 (483K)
+  - button "Rate 3 Idiots": Rate
+  - button "Mark 3 Idiots as watched": Mark as watched
+  - button "See more information about 3 Idiots"
+  - group:
+    - img "Kevin Spacey, Thora Birch, and Mena Suvari in American Beauty (1999)"
+    - button "Add to Watchlist"
+    - link "View title page for American Beauty":
+      - /url: /title/tt0169547/?ref_=chttp_i_86
+  - text: "#86"
+  - link "American Beauty":
+    - /url: /title/tt0169547/?ref_=chttp_t_86
+    - heading "American Beauty" [level=3]
+  - text: 1999 2h 2m R 8.3 (1.3M)
+  - button "Rate American Beauty": Rate
+  - button "Mark American Beauty as watched": Mark as watched
+  - button "See more information about American Beauty"
+  - group:
+    - img "Zain Al Rafeea and Boluwatife Treasure Bankole in Capernaum (2018)"
+    - button "Add to Watchlist"
+    - link "View title page for Capernaum":
+      - /url: /title/tt8267604/?ref_=chttp_i_87
+  - text: "#87"
+  - link "Capernaum":
+    - /url: /title/tt8267604/?ref_=chttp_t_87
+    - heading "Capernaum" [level=3]
+  - text: 2018 2h 6m R 8.4 (125K)
+  - button "Rate Capernaum": Rate
+  - button "Mark Capernaum as watched": Mark as watched
+  - button "See more information about Capernaum"
+  - group:
+    - img "Gene Kelly, Debbie Reynolds, and Donald O'Connor in Singin' in the Rain (1952)"
+    - button "Add to Watchlist"
+    - link "View title page for Singin' in the Rain":
+      - /url: /title/tt0045152/?ref_=chttp_i_88
+  - text: "#88"
+  - link "Singin' in the Rain":
+    - /url: /title/tt0045152/?ref_=chttp_t_88
+    - heading "Singin' in the Rain" [level=3]
+  - text: 1952 1h 43m G 8.3 (283K)
+  - button "Rate Singin' in the Rain": Rate
+  - button "Mark Singin' in the Rain as watched": Mark as watched
+  - button "See more information about Singin' in the Rain"
+  - group:
+    - img "Joaquin Phoenix in Joker (2019)"
+    - button "Add to Watchlist"
+    - link "View title page for Joker":
+      - /url: /title/tt7286456/?ref_=chttp_i_89
+  - text: "#89"
+  - link "Joker":
+    - /url: /title/tt7286456/?ref_=chttp_t_89
+    - heading "Joker" [level=3]
+  - text: 2019 2h 2m R 8.3 (1.7M)
+  - button "Rate Joker": Rate
+  - button "Mark Joker as watched": Mark as watched
+  - button "See more information about Joker"
+  - group:
+    - img "Robert De Niro, James Woods, William Forsythe, Brian Bloom, Adrian Curran, James Hayden, Rusty Jacobs, and Scott Tiler in Once Upon a Time in America (1984)"
+    - button "Add to Watchlist"
+    - link "View title page for Once Upon a Time in America":
+      - /url: /title/tt0087843/?ref_=chttp_i_90
+  - text: "#90"
+  - link "Once Upon a Time in America":
+    - /url: /title/tt0087843/?ref_=chttp_t_90
+    - heading "Once Upon a Time in America" [level=3]
+  - text: 1984 3h 49m R 8.3 (409K)
+  - button "Rate Once Upon a Time in America": Rate
+  - button "Mark Once Upon a Time in America as watched": Mark as watched
+  - button "See more information about Once Upon a Time in America"
+  - group:
+    - 'img "Harrison Ford, Carrie Fisher, Mark Hamill, James Earl Jones, Warwick Davis, David Prowse, Billy Dee Williams, Michael Carter, and Larry Ward in Star Wars: Episode VI - Return of the Jedi (1983)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Star Wars: Episode VI - Return of the Jedi"':
+      - /url: /title/tt0086190/?ref_=chttp_i_91
+  - text: "#91"
+  - 'link "Star Wars: Episode VI - Return of the Jedi"':
+    - /url: /title/tt0086190/?ref_=chttp_t_91
+    - 'heading "Star Wars: Episode VI - Return of the Jedi" [level=3]'
+  - text: 1983 2h 11m PG 8.3 (1.2M)
+  - 'button "Rate Star Wars: Episode VI - Return of the Jedi"': Rate
+  - 'button "Mark Star Wars: Episode VI - Return of the Jedi as watched"': Mark as watched
+  - 'button "See more information about Star Wars: Episode VI - Return of the Jedi"'
+  - group:
+    - img "Aleksey Kravchenko in Come and See (1985)"
+    - button "Add to Watchlist"
+    - link "View title page for Come and See":
+      - /url: /title/tt0091251/?ref_=chttp_i_92
+  - text: "#92"
+  - link "Come and See":
+    - /url: /title/tt0091251/?ref_=chttp_t_92
+    - heading "Come and See" [level=3]
+  - text: 1985 2h 22m Not Rated 8.3 (123K)
+  - button "Rate Come and See": Rate
+  - button "Mark Come and See as watched": Mark as watched
+  - button "See more information about Come and See"
+  - group:
+    - img "Tom Hanks, Joan Cusack, Tim Allen, John Ratzenberger, Wallace Shawn, Jodi Benson, Blake Clark, Estelle Harris, Jeff Pidgeon, Don Rickles, and Frank Welker in Toy Story 3 (2010)"
+    - button "Add to Watchlist"
+    - link "View title page for Toy Story 3":
+      - /url: /title/tt0435761/?ref_=chttp_i_93
+  - text: "#93"
+  - link "Toy Story 3":
+    - /url: /title/tt0435761/?ref_=chttp_t_93
+    - heading "Toy Story 3" [level=3]
+  - text: 2010 1h 43m G 8.3 (971K)
+  - button "Rate Toy Story 3": Rate
+  - button "Mark Toy Story 3 as watched": Mark as watched
+  - button "See more information about Toy Story 3"
+  - group:
+    - img "Jennifer Connelly in Requiem for a Dream (2000)"
+    - button "Add to Watchlist"
+    - link "View title page for Requiem for a Dream":
+      - /url: /title/tt0180093/?ref_=chttp_i_94
+  - text: "#94"
+  - link "Requiem for a Dream":
+    - /url: /title/tt0180093/?ref_=chttp_t_94
+    - heading "Requiem for a Dream" [level=3]
+  - text: 2000 1h 42m NC-17 8.3 (975K)
+  - button "Rate Requiem for a Dream": Rate
+  - button "Mark Requiem for a Dream as watched": Mark as watched
+  - button "See more information about Requiem for a Dream"
+  - group:
+    - img "Ikiru (1952)"
+    - button "Add to Watchlist"
+    - link "View title page for Ikiru":
+      - /url: /title/tt0044741/?ref_=chttp_i_95
+  - text: "#95"
+  - link "Ikiru":
+    - /url: /title/tt0044741/?ref_=chttp_t_95
+    - heading "Ikiru" [level=3]
+  - text: 1952 2h 23m Not Rated 8.3 (102K)
+  - button "Rate Ikiru": Rate
+  - button "Mark Ikiru as watched": Mark as watched
+  - button "See more information about Ikiru"
+  - group:
+    - img "Mads Mikkelsen in The Hunt (2012)"
+    - button "Add to Watchlist"
+    - link "View title page for The Hunt":
+      - /url: /title/tt2106476/?ref_=chttp_i_96
+  - text: "#96"
+  - link "The Hunt":
+    - /url: /title/tt2106476/?ref_=chttp_t_96
+    - heading "The Hunt" [level=3]
+  - text: 2012 1h 55m R 8.3 (410K)
+  - button "Rate The Hunt": Rate
+  - button "Mark The Hunt as watched": Mark as watched
+  - button "See more information about The Hunt"
+  - group:
+    - img "Mélissa Désormeaux-Poulin in Incendies (2010)"
+    - button "Add to Watchlist"
+    - link "View title page for Incendies":
+      - /url: /title/tt1255953/?ref_=chttp_i_97
+  - text: "#97"
+  - link "Incendies":
+    - /url: /title/tt1255953/?ref_=chttp_t_97
+    - heading "Incendies" [level=3]
+  - text: 2010 2h 11m R 8.3 (252K)
+  - button "Rate Incendies": Rate
+  - button "Mark Incendies as watched": Mark as watched
+  - button "See more information about Incendies"
+  - group:
+    - img "Jim Carrey and Kate Winslet in Eternal Sunshine of the Spotless Mind (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Eternal Sunshine of the Spotless Mind":
+      - /url: /title/tt0338013/?ref_=chttp_i_98
+  - text: "#98"
+  - link "Eternal Sunshine of the Spotless Mind":
+    - /url: /title/tt0338013/?ref_=chttp_t_98
+    - heading "Eternal Sunshine of the Spotless Mind" [level=3]
+  - text: 2004 1h 48m R 8.3 (1.2M)
+  - button "Rate Eternal Sunshine of the Spotless Mind": Rate
+  - button "Mark Eternal Sunshine of the Spotless Mind as watched": Mark as watched
+  - button "See more information about Eternal Sunshine of the Spotless Mind"
+  - group:
+    - img "Jack Lemmon and Shirley MacLaine in The Apartment (1960)"
+    - button "Add to Watchlist"
+    - link "View title page for The Apartment":
+      - /url: /title/tt0053604/?ref_=chttp_i_99
+  - text: "#99"
+  - link "The Apartment":
+    - /url: /title/tt0053604/?ref_=chttp_t_99
+    - heading "The Apartment" [level=3]
+  - text: 1960 2h 5m Approved 8.3 (220K)
+  - button "Rate The Apartment": Rate
+  - button "Mark The Apartment as watched": Mark as watched
+  - button "See more information about The Apartment"
+  - group:
+    - img "Alec Guinness, Anthony Quinn, Peter O'Toole, José Ferrer, and Jack Hawkins in Lawrence of Arabia (1962)"
+    - button "Add to Watchlist"
+    - link "View title page for Lawrence of Arabia":
+      - /url: /title/tt0056172/?ref_=chttp_i_100
+  - text: "#100"
+  - link "Lawrence of Arabia":
+    - /url: /title/tt0056172/?ref_=chttp_t_100
+    - heading "Lawrence of Arabia" [level=3]
+  - text: 1962 3h 47m Approved 8.3 (342K)
+  - button "Rate Lawrence of Arabia": Rate
+  - button "Mark Lawrence of Arabia as watched": Mark as watched
+  - button "See more information about Lawrence of Arabia"
+  - group:
+    - img "Robert De Niro, Val Kilmer, Al Pacino, Ted Levine, Wes Studi, Jerry Trimble, and Mykelti Williamson in Heat (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Heat":
+      - /url: /title/tt0113277/?ref_=chttp_i_101
+  - text: "#101"
+  - link "Heat":
+    - /url: /title/tt0113277/?ref_=chttp_t_101
+    - heading "Heat" [level=3]
+  - text: 1995 2h 50m R 8.3 (805K)
+  - button "Rate Heat": Rate
+  - button "Mark Heat as watched": Mark as watched
+  - button "See more information about Heat"
+  - group:
+    - img "Al Pacino in Scarface (1983)"
+    - button "Add to Watchlist"
+    - link "View title page for Scarface":
+      - /url: /title/tt0086250/?ref_=chttp_i_102
+  - text: "#102"
+  - link "Scarface":
+    - /url: /title/tt0086250/?ref_=chttp_t_102
+    - heading "Scarface" [level=3]
+  - text: 1983 2h 50m R 8.3 (1M)
+  - button "Rate Scarface": Rate
+  - button "Mark Scarface as watched": Mark as watched
+  - button "See more information about Scarface"
+  - group:
+    - img "Steve Buscemi, Harvey Keitel, Michael Madsen, and Tim Roth in Reservoir Dogs (1992)"
+    - button "Add to Watchlist"
+    - link "View title page for Reservoir Dogs":
+      - /url: /title/tt0105236/?ref_=chttp_i_103
+  - text: "#103"
+  - link "Reservoir Dogs":
+    - /url: /title/tt0105236/?ref_=chttp_t_103
+    - heading "Reservoir Dogs" [level=3]
+  - text: 1992 1h 39m R 8.3 (1.2M)
+  - button "Rate Reservoir Dogs": Rate
+  - button "Mark Reservoir Dogs as watched": Mark as watched
+  - button "See more information about Reservoir Dogs"
+  - group:
+    - 'img "2001: A Space Odyssey (1968)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for 2001: A Space Odyssey"':
+      - /url: /title/tt0062622/?ref_=chttp_i_104
+  - text: "#104"
+  - 'link "2001: A Space Odyssey"':
+    - /url: /title/tt0062622/?ref_=chttp_t_104
+    - 'heading "2001: A Space Odyssey" [level=3]'
+  - text: 1968 2h 29m G 8.3 (784K)
+  - 'button "Rate 2001: A Space Odyssey"': Rate
+  - 'button "Mark 2001: A Space Odyssey as watched"': Mark as watched
+  - 'button "See more information about 2001: A Space Odyssey"'
+  - group:
+    - img "Edward Asner, Bob Peterson, and Jordan Nagai in Up (2009)"
+    - button "Add to Watchlist"
+    - link "View title page for Up":
+      - /url: /title/tt1049413/?ref_=chttp_i_105
+  - text: "#105"
+  - link "Up":
+    - /url: /title/tt1049413/?ref_=chttp_t_105
+    - heading "Up" [level=3]
+  - text: 2009 1h 36m PG 8.3 (1.2M)
+  - button "Rate Up": Rate
+  - button "Mark Up as watched": Mark as watched
+  - button "See more information about Up"
+  - group:
+    - img "Edward G. Robinson, Barbara Stanwyck, and Fred MacMurray in Double Indemnity (1944)"
+    - button "Add to Watchlist"
+    - link "View title page for Double Indemnity":
+      - /url: /title/tt0036775/?ref_=chttp_i_106
+  - text: "#106"
+  - link "Double Indemnity":
+    - /url: /title/tt0036775/?ref_=chttp_t_106
+    - heading "Double Indemnity" [level=3]
+  - text: 1944 1h 47m Approved 8.3 (182K)
+  - button "Rate Double Indemnity": Rate
+  - button "Mark Double Indemnity as watched": Mark as watched
+  - button "See more information about Double Indemnity"
+  - group:
+    - img "Cary Grant, Alfred Hitchcock, Eva Marie Saint, and Philip Ober in North by Northwest (1959)"
+    - button "Add to Watchlist"
+    - link "View title page for North by Northwest":
+      - /url: /title/tt0053125/?ref_=chttp_i_107
+  - text: "#107"
+  - link "North by Northwest":
+    - /url: /title/tt0053125/?ref_=chttp_t_107
+    - heading "North by Northwest" [level=3]
+  - text: 1959 2h 16m Approved 8.3 (370K)
+  - button "Rate North by Northwest": Rate
+  - button "Mark North by Northwest as watched": Mark as watched
+  - button "See more information about North by Northwest"
+  - group:
+    - img "Aamir Khan and Darsheel Safary in Like Stars on Earth (2007)"
+    - button "Add to Watchlist"
+    - link "View title page for Like Stars on Earth":
+      - /url: /title/tt0986264/?ref_=chttp_i_108
+  - text: "#108"
+  - link "Like Stars on Earth":
+    - /url: /title/tt0986264/?ref_=chttp_t_108
+    - heading "Like Stars on Earth" [level=3]
+  - text: 2007 2h 42m PG 8.3 (233K)
+  - button "Rate Like Stars on Earth": Rate
+  - button "Mark Like Stars on Earth as watched": Mark as watched
+  - button "See more information about Like Stars on Earth"
+  - group:
+    - img "Full Metal Jacket (1987)"
+    - button "Add to Watchlist"
+    - link "View title page for Full Metal Jacket":
+      - /url: /title/tt0093058/?ref_=chttp_i_109
+  - text: "#109"
+  - link "Full Metal Jacket":
+    - /url: /title/tt0093058/?ref_=chttp_t_109
+    - heading "Full Metal Jacket" [level=3]
+  - text: 1987 1h 56m R 8.2 (852K)
+  - button "Rate Full Metal Jacket": Rate
+  - button "Mark Full Metal Jacket as watched": Mark as watched
+  - button "See more information about Full Metal Jacket"
+  - group:
+    - img "M (1931)"
+    - button "Add to Watchlist"
+    - link "View title page for M":
+      - /url: /title/tt0022100/?ref_=chttp_i_110
+  - text: "#110"
+  - link "M":
+    - /url: /title/tt0022100/?ref_=chttp_t_110
+    - heading "M" [level=3]
+  - text: 1931 1h 39m Passed 8.3 (183K)
+  - button "Rate M": Rate
+  - button "Mark M as watched": Mark as watched
+  - button "See more information about M"
+  - group:
+    - img "Audrey Tautou in Amélie (2001)"
+    - button "Add to Watchlist"
+    - link "View title page for Amélie":
+      - /url: /title/tt0211915/?ref_=chttp_i_111
+  - text: "#111"
+  - link "Amélie":
+    - /url: /title/tt0211915/?ref_=chttp_t_111
+    - heading "Amélie" [level=3]
+  - text: 2001 2h 2m R 8.3 (841K)
+  - button "Rate Amélie": Rate
+  - button "Mark Amélie as watched": Mark as watched
+  - button "See more information about Amélie"
+  - group:
+    - img "Leila Hatami and Payman Maadi in A Separation (2011)"
+    - button "Add to Watchlist"
+    - link "View title page for A Separation":
+      - /url: /title/tt1832382/?ref_=chttp_i_112
+  - text: "#112"
+  - link "A Separation":
+    - /url: /title/tt1832382/?ref_=chttp_t_112
+    - heading "A Separation" [level=3]
+  - text: 2011 2h 3m PG-13 8.3 (278K)
+  - button "Rate A Separation": Rate
+  - button "Mark A Separation as watched": Mark as watched
+  - button "See more information about A Separation"
+  - group:
+    - img "Orson Welles, Dorothy Comingore, and Ruth Warrick in Citizen Kane (1941)"
+    - button "Add to Watchlist"
+    - link "View title page for Citizen Kane":
+      - /url: /title/tt0033467/?ref_=chttp_i_113
+  - text: "#113"
+  - link "Citizen Kane":
+    - /url: /title/tt0033467/?ref_=chttp_t_113
+    - heading "Citizen Kane" [level=3]
+  - text: 1941 1h 59m PG 8.2 (494K)
+  - button "Rate Citizen Kane": Rate
+  - button "Mark Citizen Kane as watched": Mark as watched
+  - button "See more information about Citizen Kane"
+  - group:
+    - img "Vertigo (1958)"
+    - button "Add to Watchlist"
+    - link "View title page for Vertigo":
+      - /url: /title/tt0052357/?ref_=chttp_i_114
+  - text: "#114"
+  - link "Vertigo":
+    - /url: /title/tt0052357/?ref_=chttp_t_114
+    - heading "Vertigo" [level=3]
+  - text: 1958 2h 8m PG 8.2 (459K)
+  - button "Rate Vertigo": Rate
+  - button "Mark Vertigo as watched": Mark as watched
+  - button "See more information about Vertigo"
+  - group:
+    - img "Bruce Willis in Die Hard (1988)"
+    - button "Add to Watchlist"
+    - link "View title page for Die Hard":
+      - /url: /title/tt0095016/?ref_=chttp_i_115
+  - text: "#115"
+  - link "Die Hard":
+    - /url: /title/tt0095016/?ref_=chttp_t_115
+    - heading "Die Hard" [level=3]
+  - text: 1988 2h 12m R 8.2 (1M)
+  - button "Rate Die Hard": Rate
+  - button "Mark Die Hard as watched": Mark as watched
+  - button "See more information about Die Hard"
+  - group:
+    - img "Gregory Peck, Mary Badham, and Phillip Alford in To Kill a Mockingbird (1962)"
+    - button "Add to Watchlist"
+    - link "View title page for To Kill a Mockingbird":
+      - /url: /title/tt0056592/?ref_=chttp_i_116
+  - text: "#116"
+  - link "To Kill a Mockingbird":
+    - /url: /title/tt0056592/?ref_=chttp_t_116
+    - heading "To Kill a Mockingbird" [level=3]
+  - text: 1962 2h 9m Approved 8.2 (352K)
+  - button "Rate To Kill a Mockingbird": Rate
+  - button "Mark To Kill a Mockingbird as watched": Mark as watched
+  - button "See more information about To Kill a Mockingbird"
+  - group:
+    - img "Sean Connery, Harrison Ford, Denholm Elliott, Michael Byrne, Alison Doody, and John Rhys-Davies in Indiana Jones and the Last Crusade (1989)"
+    - button "Add to Watchlist"
+    - link "View title page for Indiana Jones and the Last Crusade":
+      - /url: /title/tt0097576/?ref_=chttp_i_117
+  - text: "#117"
+  - link "Indiana Jones and the Last Crusade":
+    - /url: /title/tt0097576/?ref_=chttp_t_117
+    - heading "Indiana Jones and the Last Crusade" [level=3]
+  - text: 1989 2h 7m PG-13 8.2 (864K)
+  - button "Rate Indiana Jones and the Last Crusade": Rate
+  - button "Mark Indiana Jones and the Last Crusade as watched": Mark as watched
+  - button "See more information about Indiana Jones and the Last Crusade"
+  - group:
+    - img "Paul Newman and Robert Redford in The Sting (1973)"
+    - button "Add to Watchlist"
+    - link "View title page for The Sting":
+      - /url: /title/tt0070735/?ref_=chttp_i_118
+  - text: "#118"
+  - link "The Sting":
+    - /url: /title/tt0070735/?ref_=chttp_t_118
+    - heading "The Sting" [level=3]
+  - text: 1973 2h 9m PG 8.2 (302K)
+  - button "Rate The Sting": Rate
+  - button "Mark The Sting as watched": Mark as watched
+  - button "See more information about The Sting"
+  - group:
+    - img "Malcolm McDowell in A Clockwork Orange (1971)"
+    - button "Add to Watchlist"
+    - link "View title page for A Clockwork Orange":
+      - /url: /title/tt0066921/?ref_=chttp_i_119
+  - text: "#119"
+  - link "A Clockwork Orange":
+    - /url: /title/tt0066921/?ref_=chttp_t_119
+    - heading "A Clockwork Orange" [level=3]
+  - text: 1971 2h 16m R 8.2 (937K)
+  - button "Rate A Clockwork Orange": Rate
+  - button "Mark A Clockwork Orange as watched": Mark as watched
+  - button "See more information about A Clockwork Orange"
+  - group:
+    - img "Brigitte Helm in Metropolis (1927)"
+    - button "Add to Watchlist"
+    - link "View title page for Metropolis":
+      - /url: /title/tt0017136/?ref_=chttp_i_120
+  - text: "#120"
+  - link "Metropolis":
+    - /url: /title/tt0017136/?ref_=chttp_t_120
+    - heading "Metropolis" [level=3]
+  - text: 1927 2h 30m Passed 8.2 (201K)
+  - button "Rate Metropolis": Rate
+  - button "Mark Metropolis as watched": Mark as watched
+  - button "See more information about Metropolis"
+  - group:
+    - img "Ryan Gosling and James Ortiz in Project Hail Mary (2026)"
+    - button "Add to Watchlist"
+    - link "View title page for Project Hail Mary":
+      - /url: /title/tt12042730/?ref_=chttp_i_121
+  - text: "#121"
+  - link "Project Hail Mary":
+    - /url: /title/tt12042730/?ref_=chttp_t_121
+    - heading "Project Hail Mary" [level=3]
+  - text: 2026 2h 36m PG-13 8.3 (325K)
+  - button "Rate Project Hail Mary": Rate
+  - button "Mark Project Hail Mary as watched": Mark as watched
+  - button "See more information about Project Hail Mary"
+  - group:
+    - img "Robert Aramayo in I Swear (2025)"
+    - button "Add to Watchlist"
+    - link "View title page for I Swear":
+      - /url: /title/tt31514146/?ref_=chttp_i_122
+  - text: "#122"
+  - link "I Swear":
+    - /url: /title/tt31514146/?ref_=chttp_t_122
+    - heading "I Swear" [level=3]
+  - text: 2025 2h R 8.4 (46K)
+  - button "Rate I Swear": Rate
+  - button "Mark I Swear as watched": Mark as watched
+  - button "See more information about I Swear"
+  - group:
+    - img "George MacKay and Dean-Charles Chapman in 1917 (2019)"
+    - button "Add to Watchlist"
+    - link "View title page for 1917":
+      - /url: /title/tt8579674/?ref_=chttp_i_123
+  - text: "#123"
+  - link "1917":
+    - /url: /title/tt8579674/?ref_=chttp_t_123
+    - heading "1917" [level=3]
+  - text: 2019 1h 59m R 8.2 (773K)
+  - button "Rate 1917": Rate
+  - button "Mark 1917 as watched": Mark as watched
+  - button "See more information about 1917"
+  - group:
+    - img "Brad Pitt, Benicio Del Toro, Dennis Farina, Vinnie Jones, Jason Statham, and Ade in Snatch (2000)"
+    - button "Add to Watchlist"
+    - link "View title page for Snatch":
+      - /url: /title/tt0208092/?ref_=chttp_i_124
+  - text: "#124"
+  - link "Snatch":
+    - /url: /title/tt0208092/?ref_=chttp_t_124
+    - heading "Snatch" [level=3]
+  - text: 2000 1h 42m R 8.2 (978K)
+  - button "Rate Snatch": Rate
+  - button "Mark Snatch as watched": Mark as watched
+  - button "See more information about Snatch"
+  - group:
+    - img "Leonardo DiCaprio, Chris Kerson, and Jonah Hill in The Wolf of Wall Street (2013)"
+    - button "Add to Watchlist"
+    - link "View title page for The Wolf of Wall Street":
+      - /url: /title/tt0993846/?ref_=chttp_i_125
+  - text: "#125"
+  - link "The Wolf of Wall Street":
+    - /url: /title/tt0993846/?ref_=chttp_t_125
+    - heading "The Wolf of Wall Street" [level=3]
+  - text: 2013 3h R 8.2 (1.8M)
+  - button "Rate The Wolf of Wall Street": Rate
+  - button "Mark The Wolf of Wall Street as watched": Mark as watched
+  - button "See more information about The Wolf of Wall Street"
+  - group:
+    - img "Downfall (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Downfall":
+      - /url: /title/tt0363163/?ref_=chttp_i_126
+  - text: "#126"
+  - link "Downfall":
+    - /url: /title/tt0363163/?ref_=chttp_t_126
+    - heading "Downfall" [level=3]
+  - text: 2004 2h 36m R 8.2 (401K)
+  - button "Rate Downfall": Rate
+  - button "Mark Downfall as watched": Mark as watched
+  - button "See more information about Downfall"
+  - group:
+    - img "Kim Basinger, Russell Crowe, Kevin Spacey, Danny DeVito, and Guy Pearce in L.A. Confidential (1997)"
+    - button "Add to Watchlist"
+    - link "View title page for L.A. Confidential":
+      - /url: /title/tt0119488/?ref_=chttp_i_127
+  - text: "#127"
+  - link "L.A. Confidential":
+    - /url: /title/tt0119488/?ref_=chttp_t_127
+    - heading "L.A. Confidential" [level=3]
+  - text: 1997 2h 18m R 8.2 (659K)
+  - button "Rate L.A. Confidential": Rate
+  - button "Mark L.A. Confidential as watched": Mark as watched
+  - button "See more information about L.A. Confidential"
+  - group:
+    - img "Jim Carrey in The Truman Show (1998)"
+    - button "Add to Watchlist"
+    - link "View title page for The Truman Show":
+      - /url: /title/tt0120382/?ref_=chttp_i_128
+  - text: "#128"
+  - link "The Truman Show":
+    - /url: /title/tt0120382/?ref_=chttp_t_128
+    - heading "The Truman Show" [level=3]
+  - text: 1998 1h 43m PG 8.2 (1.4M)
+  - button "Rate The Truman Show": Rate
+  - button "Mark The Truman Show as watched": Mark as watched
+  - button "See more information about The Truman Show"
+  - group:
+    - img "Dangal (2016)"
+    - button "Add to Watchlist"
+    - link "View title page for Dangal":
+      - /url: /title/tt5074352/?ref_=chttp_i_129
+  - text: "#129"
+  - link "Dangal":
+    - /url: /title/tt5074352/?ref_=chttp_t_129
+    - heading "Dangal" [level=3]
+  - text: 2016 2h 41m Not Rated 8.3 (244K)
+  - button "Rate Dangal": Rate
+  - button "Mark Dangal as watched": Mark as watched
+  - button "See more information about Dangal"
+  - group:
+    - img "Lamberto Maggiorani and Enzo Staiola in Bicycle Thieves (1948)"
+    - button "Add to Watchlist"
+    - link "View title page for Bicycle Thieves":
+      - /url: /title/tt0040522/?ref_=chttp_i_130
+  - text: "#130"
+  - link "Bicycle Thieves":
+    - /url: /title/tt0040522/?ref_=chttp_t_130
+    - heading "Bicycle Thieves" [level=3]
+  - text: 1948 1h 29m Not Rated 8.2 (192K)
+  - button "Rate Bicycle Thieves": Rate
+  - button "Mark Bicycle Thieves as watched": Mark as watched
+  - button "See more information about Bicycle Thieves"
+  - group:
+    - img "Leonardo DiCaprio in Shutter Island (2010)"
+    - button "Add to Watchlist"
+    - link "View title page for Shutter Island":
+      - /url: /title/tt1130884/?ref_=chttp_i_131
+  - text: "#131"
+  - link "Shutter Island":
+    - /url: /title/tt1130884/?ref_=chttp_t_131
+    - heading "Shutter Island" [level=3]
+  - text: 2010 2h 18m R 8.2 (1.7M)
+  - button "Rate Shutter Island": Rate
+  - button "Mark Shutter Island as watched": Mark as watched
+  - button "See more information about Shutter Island"
+  - group:
+    - img "Viggo Mortensen and Mahershala Ali in Green Book (2018)"
+    - button "Add to Watchlist"
+    - link "View title page for Green Book":
+      - /url: /title/tt6966692/?ref_=chttp_i_132
+  - text: "#132"
+  - link "Green Book":
+    - /url: /title/tt6966692/?ref_=chttp_t_132
+    - heading "Green Book" [level=3]
+  - text: 2018 2h 10m PG-13 8.2 (688K)
+  - button "Rate Green Book": Rate
+  - button "Mark Green Book as watched": Mark as watched
+  - button "See more information about Green Book"
+  - group:
+    - img "Cillian Murphy in Oppenheimer (2023)"
+    - button "Add to Watchlist"
+    - link "View title page for Oppenheimer":
+      - /url: /title/tt15398776/?ref_=chttp_i_133
+  - text: "#133"
+  - link "Oppenheimer":
+    - /url: /title/tt15398776/?ref_=chttp_t_133
+    - heading "Oppenheimer" [level=3]
+  - text: 2023 3h R 8.2 (1M)
+  - button "Rate Oppenheimer": Rate
+  - button "Mark Oppenheimer as watched": Mark as watched
+  - button "See more information about Oppenheimer"
+  - group:
+    - img "Marlene Dietrich, Judy Garland, Burt Lancaster, Spencer Tracy, Montgomery Clift, Maximilian Schell, and Richard Widmark in Judgment at Nuremberg (1961)"
+    - button "Add to Watchlist"
+    - link "View title page for Judgment at Nuremberg":
+      - /url: /title/tt0055031/?ref_=chttp_i_134
+  - text: "#134"
+  - link "Judgment at Nuremberg":
+    - /url: /title/tt0055031/?ref_=chttp_t_134
+    - heading "Judgment at Nuremberg" [level=3]
+  - text: 1961 2h 59m Approved 8.3 (97K)
+  - button "Rate Judgment at Nuremberg": Rate
+  - button "Mark Judgment at Nuremberg as watched": Mark as watched
+  - button "See more information about Judgment at Nuremberg"
+  - group:
+    - img "Batman Begins (2005)"
+    - button "Add to Watchlist"
+    - link "View title page for Batman Begins":
+      - /url: /title/tt0372784/?ref_=chttp_i_135
+  - text: "#135"
+  - link "Batman Begins":
+    - /url: /title/tt0372784/?ref_=chttp_t_135
+    - heading "Batman Begins" [level=3]
+  - text: 2005 2h 20m PG-13 8.2 (1.7M)
+  - button "Rate Batman Begins": Rate
+  - button "Mark Batman Begins as watched": Mark as watched
+  - button "See more information about Batman Begins"
+  - group:
+    - img "Jeff Goldblum, Richard Attenborough, Laura Dern, Sam Neill, Ariana Richards, BD Wong, Joseph Mazzello, Martin Ferrero, and Bob Peck in Jurassic Park (1993)"
+    - button "Add to Watchlist"
+    - link "View title page for Jurassic Park":
+      - /url: /title/tt0107290/?ref_=chttp_i_136
+  - text: "#136"
+  - link "Jurassic Park":
+    - /url: /title/tt0107290/?ref_=chttp_t_136
+    - heading "Jurassic Park" [level=3]
+  - text: 1993 2h 7m PG-13 8.2 (1.2M)
+  - button "Rate Jurassic Park": Rate
+  - button "Mark Jurassic Park as watched": Mark as watched
+  - button "See more information about Jurassic Park"
+  - group:
+    - img "Hamilton in Hamilton (2020)"
+    - button "Add to Watchlist"
+    - link "View title page for Hamilton":
+      - /url: /title/tt8503618/?ref_=chttp_i_137
+  - text: "#137"
+  - link "Hamilton":
+    - /url: /title/tt8503618/?ref_=chttp_t_137
+    - heading "Hamilton" [level=3]
+  - text: 2020 2h 40m PG-13 8.3 (140K)
+  - button "Rate Hamilton": Rate
+  - button "Mark Hamilton as watched": Mark as watched
+  - button "See more information about Hamilton"
+  - group:
+    - img "Clint Eastwood and Lee Van Cleef in For a Few Dollars More (1965)"
+    - button "Add to Watchlist"
+    - link "View title page for For a Few Dollars More":
+      - /url: /title/tt0059578/?ref_=chttp_i_138
+  - text: "#138"
+  - link "For a Few Dollars More":
+    - /url: /title/tt0059578/?ref_=chttp_t_138
+    - heading "For a Few Dollars More" [level=3]
+  - text: 1965 2h 12m R 8.2 (300K)
+  - button "Rate For a Few Dollars More": Rate
+  - button "Mark For a Few Dollars More as watched": Mark as watched
+  - button "See more information about For a Few Dollars More"
+  - group:
+    - img "Robert De Niro in Taxi Driver (1976)"
+    - button "Add to Watchlist"
+    - link "View title page for Taxi Driver":
+      - /url: /title/tt0075314/?ref_=chttp_i_139
+  - text: "#139"
+  - link "Taxi Driver":
+    - /url: /title/tt0075314/?ref_=chttp_t_139
+    - heading "Taxi Driver" [level=3]
+  - text: 1976 1h 54m R 8.2 (1M)
+  - button "Rate Taxi Driver": Rate
+  - button "Mark Taxi Driver as watched": Mark as watched
+  - button "See more information about Taxi Driver"
+  - group:
+    - img "Marilyn Monroe, Tony Curtis, and Jack Lemmon in Some Like It Hot (1959)"
+    - button "Add to Watchlist"
+    - link "View title page for Some Like It Hot":
+      - /url: /title/tt0053291/?ref_=chttp_i_140
+  - text: "#140"
+  - link "Some Like It Hot":
+    - /url: /title/tt0053291/?ref_=chttp_t_140
+    - heading "Some Like It Hot" [level=3]
+  - text: 1959 2h 1m Approved 8.2 (305K)
+  - button "Rate Some Like It Hot": Rate
+  - button "Mark Some Like It Hot as watched": Mark as watched
+  - button "See more information about Some Like It Hot"
+  - group:
+    - img "Daniel Day-Lewis in There Will Be Blood (2007)"
+    - button "Add to Watchlist"
+    - link "View title page for There Will Be Blood":
+      - /url: /title/tt0469494/?ref_=chttp_i_141
+  - text: "#141"
+  - link "There Will Be Blood":
+    - /url: /title/tt0469494/?ref_=chttp_t_141
+    - heading "There Will Be Blood" [level=3]
+  - text: 2007 2h 38m R 8.2 (710K)
+  - button "Rate There Will Be Blood": Rate
+  - button "Mark There Will Be Blood as watched": Mark as watched
+  - button "See more information about There Will Be Blood"
+  - group:
+    - 'img "Attack on Titan: The Last Attack (2024)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Attack on Titan: The Last Attack"':
+      - /url: /title/tt33175825/?ref_=chttp_i_142
+  - text: "#142"
+  - 'link "Attack on Titan: The Last Attack"':
+    - /url: /title/tt33175825/?ref_=chttp_t_142
+    - 'heading "Attack on Titan: The Last Attack" [level=3]'
+  - text: 2024 2h 25m 9.0 (29K)
+  - 'button "Rate Attack on Titan: The Last Attack"': Rate
+  - 'button "Mark Attack on Titan: The Last Attack as watched"': Mark as watched
+  - 'button "See more information about Attack on Titan: The Last Attack"'
+  - group:
+    - img "Anthony Hopkins and Olivia Colman in The Father (2020)"
+    - button "Add to Watchlist"
+    - link "View title page for The Father":
+      - /url: /title/tt10272386/?ref_=chttp_i_143
+  - text: "#143"
+  - link "The Father":
+    - /url: /title/tt10272386/?ref_=chttp_t_143
+    - heading "The Father" [level=3]
+  - text: 2020 1h 37m PG-13 8.2 (246K)
+  - button "Rate The Father": Rate
+  - button "Mark The Father as watched": Mark as watched
+  - button "See more information about The Father"
+  - group:
+    - img "Charles Chaplin and Jackie Coogan in The Kid (1921)"
+    - button "Add to Watchlist"
+    - link "View title page for The Kid":
+      - /url: /title/tt0012349/?ref_=chttp_i_144
+  - text: "#144"
+  - link "The Kid":
+    - /url: /title/tt0012349/?ref_=chttp_t_144
+    - heading "The Kid" [level=3]
+  - text: 1921 1h 8m Passed 8.2 (146K)
+  - button "Rate The Kid": Rate
+  - button "Mark The Kid as watched": Mark as watched
+  - button "See more information about The Kid"
+  - group:
+    - img "Poster for 50th anniversary rerelease, 1 sheet movie poster app. 27\" x 40\""
+    - button "Add to Watchlist"
+    - link "View title page for All About Eve":
+      - /url: /title/tt0042192/?ref_=chttp_i_145
+  - text: "#145"
+  - link "All About Eve":
+    - /url: /title/tt0042192/?ref_=chttp_t_145
+    - heading "All About Eve" [level=3]
+  - text: 1950 2h 18m Approved 8.2 (149K)
+  - button "Rate All About Eve": Rate
+  - button "Mark All About Eve as watched": Mark as watched
+  - button "See more information about All About Eve"
+  - group:
+    - img "Haley Joel Osment in The Sixth Sense (1999)"
+    - button "Add to Watchlist"
+    - link "View title page for The Sixth Sense":
+      - /url: /title/tt0167404/?ref_=chttp_i_146
+  - text: "#146"
+  - link "The Sixth Sense":
+    - /url: /title/tt0167404/?ref_=chttp_t_146
+    - heading "The Sixth Sense" [level=3]
+  - text: 1999 1h 47m PG-13 8.2 (1.1M)
+  - button "Rate The Sixth Sense": Rate
+  - button "Mark The Sixth Sense as watched": Mark as watched
+  - button "See more information about The Sixth Sense"
+  - group:
+    - img "Ran (1985)"
+    - button "Add to Watchlist"
+    - link "View title page for Ran":
+      - /url: /title/tt0089881/?ref_=chttp_i_147
+  - text: "#147"
+  - link "Ran":
+    - /url: /title/tt0089881/?ref_=chttp_t_147
+    - heading "Ran" [level=3]
+  - text: 1985 2h 40m R 8.2 (152K)
+  - button "Rate Ran": Rate
+  - button "Mark Ran as watched": Mark as watched
+  - button "See more information about Ran"
+  - group:
+    - img "Robert De Niro, Sharon Stone, and Joe Pesci in Casino (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Casino":
+      - /url: /title/tt0112641/?ref_=chttp_i_148
+  - text: "#148"
+  - link "Casino":
+    - /url: /title/tt0112641/?ref_=chttp_t_148
+    - heading "Casino" [level=3]
+  - text: 1995 2h 58m R 8.2 (620K)
+  - button "Rate Casino": Rate
+  - button "Mark Casino as watched": Mark as watched
+  - button "See more information about Casino"
+  - group:
+    - img "The Thing (1982)"
+    - button "Add to Watchlist"
+    - link "View title page for The Thing":
+      - /url: /title/tt0084787/?ref_=chttp_i_149
+  - text: "#149"
+  - link "The Thing":
+    - /url: /title/tt0084787/?ref_=chttp_t_149
+    - heading "The Thing" [level=3]
+  - text: 1982 1h 49m R 8.2 (527K)
+  - button "Rate The Thing": Rate
+  - button "Mark The Thing as watched": Mark as watched
+  - button "See more information about The Thing"
+  - group:
+    - img "Javier Bardem and Josh Brolin in No Country for Old Men (2007)"
+    - button "Add to Watchlist"
+    - link "View title page for No Country for Old Men":
+      - /url: /title/tt0477348/?ref_=chttp_i_150
+  - text: "#150"
+  - link "No Country for Old Men":
+    - /url: /title/tt0477348/?ref_=chttp_t_150
+    - heading "No Country for Old Men" [level=3]
+  - text: 2007 2h 2m R 8.2 (1.2M)
+  - button "Rate No Country for Old Men": Rate
+  - button "Mark No Country for Old Men as watched": Mark as watched
+  - button "See more information about No Country for Old Men"
+  - group:
+    - img "Jake Gyllenhaal and Hugh Jackman in Prisoners (2013)"
+    - button "Add to Watchlist"
+    - link "View title page for Prisoners":
+      - /url: /title/tt1392214/?ref_=chttp_i_151
+  - text: "#151"
+  - link "Prisoners":
+    - /url: /title/tt1392214/?ref_=chttp_t_151
+    - heading "Prisoners" [level=3]
+  - text: 2013 2h 33m R 8.2 (937K)
+  - button "Rate Prisoners": Rate
+  - button "Mark Prisoners as watched": Mark as watched
+  - button "See more information about Prisoners"
+  - group:
+    - 'img "Tom Cruise in Top Gun: Maverick (2022)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Top Gun: Maverick"':
+      - /url: /title/tt1745960/?ref_=chttp_i_152
+  - text: "#152"
+  - 'link "Top Gun: Maverick"':
+    - /url: /title/tt1745960/?ref_=chttp_t_152
+    - 'heading "Top Gun: Maverick" [level=3]'
+  - text: 2022 2h 10m PG-13 8.2 (872K)
+  - 'button "Rate Top Gun: Maverick"': Rate
+  - 'button "Mark Top Gun: Maverick as watched"': Mark as watched
+  - 'button "See more information about Top Gun: Maverick"'
+  - group:
+    - 'img "Uma Thurman in Kill Bill: Vol. 1 (2003)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Kill Bill: Vol. 1"':
+      - /url: /title/tt0266697/?ref_=chttp_i_153
+  - text: "#153"
+  - 'link "Kill Bill: Vol. 1"':
+    - /url: /title/tt0266697/?ref_=chttp_t_153
+    - 'heading "Kill Bill: Vol. 1" [level=3]'
+  - text: 2003 1h 51m R 8.2 (1.3M)
+  - 'button "Rate Kill Bill: Vol. 1"': Rate
+  - 'button "Mark Kill Bill: Vol. 1 as watched"': Mark as watched
+  - 'button "See more information about Kill Bill: Vol. 1"'
+  - group:
+    - img "Ivana Baquero in Pan's Labyrinth (2006)"
+    - button "Add to Watchlist"
+    - link "View title page for Pan's Labyrinth":
+      - /url: /title/tt0457430/?ref_=chttp_i_154
+  - text: "#154"
+  - link "Pan's Labyrinth":
+    - /url: /title/tt0457430/?ref_=chttp_t_154
+    - heading "Pan's Labyrinth" [level=3]
+  - text: 2006 1h 58m R 8.2 (747K)
+  - button "Rate Pan's Labyrinth": Rate
+  - button "Mark Pan's Labyrinth as watched": Mark as watched
+  - button "See more information about Pan's Labyrinth"
+  - group:
+    - img "Clint Eastwood, Morgan Freeman, Gene Hackman, and Richard Harris in Unforgiven (1992)"
+    - button "Add to Watchlist"
+    - link "View title page for Unforgiven":
+      - /url: /title/tt0105695/?ref_=chttp_i_155
+  - text: "#155"
+  - link "Unforgiven":
+    - /url: /title/tt0105695/?ref_=chttp_t_155
+    - heading "Unforgiven" [level=3]
+  - text: 1992 2h 10m R 8.2 (469K)
+  - button "Rate Unforgiven": Rate
+  - button "Mark Unforgiven as watched": Mark as watched
+  - button "See more information about Unforgiven"
+  - group:
+    - img "Russell Crowe in A Beautiful Mind (2001)"
+    - button "Add to Watchlist"
+    - link "View title page for A Beautiful Mind":
+      - /url: /title/tt0268978/?ref_=chttp_i_156
+  - text: "#156"
+  - link "A Beautiful Mind":
+    - /url: /title/tt0268978/?ref_=chttp_t_156
+    - heading "A Beautiful Mind" [level=3]
+  - text: 2001 2h 15m PG-13 8.2 (1.1M)
+  - button "Rate A Beautiful Mind": Rate
+  - button "Mark A Beautiful Mind as watched": Mark as watched
+  - button "See more information about A Beautiful Mind"
+  - group:
+    - img "Christian Bale, Jean Simmons, Chieko Baishō, and Takuya Kimura in Howl's Moving Castle (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Howl's Moving Castle":
+      - /url: /title/tt0347149/?ref_=chttp_i_157
+  - text: "#157"
+  - link "Howl's Moving Castle":
+    - /url: /title/tt0347149/?ref_=chttp_t_157
+    - heading "Howl's Moving Castle" [level=3]
+  - text: 2004 1h 59m PG 8.2 (513K)
+  - button "Rate Howl's Moving Castle": Rate
+  - button "Mark Howl's Moving Castle as watched": Mark as watched
+  - button "See more information about Howl's Moving Castle"
+  - group:
+    - img "Humphrey Bogart, Tim Holt, and Walter Huston in The Treasure of the Sierra Madre (1948)"
+    - button "Add to Watchlist"
+    - link "View title page for The Treasure of the Sierra Madre":
+      - /url: /title/tt0040897/?ref_=chttp_i_158
+  - text: "#158"
+  - link "The Treasure of the Sierra Madre":
+    - /url: /title/tt0040897/?ref_=chttp_t_158
+    - heading "The Treasure of the Sierra Madre" [level=3]
+  - text: 1948 2h 6m Approved 8.2 (142K)
+  - button "Rate The Treasure of the Sierra Madre": Rate
+  - button "Mark The Treasure of the Sierra Madre as watched": Mark as watched
+  - button "See more information about The Treasure of the Sierra Madre"
+  - group:
+    - img "Albert Brooks, Ellen DeGeneres, and Barry Humphries in Finding Nemo (2003)"
+    - button "Add to Watchlist"
+    - link "View title page for Finding Nemo":
+      - /url: /title/tt0266543/?ref_=chttp_i_159
+  - text: "#159"
+  - link "Finding Nemo":
+    - /url: /title/tt0266543/?ref_=chttp_t_159
+    - heading "Finding Nemo" [level=3]
+  - text: 2003 1h 40m G 8.2 (1.2M)
+  - button "Rate Finding Nemo": Rate
+  - button "Mark Finding Nemo as watched": Mark as watched
+  - button "See more information about Finding Nemo"
+  - group:
+    - img "Joan Cusack, Jason Schwartzman, Rashida Jones, Sergio Pablos, Will Sasso, J.K. Simmons, and Neda Margrethe Labba in Klaus (2019)"
+    - button "Add to Watchlist"
+    - link "View title page for Klaus":
+      - /url: /title/tt4729430/?ref_=chttp_i_160
+  - text: "#160"
+  - link "Klaus":
+    - /url: /title/tt4729430/?ref_=chttp_t_160
+    - heading "Klaus" [level=3]
+  - text: 2019 1h 36m PG 8.2 (237K)
+  - button "Rate Klaus": Rate
+  - button "Mark Klaus as watched": Mark as watched
+  - button "See more information about Klaus"
+  - group:
+    - img "Toshirō Mifune and Tatsuya Nakadai in Yojimbo (1961)"
+    - button "Add to Watchlist"
+    - link "View title page for Yojimbo":
+      - /url: /title/tt0055630/?ref_=chttp_i_161
+  - text: "#161"
+  - link "Yojimbo":
+    - /url: /title/tt0055630/?ref_=chttp_t_161
+    - heading "Yojimbo" [level=3]
+  - text: 1961 1h 50m Not Rated 8.2 (143K)
+  - button "Rate Yojimbo": Rate
+  - button "Mark Yojimbo as watched": Mark as watched
+  - button "See more information about Yojimbo"
+  - group:
+    - img "John Hurt in The Elephant Man (1980)"
+    - button "Add to Watchlist"
+    - link "View title page for The Elephant Man":
+      - /url: /title/tt0080678/?ref_=chttp_i_162
+  - text: "#162"
+  - link "The Elephant Man":
+    - /url: /title/tt0080678/?ref_=chttp_t_162
+    - heading "The Elephant Man" [level=3]
+  - text: 1980 2h 4m PG 8.2 (282K)
+  - button "Rate The Elephant Man": Rate
+  - button "Mark The Elephant Man as watched": Mark as watched
+  - button "See more information about The Elephant Man"
+  - group:
+    - img "Richard Attenborough, Steve McQueen, and James Garner in The Great Escape (1963)"
+    - button "Add to Watchlist"
+    - link "View title page for The Great Escape":
+      - /url: /title/tt0057115/?ref_=chttp_i_163
+  - text: "#163"
+  - link "The Great Escape":
+    - /url: /title/tt0057115/?ref_=chttp_t_163
+    - heading "The Great Escape" [level=3]
+  - text: 1963 2h 52m Approved 8.2 (278K)
+  - button "Rate The Great Escape": Rate
+  - button "Mark The Great Escape as watched": Mark as watched
+  - button "See more information about The Great Escape"
+  - group:
+    - img "John Cleese, Terry Gilliam, Graham Chapman, Eric Idle, Terry Jones, Michael Palin, and Monty Python in Monty Python and the Holy Grail (1975)"
+    - button "Add to Watchlist"
+    - link "View title page for Monty Python and the Holy Grail":
+      - /url: /title/tt0071853/?ref_=chttp_i_164
+  - text: "#164"
+  - link "Monty Python and the Holy Grail":
+    - /url: /title/tt0071853/?ref_=chttp_t_164
+    - heading "Monty Python and the Holy Grail" [level=3]
+  - text: 1975 1h 31m PG 8.1 (604K)
+  - button "Rate Monty Python and the Holy Grail": Rate
+  - button "Mark Monty Python and the Holy Grail as watched": Mark as watched
+  - button "See more information about Monty Python and the Holy Grail"
+  - group:
+    - 'img "Akira Ishida, Takahiro Sakurai, and Natsuki Hanae in Demon Slayer: Kimetsu No Yaiba Infinity Castle (2025)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Demon Slayer: Kimetsu No Yaiba Infinity Castle"':
+      - /url: /title/tt32820897/?ref_=chttp_i_165
+  - text: "#165"
+  - 'link "Demon Slayer: Kimetsu No Yaiba Infinity Castle"':
+    - /url: /title/tt32820897/?ref_=chttp_t_165
+    - 'heading "Demon Slayer: Kimetsu No Yaiba Infinity Castle" [level=3]'
+  - text: 2025 2h 35m R 8.4 (72K)
+  - 'button "Rate Demon Slayer: Kimetsu No Yaiba Infinity Castle"': Rate
+  - 'button "Mark Demon Slayer: Kimetsu No Yaiba Infinity Castle as watched"': Mark as watched
+  - 'button "See more information about Demon Slayer: Kimetsu No Yaiba Infinity Castle"'
+  - group:
+    - img "Grace Kelly and Anthony Dawson in Dial M for Murder (1954)"
+    - button "Add to Watchlist"
+    - link "View title page for Dial M for Murder":
+      - /url: /title/tt0046912/?ref_=chttp_i_166
+  - text: "#166"
+  - link "Dial M for Murder":
+    - /url: /title/tt0046912/?ref_=chttp_t_166
+    - heading "Dial M for Murder" [level=3]
+  - text: 1954 1h 45m PG 8.1 (205K)
+  - button "Rate Dial M for Murder": Rate
+  - button "Mark Dial M for Murder as watched": Mark as watched
+  - button "See more information about Dial M for Murder"
+  - group:
+    - img "Ricardo Darín and Soledad Villamil in The Secret in Their Eyes (2009)"
+    - button "Add to Watchlist"
+    - link "View title page for The Secret in Their Eyes":
+      - /url: /title/tt1305806/?ref_=chttp_i_167
+  - text: "#167"
+  - link "The Secret in Their Eyes":
+    - /url: /title/tt1305806/?ref_=chttp_t_167
+    - heading "The Secret in Their Eyes" [level=3]
+  - text: 2009 2h 9m R 8.2 (243K)
+  - button "Rate The Secret in Their Eyes": Rate
+  - button "Mark The Secret in Their Eyes as watched": Mark as watched
+  - button "See more information about The Secret in Their Eyes"
+  - group:
+    - img "Clark Gable and Vivien Leigh in Gone with the Wind (1939)"
+    - button "Add to Watchlist"
+    - link "View title page for Gone with the Wind":
+      - /url: /title/tt0031381/?ref_=chttp_i_168
+  - text: "#168"
+  - link "Gone with the Wind":
+    - /url: /title/tt0031381/?ref_=chttp_t_168
+    - heading "Gone with the Wind" [level=3]
+  - text: 1939 3h 58m G 8.2 (357K)
+  - button "Rate Gone with the Wind": Rate
+  - button "Mark Gone with the Wind as watched": Mark as watched
+  - button "See more information about Gone with the Wind"
+  - group:
+    - img "Jason Flemyng, Dexter Fletcher, Vinnie Jones, Jason Statham, and Nick Moran in Lock, Stock and Two Smoking Barrels (1998)"
+    - button "Add to Watchlist"
+    - link "View title page for Lock, Stock and Two Smoking Barrels":
+      - /url: /title/tt0120735/?ref_=chttp_i_169
+  - text: "#169"
+  - link "Lock, Stock and Two Smoking Barrels":
+    - /url: /title/tt0120735/?ref_=chttp_t_169
+    - heading "Lock, Stock and Two Smoking Barrels" [level=3]
+  - text: 1998 1h 47m R 8.1 (650K)
+  - button "Rate Lock, Stock and Two Smoking Barrels": Rate
+  - button "Mark Lock, Stock and Two Smoking Barrels as watched": Mark as watched
+  - button "See more information about Lock, Stock and Two Smoking Barrels"
+  - group:
+    - img "Jack Nicholson and Faye Dunaway in Chinatown (1974)"
+    - button "Add to Watchlist"
+    - link "View title page for Chinatown":
+      - /url: /title/tt0071315/?ref_=chttp_i_170
+  - text: "#170"
+  - link "Chinatown":
+    - /url: /title/tt0071315/?ref_=chttp_t_170
+    - heading "Chinatown" [level=3]
+  - text: 1974 2h 10m R 8.1 (377K)
+  - button "Rate Chinatown": Rate
+  - button "Mark Chinatown as watched": Mark as watched
+  - button "See more information about Chinatown"
+  - group:
+    - img "The Best of Youth (2003)"
+    - button "Add to Watchlist"
+    - link "View title page for The Best of Youth":
+      - /url: /title/tt0346336/?ref_=chttp_i_171
+  - text: "#171"
+  - link "The Best of Youth":
+    - /url: /title/tt0346336/?ref_=chttp_t_171
+    - heading "The Best of Youth" [level=3]
+  - text: 2003 6h 14m R 8.4 (28K)
+  - button "Rate The Best of Youth": Rate
+  - button "Mark The Best of Youth as watched": Mark as watched
+  - button "See more information about The Best of Youth"
+  - group:
+    - img "Natalie Portman and Hugo Weaving in V for Vendetta (2005)"
+    - button "Add to Watchlist"
+    - link "View title page for V for Vendetta":
+      - /url: /title/tt0434409/?ref_=chttp_i_172
+  - text: "#172"
+  - link "V for Vendetta":
+    - /url: /title/tt0434409/?ref_=chttp_t_172
+    - heading "V for Vendetta" [level=3]
+  - text: 2005 2h 12m R 8.1 (1.2M)
+  - button "Rate V for Vendetta": Rate
+  - button "Mark V for Vendetta as watched": Mark as watched
+  - button "See more information about V for Vendetta"
+  - group:
+    - img "Leonardo DiCaprio and Tom Hanks in Catch Me If You Can (2002)"
+    - button "Add to Watchlist"
+    - link "View title page for Catch Me If You Can":
+      - /url: /title/tt0264464/?ref_=chttp_i_173
+  - text: "#173"
+  - link "Catch Me If You Can":
+    - /url: /title/tt0264464/?ref_=chttp_t_173
+    - heading "Catch Me If You Can" [level=3]
+  - text: 2002 2h 21m PG-13 8.1 (1.2M)
+  - button "Rate Catch Me If You Can": Rate
+  - button "Mark Catch Me If You Can as watched": Mark as watched
+  - button "See more information about Catch Me If You Can"
+  - group:
+    - img "Lewis Black, Bill Hader, Amy Poehler, Phyllis Smith, and Mindy Kaling in Inside Out (2015)"
+    - button "Add to Watchlist"
+    - link "View title page for Inside Out":
+      - /url: /title/tt2096673/?ref_=chttp_i_174
+  - text: "#174"
+  - link "Inside Out":
+    - /url: /title/tt2096673/?ref_=chttp_t_174
+    - heading "Inside Out" [level=3]
+  - text: 2015 1h 35m PG 8.1 (917K)
+  - button "Rate Inside Out": Rate
+  - button "Mark Inside Out as watched": Mark as watched
+  - button "See more information about Inside Out"
+  - group:
+    - img "Ewan McGregor, Robert Carlyle, Jonny Lee Miller, Ewen Bremner, and Kelly Macdonald in Trainspotting (1996)"
+    - button "Add to Watchlist"
+    - link "View title page for Trainspotting":
+      - /url: /title/tt0117951/?ref_=chttp_i_175
+  - text: "#175"
+  - link "Trainspotting":
+    - /url: /title/tt0117951/?ref_=chttp_t_175
+    - heading "Trainspotting" [level=3]
+  - text: 1996 1h 33m R 8.1 (769K)
+  - button "Rate Trainspotting": Rate
+  - button "Mark Trainspotting as watched": Mark as watched
+  - button "See more information about Trainspotting"
+  - group:
+    - img "Woody Harrelson, Frances McDormand, and Sam Rockwell in Three Billboards Outside Ebbing, Missouri (2017)"
+    - button "Add to Watchlist"
+    - link "View title page for Three Billboards Outside Ebbing, Missouri":
+      - /url: /title/tt5027774/?ref_=chttp_i_176
+  - text: "#176"
+  - link "Three Billboards Outside Ebbing, Missouri":
+    - /url: /title/tt5027774/?ref_=chttp_t_176
+    - heading "Three Billboards Outside Ebbing, Missouri" [level=3]
+  - text: 2017 1h 55m R 8.1 (608K)
+  - button "Rate Three Billboards Outside Ebbing, Missouri": Rate
+  - button "Mark Three Billboards Outside Ebbing, Missouri as watched": Mark as watched
+  - button "See more information about Three Billboards Outside Ebbing, Missouri"
+  - group:
+    - img "Toshirō Mifune and Machiko Kyô in Rashomon (1950)"
+    - button "Add to Watchlist"
+    - link "View title page for Rashomon":
+      - /url: /title/tt0042876/?ref_=chttp_i_177
+  - text: "#177"
+  - link "Rashomon":
+    - /url: /title/tt0042876/?ref_=chttp_t_177
+    - heading "Rashomon" [level=3]
+  - text: 1950 1h 28m Not Rated 8.1 (197K)
+  - button "Rate Rashomon": Rate
+  - button "Mark Rashomon as watched": Mark as watched
+  - button "See more information about Rashomon"
+  - group:
+    - img "Robin Williams in Dead Poets Society (1989)"
+    - button "Add to Watchlist"
+    - link "View title page for Dead Poets Society":
+      - /url: /title/tt0097165/?ref_=chttp_i_178
+  - text: "#178"
+  - link "Dead Poets Society":
+    - /url: /title/tt0097165/?ref_=chttp_t_178
+    - heading "Dead Poets Society" [level=3]
+  - text: 1989 2h 8m PG 8.1 (654K)
+  - button "Rate Dead Poets Society": Rate
+  - button "Mark Dead Poets Society as watched": Mark as watched
+  - button "See more information about Dead Poets Society"
+  - group:
+    - img "Alec Guinness, William Holden, Jack Hawkins, Sessue Hayakawa, Geoffrey Horne, and Ann Sears in The Bridge on the River Kwai (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for The Bridge on the River Kwai":
+      - /url: /title/tt0050212/?ref_=chttp_i_179
+  - text: "#179"
+  - link "The Bridge on the River Kwai":
+    - /url: /title/tt0050212/?ref_=chttp_t_179
+    - heading "The Bridge on the River Kwai" [level=3]
+  - text: 1957 2h 41m PG 8.1 (249K)
+  - button "Rate The Bridge on the River Kwai": Rate
+  - button "Mark The Bridge on the River Kwai as watched": Mark as watched
+  - button "See more information about The Bridge on the River Kwai"
+  - group:
+    - img
+    - button "Add to Watchlist"
+    - 'link "View title page for Harry Potter and the Deathly Hallows: Part 2"':
+      - /url: /title/tt1201607/?ref_=chttp_i_180
+  - text: "#180"
+  - 'link "Harry Potter and the Deathly Hallows: Part 2"':
+    - /url: /title/tt1201607/?ref_=chttp_t_180
+    - 'heading "Harry Potter and the Deathly Hallows: Part 2" [level=3]'
+  - text: 2011 2h 10m PG-13 8.1 (1M)
+  - 'button "Rate Harry Potter and the Deathly Hallows: Part 2"': Rate
+  - 'button "Mark Harry Potter and the Deathly Hallows: Part 2 as watched"': Mark as watched
+  - 'button "See more information about Harry Potter and the Deathly Hallows: Part 2"'
+  - group:
+    - img "Mark Hamill, Pedro Pascal, Lupita Nyong'o, Piotr Michael, and Kit Connor in The Wild Robot (2024)"
+    - button "Add to Watchlist"
+    - link "View title page for The Wild Robot":
+      - /url: /title/tt29623480/?ref_=chttp_i_181
+  - text: "#181"
+  - link "The Wild Robot":
+    - /url: /title/tt29623480/?ref_=chttp_t_181
+    - heading "The Wild Robot" [level=3]
+  - text: 2024 1h 42m PG 8.2 (225K)
+  - button "Rate The Wild Robot": Rate
+  - button "Mark The Wild Robot as watched": Mark as watched
+  - button "See more information about The Wild Robot"
+  - group:
+    - img "Barry Lyndon (1975)"
+    - button "Add to Watchlist"
+    - link "View title page for Barry Lyndon":
+      - /url: /title/tt0072684/?ref_=chttp_i_182
+  - text: "#182"
+  - link "Barry Lyndon":
+    - /url: /title/tt0072684/?ref_=chttp_t_182
+    - heading "Barry Lyndon" [level=3]
+  - text: 1975 3h 5m PG 8.1 (205K)
+  - button "Rate Barry Lyndon": Rate
+  - button "Mark Barry Lyndon as watched": Mark as watched
+  - button "See more information about Barry Lyndon"
+  - group:
+    - img "Joel Edgerton and Tom Hardy in Warrior (2011)"
+    - button "Add to Watchlist"
+    - link "View title page for Warrior":
+      - /url: /title/tt1291584/?ref_=chttp_i_183
+  - text: "#183"
+  - link "Warrior":
+    - /url: /title/tt1291584/?ref_=chttp_t_183
+    - heading "Warrior" [level=3]
+  - text: 2011 2h 20m PG-13 8.1 (529K)
+  - button "Rate Warrior": Rate
+  - button "Mark Warrior as watched": Mark as watched
+  - button "See more information about Warrior"
+  - group:
+    - img "Ben-Hur (1959)"
+    - button "Add to Watchlist"
+    - link "View title page for Ben-Hur":
+      - /url: /title/tt0052618/?ref_=chttp_i_184
+  - text: "#184"
+  - link "Ben-Hur":
+    - /url: /title/tt0052618/?ref_=chttp_t_184
+    - heading "Ben-Hur" [level=3]
+  - text: 1959 3h 32m G 8.1 (272K)
+  - button "Rate Ben-Hur": Rate
+  - button "Mark Ben-Hur as watched": Mark as watched
+  - button "See more information about Ben-Hur"
+  - group:
+    - img "Fargo (1996)"
+    - button "Add to Watchlist"
+    - link "View title page for Fargo":
+      - /url: /title/tt0116282/?ref_=chttp_i_185
+  - text: "#185"
+  - link "Fargo":
+    - /url: /title/tt0116282/?ref_=chttp_t_185
+    - heading "Fargo" [level=3]
+  - text: 1996 1h 38m R 8.1 (788K)
+  - button "Rate Fargo": Rate
+  - button "Mark Fargo as watched": Mark as watched
+  - button "See more information about Fargo"
+  - group:
+    - img "Clint Eastwood, Morgan Freeman, and Hilary Swank in Million Dollar Baby (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Million Dollar Baby":
+      - /url: /title/tt0405159/?ref_=chttp_i_186
+  - text: "#186"
+  - link "Million Dollar Baby":
+    - /url: /title/tt0405159/?ref_=chttp_t_186
+    - heading "Million Dollar Baby" [level=3]
+  - text: 2004 2h 12m PG-13 8.1 (767K)
+  - button "Rate Million Dollar Baby": Rate
+  - button "Mark Million Dollar Baby as watched": Mark as watched
+  - button "See more information about Million Dollar Baby"
+  - group:
+    - 'img "Charlize Theron and Tom Hardy in Mad Max: Fury Road (2015)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Mad Max: Fury Road"':
+      - /url: /title/tt1392190/?ref_=chttp_i_187
+  - text: "#187"
+  - 'link "Mad Max: Fury Road"':
+    - /url: /title/tt1392190/?ref_=chttp_t_187
+    - 'heading "Mad Max: Fury Road" [level=3]'
+  - text: 2015 2h R 8.1 (1.2M)
+  - 'button "Rate Mad Max: Fury Road"': Rate
+  - 'button "Mark Mad Max: Fury Road as watched"': Mark as watched
+  - 'button "See more information about Mad Max: Fury Road"'
+  - group:
+    - img "Andrew Garfield in Hacksaw Ridge (2016)"
+    - button "Add to Watchlist"
+    - link "View title page for Hacksaw Ridge":
+      - /url: /title/tt2119532/?ref_=chttp_i_188
+  - text: "#188"
+  - link "Hacksaw Ridge":
+    - /url: /title/tt2119532/?ref_=chttp_t_188
+    - heading "Hacksaw Ridge" [level=3]
+  - text: 2016 2h 19m R 8.1 (683K)
+  - button "Rate Hacksaw Ridge": Rate
+  - button "Mark Hacksaw Ridge as watched": Mark as watched
+  - button "See more information about Hacksaw Ridge"
+  - group:
+    - img "Children of Heaven (1997)"
+    - button "Add to Watchlist"
+    - link "View title page for Children of Heaven":
+      - /url: /title/tt0118849/?ref_=chttp_i_189
+  - text: "#189"
+  - link "Children of Heaven":
+    - /url: /title/tt0118849/?ref_=chttp_t_189
+    - heading "Children of Heaven" [level=3]
+  - text: 1997 1h 29m PG 8.2 (90K)
+  - button "Rate Children of Heaven": Rate
+  - button "Mark Children of Heaven as watched": Mark as watched
+  - button "See more information about Children of Heaven"
+  - group:
+    - img "Robert De Niro in Raging Bull (1980)"
+    - button "Add to Watchlist"
+    - link "View title page for Raging Bull":
+      - /url: /title/tt0081398/?ref_=chttp_i_190
+  - text: "#190"
+  - link "Raging Bull":
+    - /url: /title/tt0081398/?ref_=chttp_t_190
+    - heading "Raging Bull" [level=3]
+  - text: 1980 2h 9m R 8.1 (411K)
+  - button "Rate Raging Bull": Rate
+  - button "Mark Raging Bull as watched": Mark as watched
+  - button "See more information about Raging Bull"
+  - group:
+    - img "My Neighbor Totoro (1988)"
+    - button "Add to Watchlist"
+    - link "View title page for My Neighbor Totoro":
+      - /url: /title/tt0096283/?ref_=chttp_i_191
+  - text: "#191"
+  - link "My Neighbor Totoro":
+    - /url: /title/tt0096283/?ref_=chttp_t_191
+    - heading "My Neighbor Totoro" [level=3]
+  - text: 1988 1h 26m G 8.1 (432K)
+  - button "Rate My Neighbor Totoro": Rate
+  - button "Mark My Neighbor Totoro as watched": Mark as watched
+  - button "See more information about My Neighbor Totoro"
+  - group:
+    - img "Clint Eastwood in Gran Torino (2008)"
+    - button "Add to Watchlist"
+    - link "View title page for Gran Torino":
+      - /url: /title/tt1205489/?ref_=chttp_i_192
+  - text: "#192"
+  - link "Gran Torino":
+    - /url: /title/tt1205489/?ref_=chttp_t_192
+    - heading "Gran Torino" [level=3]
+  - text: 2008 1h 56m R 8.1 (863K)
+  - button "Rate Gran Torino": Rate
+  - button "Mark Gran Torino as watched": Mark as watched
+  - button "See more information about Gran Torino"
+  - group:
+    - img "Janeane Garofalo, Ian Holm, Brian Dennehy, John Ratzenberger, James Remar, Will Arnett, Brad Garrett, Kathy Griffin, Brad Bird, Lindsey Collins, Walt Dohrn, Tony Fucile, Michael Giacchino, Bradford Lewis, Danny Mann, Teddy Newton, Patton Oswalt, Lou Romano, Peter Sohn, Jake Steinfeld, Stéphane Roux, Lori Richardson, Thomas Keller, Julius Callahan, Marco Boerries, Andrea Boerries, and Jack Bird in Ratatouille (2007)"
+    - button "Add to Watchlist"
+    - link "View title page for Ratatouille":
+      - /url: /title/tt0382932/?ref_=chttp_i_193
+  - text: "#193"
+  - link "Ratatouille":
+    - /url: /title/tt0382932/?ref_=chttp_t_193
+    - heading "Ratatouille" [level=3]
+  - text: 2007 1h 51m G 8.1 (946K)
+  - button "Rate Ratatouille": Rate
+  - button "Mark Ratatouille as watched": Mark as watched
+  - button "See more information about Ratatouille"
+  - group:
+    - img "Chiwetel Ejiofor in 12 Years a Slave (2013)"
+    - button "Add to Watchlist"
+    - link "View title page for 12 Years a Slave":
+      - /url: /title/tt2024544/?ref_=chttp_i_194
+  - text: "#194"
+  - link "12 Years a Slave":
+    - /url: /title/tt2024544/?ref_=chttp_t_194
+    - heading "12 Years a Slave" [level=3]
+  - text: 2013 2h 14m R 8.1 (788K)
+  - button "Rate 12 Years a Slave": Rate
+  - button "Mark 12 Years a Slave as watched": Mark as watched
+  - button "See more information about 12 Years a Slave"
+  - group:
+    - img "The Grand Budapest Hotel (2014)"
+    - button "Add to Watchlist"
+    - link "View title page for The Grand Budapest Hotel":
+      - /url: /title/tt2278388/?ref_=chttp_i_195
+  - text: "#195"
+  - link "The Grand Budapest Hotel":
+    - /url: /title/tt2278388/?ref_=chttp_t_195
+    - heading "The Grand Budapest Hotel" [level=3]
+  - text: 2014 1h 39m R 8.1 (973K)
+  - button "Rate The Grand Budapest Hotel": Rate
+  - button "Mark The Grand Budapest Hotel as watched": Mark as watched
+  - button "See more information about The Grand Budapest Hotel"
+  - group:
+    - img "Memories of Murder (2003)"
+    - button "Add to Watchlist"
+    - link "View title page for Memories of Murder":
+      - /url: /title/tt0353969/?ref_=chttp_i_196
+  - text: "#196"
+  - link "Memories of Murder":
+    - /url: /title/tt0353969/?ref_=chttp_t_196
+    - heading "Memories of Murder" [level=3]
+  - text: 2003 2h 11m Not Rated 8.1 (268K)
+  - button "Rate Memories of Murder": Rate
+  - button "Mark Memories of Murder as watched": Mark as watched
+  - button "See more information about Memories of Murder"
+  - group:
+    - img "Ethan Hawke and Julie Delpy in Before Sunrise (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for Before Sunrise":
+      - /url: /title/tt0112471/?ref_=chttp_i_197
+  - text: "#197"
+  - link "Before Sunrise":
+    - /url: /title/tt0112471/?ref_=chttp_t_197
+    - heading "Before Sunrise" [level=3]
+  - text: 1995 1h 41m R 8.1 (378K)
+  - button "Rate Before Sunrise": Rate
+  - button "Mark Before Sunrise as watched": Mark as watched
+  - button "See more information about Before Sunrise"
+  - group:
+    - img "Jay Baruchel and Randy Thom in How to Train Your Dragon (2010)"
+    - button "Add to Watchlist"
+    - link "View title page for How to Train Your Dragon":
+      - /url: /title/tt0892769/?ref_=chttp_i_198
+  - text: "#198"
+  - link "How to Train Your Dragon":
+    - /url: /title/tt0892769/?ref_=chttp_t_198
+    - heading "How to Train Your Dragon" [level=3]
+  - text: 2010 1h 38m PG 8.1 (895K)
+  - button "Rate How to Train Your Dragon": Rate
+  - button "Mark How to Train Your Dragon as watched": Mark as watched
+  - button "See more information about How to Train Your Dragon"
+  - group:
+    - img "Harrison Ford and Sean Young in Blade Runner (1982)"
+    - button "Add to Watchlist"
+    - link "View title page for Blade Runner":
+      - /url: /title/tt0083658/?ref_=chttp_i_199
+  - text: "#199"
+  - link "Blade Runner":
+    - /url: /title/tt0083658/?ref_=chttp_t_199
+    - heading "Blade Runner" [level=3]
+  - text: 1982 1h 57m R 8.1 (883K)
+  - button "Rate Blade Runner": Rate
+  - button "Mark Blade Runner as watched": Mark as watched
+  - button "See more information about Blade Runner"
+  - group:
+    - img "Billy Crystal and John Goodman in Monsters, Inc. (2001)"
+    - button "Add to Watchlist"
+    - link "View title page for Monsters, Inc.":
+      - /url: /title/tt0198781/?ref_=chttp_i_200
+  - text: "#200"
+  - link "Monsters, Inc.":
+    - /url: /title/tt0198781/?ref_=chttp_t_200
+    - heading "Monsters, Inc." [level=3]
+  - text: 2001 1h 32m G 8.1 (1.1M)
+  - button "Rate Monsters, Inc.": Rate
+  - button "Mark Monsters, Inc. as watched": Mark as watched
+  - button "See more information about Monsters, Inc."
+  - group:
+    - img "Ben Affleck and Rosamund Pike in Gone Girl (2014)"
+    - button "Add to Watchlist"
+    - link "View title page for Gone Girl":
+      - /url: /title/tt2267998/?ref_=chttp_i_201
+  - text: "#201"
+  - link "Gone Girl":
+    - /url: /title/tt2267998/?ref_=chttp_t_201
+    - heading "Gone Girl" [level=3]
+  - text: 2014 2h 29m R 8.1 (1.2M)
+  - button "Rate Gone Girl": Rate
+  - button "Mark Gone Girl as watched": Mark as watched
+  - button "See more information about Gone Girl"
+  - group:
+    - 'img "Willem Dafoe, Alfred Molina, Thomas Haden Church, Jamie Foxx, Rhys Ifans, Benedict Cumberbatch, Zendaya, and Tom Holland in Spider-Man: No Way Home (2021)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Spider-Man: No Way Home"':
+      - /url: /title/tt10872600/?ref_=chttp_i_202
+  - text: "#202"
+  - 'link "Spider-Man: No Way Home"':
+    - /url: /title/tt10872600/?ref_=chttp_t_202
+    - 'heading "Spider-Man: No Way Home" [level=3]'
+  - text: 2021 2h 28m PG-13 8.1 (1M)
+  - 'button "Rate Spider-Man: No Way Home"': Rate
+  - 'button "Mark Spider-Man: No Way Home as watched"': Mark as watched
+  - 'button "See more information about Spider-Man: No Way Home"'
+  - group:
+    - img "Susan Backlinie and Bruce in Jaws (1975)"
+    - button "Add to Watchlist"
+    - link "View title page for Jaws":
+      - /url: /title/tt0073195/?ref_=chttp_i_203
+  - text: "#203"
+  - link "Jaws":
+    - /url: /title/tt0073195/?ref_=chttp_t_203
+    - heading "Jaws" [level=3]
+  - text: 1975 2h 4m PG 8.1 (738K)
+  - button "Rate Jaws": Rate
+  - button "Mark Jaws as watched": Mark as watched
+  - button "See more information about Jaws"
+  - group:
+    - img "Christian Bale and Matt Damon in Ford v Ferrari (2019)"
+    - button "Add to Watchlist"
+    - link "View title page for Ford v Ferrari":
+      - /url: /title/tt1950186/?ref_=chttp_i_204
+  - text: "#204"
+  - link "Ford v Ferrari":
+    - /url: /title/tt1950186/?ref_=chttp_t_204
+    - heading "Ford v Ferrari" [level=3]
+  - text: 2019 2h 32m PG-13 8.1 (573K)
+  - button "Rate Ford v Ferrari": Rate
+  - button "Mark Ford v Ferrari as watched": Mark as watched
+  - button "See more information about Ford v Ferrari"
+  - group:
+    - img "Daniel Day-Lewis in In the Name of the Father (1993)"
+    - button "Add to Watchlist"
+    - link "View title page for In the Name of the Father":
+      - /url: /title/tt0107207/?ref_=chttp_i_205
+  - text: "#205"
+  - link "In the Name of the Father":
+    - /url: /title/tt0107207/?ref_=chttp_t_205
+    - heading "In the Name of the Father" [level=3]
+  - text: 1993 2h 13m R 8.1 (203K)
+  - button "Rate In the Name of the Father": Rate
+  - button "Mark In the Name of the Father as watched": Mark as watched
+  - button "See more information about In the Name of the Father"
+  - group:
+    - img "Rita Cortese, Ricardo Darín, Diego Gentile, Darío Grandinetti, Oscar Martínez, María Marull, Erica Rivas, Leonardo Sbaraglia, Mónica Villa, María Onetto, and Julieta Zylberberg in Wild Tales (2014)"
+    - button "Add to Watchlist"
+    - link "View title page for Wild Tales":
+      - /url: /title/tt3011894/?ref_=chttp_i_206
+  - text: "#206"
+  - link "Wild Tales":
+    - /url: /title/tt3011894/?ref_=chttp_t_206
+    - heading "Wild Tales" [level=3]
+  - text: 2014 2h 2m R 8.1 (239K)
+  - button "Rate Wild Tales": Rate
+  - button "Mark Wild Tales as watched": Mark as watched
+  - button "See more information about Wild Tales"
+  - group:
+    - img "The Chaos Class Failed the Class (1975)"
+    - button "Add to Watchlist"
+    - link "View title page for The Chaos Class Failed the Class":
+      - /url: /title/tt0252488/?ref_=chttp_i_207
+  - text: "#207"
+  - link "The Chaos Class Failed the Class":
+    - /url: /title/tt0252488/?ref_=chttp_t_207
+    - heading "The Chaos Class Failed the Class" [level=3]
+  - text: 1975 1h 35m 8.4 (31K)
+  - button "Rate The Chaos Class Failed the Class": Rate
+  - button "Mark The Chaos Class Failed the Class as watched": Mark as watched
+  - button "See more information about The Chaos Class Failed the Class"
+  - group:
+    - img "Charles Chaplin in The Gold Rush (1925)"
+    - button "Add to Watchlist"
+    - link "View title page for The Gold Rush":
+      - /url: /title/tt0015864/?ref_=chttp_i_208
+  - text: "#208"
+  - link "The Gold Rush":
+    - /url: /title/tt0015864/?ref_=chttp_t_208
+    - heading "The Gold Rush" [level=3]
+  - text: 1925 1h 35m Approved 8.1 (128K)
+  - button "Rate The Gold Rush": Rate
+  - button "Mark The Gold Rush as watched": Mark as watched
+  - button "See more information about The Gold Rush"
+  - group:
+    - img "Buster Keaton in Sherlock Jr. (1924)"
+    - button "Add to Watchlist"
+    - link "View title page for Sherlock Jr.":
+      - /url: /title/tt0015324/?ref_=chttp_i_209
+  - text: "#209"
+  - link "Sherlock Jr.":
+    - /url: /title/tt0015324/?ref_=chttp_t_209
+    - heading "Sherlock Jr." [level=3]
+  - text: 1924 45m Passed 8.1 (66K)
+  - button "Rate Sherlock Jr.": Rate
+  - button "Mark Sherlock Jr. as watched": Mark as watched
+  - button "See more information about Sherlock Jr."
+  - group:
+    - img "Mary and Max (2009)"
+    - button "Add to Watchlist"
+    - link "View title page for Mary and Max":
+      - /url: /title/tt0978762/?ref_=chttp_i_210
+  - text: "#210"
+  - link "Mary and Max":
+    - /url: /title/tt0978762/?ref_=chttp_t_210
+    - heading "Mary and Max" [level=3]
+  - text: 2009 1h 32m Not Rated 8.1 (202K)
+  - button "Rate Mary and Max": Rate
+  - button "Mark Mary and Max as watched": Mark as watched
+  - button "See more information about Mary and Max"
+  - group:
+    - img "Robert De Niro in The Deer Hunter (1978)"
+    - button "Add to Watchlist"
+    - link "View title page for The Deer Hunter":
+      - /url: /title/tt0077416/?ref_=chttp_i_211
+  - text: "#211"
+  - link "The Deer Hunter":
+    - /url: /title/tt0077416/?ref_=chttp_t_211
+    - heading "The Deer Hunter" [level=3]
+  - text: 1978 3h 3m R 8.1 (387K)
+  - button "Rate The Deer Hunter": Rate
+  - button "Mark The Deer Hunter as watched": Mark as watched
+  - button "See more information about The Deer Hunter"
+  - group:
+    - img "The Wages of Fear (1953)"
+    - button "Add to Watchlist"
+    - link "View title page for The Wages of Fear":
+      - /url: /title/tt0046268/?ref_=chttp_i_212
+  - text: "#212"
+  - link "The Wages of Fear":
+    - /url: /title/tt0046268/?ref_=chttp_t_212
+    - heading "The Wages of Fear" [level=3]
+  - text: 1953 2h 36m Not Rated 8.1 (74K)
+  - button "Rate The Wages of Fear": Rate
+  - button "Mark The Wages of Fear as watched": Mark as watched
+  - button "See more information about The Wages of Fear"
+  - group:
+    - img "Buster Keaton in The General (1926)"
+    - button "Add to Watchlist"
+    - link "View title page for The General":
+      - /url: /title/tt0017925/?ref_=chttp_i_213
+  - text: "#213"
+  - link "The General":
+    - /url: /title/tt0017925/?ref_=chttp_t_213
+    - heading "The General" [level=3]
+  - text: 1926 1h 18m Passed 8.1 (106K)
+  - button "Rate The General": Rate
+  - button "Mark The General as watched": Mark as watched
+  - button "See more information about The General"
+  - group:
+    - img "Sylvester Stallone and Talia Shire in Rocky (1976)"
+    - button "Add to Watchlist"
+    - link "View title page for Rocky":
+      - /url: /title/tt0075148/?ref_=chttp_i_214
+  - text: "#214"
+  - link "Rocky":
+    - /url: /title/tt0075148/?ref_=chttp_t_214
+    - heading "Rocky" [level=3]
+  - text: 1976 2h PG 8.1 (690K)
+  - button "Rate Rocky": Rate
+  - button "Mark Rocky as watched": Mark as watched
+  - button "See more information about Rocky"
+  - group:
+    - img "Hugh Jackman in Logan (2017)"
+    - button "Add to Watchlist"
+    - link "View title page for Logan":
+      - /url: /title/tt3315342/?ref_=chttp_i_215
+  - text: "#215"
+  - link "Logan":
+    - /url: /title/tt3315342/?ref_=chttp_t_215
+    - heading "Logan" [level=3]
+  - text: 2017 2h 17m R 8.1 (927K)
+  - button "Rate Logan": Rate
+  - button "Mark Logan as watched": Mark as watched
+  - button "See more information about Logan"
+  - group:
+    - img "James Stewart, Jean Arthur, Claude Rains, Edward Arnold, Beulah Bondi, Guy Kibbee, Thomas Mitchell, and Eugene Pallette in Mr. Smith Goes to Washington (1939)"
+    - button "Add to Watchlist"
+    - link "View title page for Mr. Smith Goes to Washington":
+      - /url: /title/tt0031679/?ref_=chttp_i_216
+  - text: "#216"
+  - link "Mr. Smith Goes to Washington":
+    - /url: /title/tt0031679/?ref_=chttp_t_216
+    - heading "Mr. Smith Goes to Washington" [level=3]
+  - text: 1939 2h 9m Approved 8.1 (130K)
+  - button "Rate Mr. Smith Goes to Washington": Rate
+  - button "Mark Mr. Smith Goes to Washington as watched": Mark as watched
+  - button "See more information about Mr. Smith Goes to Washington"
+  - group:
+    - 'img "Johnny Depp, Geoffrey Rush, Orlando Bloom, and Keira Knightley in Pirates of the Caribbean: The Curse of the Black Pearl (2003)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Pirates of the Caribbean: The Curse of the Black Pearl"':
+      - /url: /title/tt0325980/?ref_=chttp_i_217
+  - text: "#217"
+  - 'link "Pirates of the Caribbean: The Curse of the Black Pearl"':
+    - /url: /title/tt0325980/?ref_=chttp_t_217
+    - 'heading "Pirates of the Caribbean: The Curse of the Black Pearl" [level=3]'
+  - text: 2003 2h 23m PG-13 8.1 (1.3M)
+  - 'button "Rate Pirates of the Caribbean: The Curse of the Black Pearl"': Rate
+  - 'button "Mark Pirates of the Caribbean: The Curse of the Black Pearl as watched"': Mark as watched
+  - 'button "See more information about Pirates of the Caribbean: The Curse of the Black Pearl"'
+  - group:
+    - 'img "A Silent Voice: The Movie (2016)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for A Silent Voice: The Movie"':
+      - /url: /title/tt5323662/?ref_=chttp_i_218
+  - text: "#218"
+  - 'link "A Silent Voice: The Movie"':
+    - /url: /title/tt5323662/?ref_=chttp_t_218
+    - 'heading "A Silent Voice: The Movie" [level=3]'
+  - text: 2016 2h 10m Not Rated 8.2 (143K)
+  - 'button "Rate A Silent Voice: The Movie"': Rate
+  - 'button "Mark A Silent Voice: The Movie as watched"': Mark as watched
+  - 'button "See more information about A Silent Voice: The Movie"'
+  - group:
+    - img "Setsuko Hara and Chishū Ryū in Tokyo Story (1953)"
+    - button "Add to Watchlist"
+    - link "View title page for Tokyo Story":
+      - /url: /title/tt0046438/?ref_=chttp_i_219
+  - text: "#219"
+  - link "Tokyo Story":
+    - /url: /title/tt0046438/?ref_=chttp_t_219
+    - heading "Tokyo Story" [level=3]
+  - text: 1953 2h 17m Not Rated 8.1 (78K)
+  - button "Rate Tokyo Story": Rate
+  - button "Mark Tokyo Story as watched": Mark as watched
+  - button "See more information about Tokyo Story"
+  - group:
+    - img "Marlon Brando in On the Waterfront (1954)"
+    - button "Add to Watchlist"
+    - link "View title page for On the Waterfront":
+      - /url: /title/tt0047296/?ref_=chttp_i_220
+  - text: "#220"
+  - link "On the Waterfront":
+    - /url: /title/tt0047296/?ref_=chttp_t_220
+    - heading "On the Waterfront" [level=3]
+  - text: 1954 1h 48m Approved 8.1 (178K)
+  - button "Rate On the Waterfront": Rate
+  - button "Mark On the Waterfront as watched": Mark as watched
+  - button "See more information about On the Waterfront"
+  - group:
+    - 'img "Chainsaw Man - The Movie: Reze Arc (2025)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Chainsaw Man - The Movie: Reze Arc"':
+      - /url: /title/tt30472557/?ref_=chttp_i_221
+  - text: "#221"
+  - 'link "Chainsaw Man - The Movie: Reze Arc"':
+    - /url: /title/tt30472557/?ref_=chttp_t_221
+    - 'heading "Chainsaw Man - The Movie: Reze Arc" [level=3]'
+  - text: 2025 1h 40m R 8.3 (57K)
+  - 'button "Rate Chainsaw Man - The Movie: Reze Arc"': Rate
+  - 'button "Mark Chainsaw Man - The Movie: Reze Arc as watched"': Mark as watched
+  - 'button "See more information about Chainsaw Man - The Movie: Reze Arc"'
+  - group:
+    - img "Vincent Cassel in La haine (1995)"
+    - button "Add to Watchlist"
+    - link "View title page for La haine":
+      - /url: /title/tt0113247/?ref_=chttp_i_222
+  - text: "#222"
+  - link "La haine":
+    - /url: /title/tt0113247/?ref_=chttp_t_222
+    - heading "La haine" [level=3]
+  - text: 1995 1h 38m Not Rated 8.1 (227K)
+  - button "Rate La haine": Rate
+  - button "Mark La haine as watched": Mark as watched
+  - button "See more information about La haine"
+  - group:
+    - img "Michael Keaton, Liev Schreiber, Brian d'Arcy James, Mark Ruffalo, and Rachel McAdams in Spotlight (2015)"
+    - button "Add to Watchlist"
+    - link "View title page for Spotlight":
+      - /url: /title/tt1895587/?ref_=chttp_i_223
+  - text: "#223"
+  - link "Spotlight":
+    - /url: /title/tt1895587/?ref_=chttp_t_223
+    - heading "Spotlight" [level=3]
+  - text: 2015 2h 9m R 8.1 (536K)
+  - button "Rate Spotlight": Rate
+  - button "Mark Spotlight as watched": Mark as watched
+  - button "See more information about Spotlight"
+  - group:
+    - img "Wild Strawberries (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for Wild Strawberries":
+      - /url: /title/tt0050986/?ref_=chttp_i_224
+  - text: "#224"
+  - link "Wild Strawberries":
+    - /url: /title/tt0050986/?ref_=chttp_t_224
+    - heading "Wild Strawberries" [level=3]
+  - text: 1957 1h 32m Not Rated 8.1 (125K)
+  - button "Rate Wild Strawberries": Rate
+  - button "Mark Wild Strawberries as watched": Mark as watched
+  - button "See more information about Wild Strawberries"
+  - group:
+    - img "Julie Andrews, Christopher Plummer, Charmian Carr, Angela Cartwright, Duane Chase, Nicholas Hammond, Kym Karath, Heather Menzies, and Debbie Turner in The Sound of Music (1965)"
+    - button "Add to Watchlist"
+    - link "View title page for The Sound of Music":
+      - /url: /title/tt0059742/?ref_=chttp_i_225
+  - text: "#225"
+  - link "The Sound of Music":
+    - /url: /title/tt0059742/?ref_=chttp_t_225
+    - heading "The Sound of Music" [level=3]
+  - text: 1965 2h 54m G 8.1 (292K)
+  - button "Rate The Sound of Music": Rate
+  - button "Mark The Sound of Music as watched": Mark as watched
+  - button "See more information about The Sound of Music"
+  - group:
+    - img "Arnold Schwarzenegger in The Terminator (1984)"
+    - button "Add to Watchlist"
+    - link "View title page for The Terminator":
+      - /url: /title/tt0088247/?ref_=chttp_i_226
+  - text: "#226"
+  - link "The Terminator":
+    - /url: /title/tt0088247/?ref_=chttp_t_226
+    - heading "The Terminator" [level=3]
+  - text: 1984 1h 47m R 8.1 (1M)
+  - button "Rate The Terminator": Rate
+  - button "Mark The Terminator as watched": Mark as watched
+  - button "See more information about The Terminator"
+  - group:
+    - img "Maharaja (2024)"
+    - button "Add to Watchlist"
+    - link "View title page for Maharaja":
+      - /url: /title/tt26548265/?ref_=chttp_i_227
+  - text: "#227"
+  - link "Maharaja":
+    - /url: /title/tt26548265/?ref_=chttp_t_227
+    - heading "Maharaja" [level=3]
+  - text: 2024 2h 21m 8.3 (82K)
+  - button "Rate Maharaja": Rate
+  - button "Mark Maharaja as watched": Mark as watched
+  - button "See more information about Maharaja"
+  - group:
+    - img "Suriya and Lijo Mol Jose in Jai Bhim (2021)"
+    - button "Add to Watchlist"
+    - link "View title page for Jai Bhim":
+      - /url: /title/tt15097216/?ref_=chttp_i_228
+  - text: "#228"
+  - link "Jai Bhim":
+    - /url: /title/tt15097216/?ref_=chttp_t_228
+    - heading "Jai Bhim" [level=3]
+  - text: 2021 2h 44m Approved 8.6 (234K)
+  - button "Rate Jai Bhim": Rate
+  - button "Mark Jai Bhim as watched": Mark as watched
+  - button "See more information about Jai Bhim"
+  - group:
+    - img "The Third Man (1949)"
+    - button "Add to Watchlist"
+    - link "View title page for The Third Man":
+      - /url: /title/tt0041959/?ref_=chttp_i_229
+  - text: "#229"
+  - link "The Third Man":
+    - /url: /title/tt0041959/?ref_=chttp_t_229
+    - heading "The Third Man" [level=3]
+  - text: 1949 1h 44m Approved 8.1 (196K)
+  - button "Rate The Third Man": Rate
+  - button "Mark The Third Man as watched": Mark as watched
+  - button "See more information about The Third Man"
+  - group:
+    - img "Dana Andrews, Myrna Loy, Fredric March, Virginia Mayo, and Teresa Wright in The Best Years of Our Lives (1946)"
+    - button "Add to Watchlist"
+    - link "View title page for The Best Years of Our Lives":
+      - /url: /title/tt0036868/?ref_=chttp_i_230
+  - text: "#230"
+  - link "The Best Years of Our Lives":
+    - /url: /title/tt0036868/?ref_=chttp_t_230
+    - heading "The Best Years of Our Lives" [level=3]
+  - text: 1946 2h 50m Approved 8.1 (77K)
+  - button "Rate The Best Years of Our Lives": Rate
+  - button "Mark The Best Years of Our Lives as watched": Mark as watched
+  - button "See more information about The Best Years of Our Lives"
+  - group:
+    - img "Julianne Moore and Jeff Bridges in The Big Lebowski (1998)"
+    - button "Add to Watchlist"
+    - link "View title page for The Big Lebowski":
+      - /url: /title/tt0118715/?ref_=chttp_i_231
+  - text: "#231"
+  - link "The Big Lebowski":
+    - /url: /title/tt0118715/?ref_=chttp_t_231
+    - heading "The Big Lebowski" [level=3]
+  - text: 1998 1h 57m R 8.1 (917K)
+  - button "Rate The Big Lebowski": Rate
+  - button "Mark The Big Lebowski as watched": Mark as watched
+  - button "See more information about The Big Lebowski"
+  - group:
+    - img "Ethan Hawke and Julie Delpy in Before Sunset (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Before Sunset":
+      - /url: /title/tt0381681/?ref_=chttp_i_232
+  - text: "#232"
+  - link "Before Sunset":
+    - /url: /title/tt0381681/?ref_=chttp_t_232
+    - heading "Before Sunset" [level=3]
+  - text: 2004 1h 20m R 8.1 (316K)
+  - button "Rate Before Sunset": Rate
+  - button "Mark Before Sunset as watched": Mark as watched
+  - button "See more information about Before Sunset"
+  - group:
+    - img "Brie Larson and Jacob Tremblay in Room (2015)"
+    - button "Add to Watchlist"
+    - link "View title page for Room":
+      - /url: /title/tt3170832/?ref_=chttp_i_233
+  - text: "#233"
+  - link "Room":
+    - /url: /title/tt3170832/?ref_=chttp_t_233
+    - heading "Room" [level=3]
+  - text: 2015 1h 58m R 8.1 (481K)
+  - button "Rate Room": Rate
+  - button "Mark Room as watched": Mark as watched
+  - button "See more information about Room"
+  - group:
+    - img "Samuel L. Jackson, Holly Hunter, Jason Lee, Craig T. Nelson, Brad Bird, Sarah Vowell, and Spencer Fox in The Incredibles (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for The Incredibles":
+      - /url: /title/tt0317705/?ref_=chttp_i_234
+  - text: "#234"
+  - link "The Incredibles":
+    - /url: /title/tt0317705/?ref_=chttp_t_234
+    - heading "The Incredibles" [level=3]
+  - text: 2004 1h 55m PG 8.0 (902K)
+  - button "Rate The Incredibles": Rate
+  - button "Mark The Incredibles as watched": Mark as watched
+  - button "See more information about The Incredibles"
+  - group:
+    - img "The Seventh Seal (1957)"
+    - button "Add to Watchlist"
+    - link "View title page for The Seventh Seal":
+      - /url: /title/tt0050976/?ref_=chttp_i_235
+  - text: "#235"
+  - link "The Seventh Seal":
+    - /url: /title/tt0050976/?ref_=chttp_t_235
+    - heading "The Seventh Seal" [level=3]
+  - text: 1957 1h 36m Not Rated 8.1 (216K)
+  - button "Rate The Seventh Seal": Rate
+  - button "Mark The Seventh Seal as watched": Mark as watched
+  - button "See more information about The Seventh Seal"
+  - group:
+    - 'img "Richard Gere in Hachi: A Dog''s Tale (2009)"'
+    - button "Add to Watchlist"
+    - 'link "View title page for Hachi: A Dog''s Tale"':
+      - /url: /title/tt1028532/?ref_=chttp_i_236
+  - text: "#236"
+  - 'link "Hachi: A Dog''s Tale"':
+    - /url: /title/tt1028532/?ref_=chttp_t_236
+    - 'heading "Hachi: A Dog''s Tale" [level=3]'
+  - text: 2009 1h 33m G 8.1 (343K)
+  - 'button "Rate Hachi: A Dog''s Tale"': Rate
+  - 'button "Mark Hachi: A Dog''s Tale as watched"': Mark as watched
+  - 'button "See more information about Hachi: A Dog''s Tale"'
+  - group:
+    - img "Don Cheadle, Nick Nolte, Joaquin Phoenix, Mosa Kaiser, Sophie Okonedo, Ofentse Modiselle, and Mathabo Pieterson in Hotel Rwanda (2004)"
+    - button "Add to Watchlist"
+    - link "View title page for Hotel Rwanda":
+      - /url: /title/tt0395169/?ref_=chttp_i_237
+  - text: "#237"
+  - link "Hotel Rwanda":
+    - /url: /title/tt0395169/?ref_=chttp_t_237
+    - heading "Hotel Rwanda" [level=3]
+  - text: 2004 2h 1m PG-13 8.1 (392K)
+  - button "Rate Hotel Rwanda": Rate
+  - button "Mark Hotel Rwanda as watched": Mark as watched
+  - button "See more information about Hotel Rwanda"
+  - group:
+    - img "Charlie Sheen, Willem Dafoe, John C. McGinley, and Kevin Eshelman in Platoon (1986)"
+    - button "Add to Watchlist"
+    - link "View title page for Platoon":
+      - /url: /title/tt0091763/?ref_=chttp_i_238
+  - text: "#238"
+  - link "Platoon":
+    - /url: /title/tt0091763/?ref_=chttp_t_238
+    - heading "Platoon" [level=3]
+  - text: 1986 2h R 8.1 (473K)
+  - button "Rate Platoon": Rate
+  - button "Mark Platoon as watched": Mark as watched
+  - button "See more information about Platoon"
+  - group:
+    - img "Max von Sydow in The Exorcist (1973)"
+    - button "Add to Watchlist"
+    - link "View title page for The Exorcist":
+      - /url: /title/tt0070047/?ref_=chttp_i_239
+  - text: "#239"
+  - link "The Exorcist":
+    - /url: /title/tt0070047/?ref_=chttp_t_239
+    - heading "The Exorcist" [level=3]
+  - text: 1973 2h 2m R 8.1 (499K)
+  - button "Rate The Exorcist": Rate
+  - button "Mark The Exorcist as watched": Mark as watched
+  - button "See more information about The Exorcist"
+  - group:
+    - img "Jennifer Aniston, Harry Connick Jr., John Mahoney, Christopher McDonald, Vin Diesel, Bob Bergen, and Eli Marienthal in The Iron Giant (1999)"
+    - button "Add to Watchlist"
+    - link "View title page for The Iron Giant":
+      - /url: /title/tt0129167/?ref_=chttp_i_240
+  - text: "#240"
+  - link "The Iron Giant":
+    - /url: /title/tt0129167/?ref_=chttp_t_240
+    - heading "The Iron Giant" [level=3]
+  - text: 1999 1h 26m PG 8.1 (261K)
+  - button "Rate The Iron Giant": Rate
+  - button "Mark The Iron Giant as watched": Mark as watched
+  - button "See more information about The Iron Giant"
+  - group:
+    - img "Daniel Brühl and Chris Hemsworth in Rush (2013)"
+    - button "Add to Watchlist"
+    - link "View title page for Rush":
+      - /url: /title/tt1979320/?ref_=chttp_i_241
+  - text: "#241"
+  - link "Rush":
+    - /url: /title/tt1979320/?ref_=chttp_t_241
+    - heading "Rush" [level=3]
+  - text: 2013 2h 3m R 8.1 (560K)
+  - button "Rate Rush": Rate
+  - button "Mark Rush as watched": Mark as watched
+  - button "See more information about Rush"
+  - group:
+    - img "River Phoenix, Corey Feldman, Wil Wheaton, and Jerry O'Connell in Stand by Me (1986)"
+    - button "Add to Watchlist"
+    - link "View title page for Stand by Me":
+      - /url: /title/tt0092005/?ref_=chttp_i_242
+  - text: "#242"
+  - link "Stand by Me":
+    - /url: /title/tt0092005/?ref_=chttp_t_242
+    - heading "Stand by Me" [level=3]
+  - text: 1986 1h 29m R 8.1 (488K)
+  - button "Rate Stand by Me": Rate
+  - button "Mark Stand by Me as watched": Mark as watched
+  - button "See more information about Stand by Me"
+  - group:
+    - img "Judy Garland, Ray Bolger, Jack Haley, Bert Lahr, and Frank Morgan in The Wizard of Oz (1939)"
+    - button "Add to Watchlist"
+    - link "View title page for The Wizard of Oz":
+      - /url: /title/tt0032138/?ref_=chttp_i_243
+  - text: "#243"
+  - link "The Wizard of Oz":
+    - /url: /title/tt0032138/?ref_=chttp_t_243
+    - heading "The Wizard of Oz" [level=3]
+  - text: 1939 1h 42m G 8.1 (468K)
+  - button "Rate The Wizard of Oz": Rate
+  - button "Mark The Wizard of Oz as watched": Mark as watched
+  - button "See more information about The Wizard of Oz"
+  - group:
+    - img "Hümeyra, Fikret Kuşkan, Çetin Tekindor, Özge Özberk, and Ege Tanman in My Father and My Son (2005)"
+    - button "Add to Watchlist"
+    - link "View title page for My Father and My Son":
+      - /url: /title/tt0476735/?ref_=chttp_i_244
+  - text: "#244"
+  - link "My Father and My Son":
+    - /url: /title/tt0476735/?ref_=chttp_t_244
+    - heading "My Father and My Son" [level=3]
+  - text: 2005 1h 52m Not Rated 8.2 (101K)
+  - button "Rate My Father and My Son": Rate
+  - button "Mark My Father and My Son as watched": Mark as watched
+  - button "See more information about My Father and My Son"
+  - group:
+    - img "Fouzia El Kader, Brahim Hadjadj, and Jean Martin in The Battle of Algiers (1966)"
+    - button "Add to Watchlist"
+    - link "View title page for The Battle of Algiers":
+      - /url: /title/tt0058946/?ref_=chttp_i_245
+  - text: "#245"
+  - link "The Battle of Algiers":
+    - /url: /title/tt0058946/?ref_=chttp_t_245
+    - heading "The Battle of Algiers" [level=3]
+  - text: 1966 2h 1m Not Rated 8.1 (76K)
+  - button "Rate The Battle of Algiers": Rate
+  - button "Mark The Battle of Algiers as watched": Mark as watched
+  - button "See more information about The Battle of Algiers"
+  - group:
+    - img "Maria Falconetti and Eugene Silvain in The Passion of Joan of Arc (1928)"
+    - button "Add to Watchlist"
+    - link "View title page for The Passion of Joan of Arc":
+      - /url: /title/tt0019254/?ref_=chttp_i_246
+  - text: "#246"
+  - link "The Passion of Joan of Arc":
+    - /url: /title/tt0019254/?ref_=chttp_t_246
+    - heading "The Passion of Joan of Arc" [level=3]
+  - text: 1928 1h 54m Passed 8.1 (68K)
+  - button "Rate The Passion of Joan of Arc": Rate
+  - button "Mark The Passion of Joan of Arc as watched": Mark as watched
+  - button "See more information about The Passion of Joan of Arc"
+  - group:
+    - img "Kim Min-hee, Ha Jung-woo, Cho Jin-woong, and Kim Tae-ri in The Handmaiden (2016)"
+    - button "Add to Watchlist"
+    - link "View title page for The Handmaiden":
+      - /url: /title/tt4016934/?ref_=chttp_i_247
+  - text: "#247"
+  - link "The Handmaiden":
+    - /url: /title/tt4016934/?ref_=chttp_t_247
+    - heading "The Handmaiden" [level=3]
+  - text: 2016 2h 25m Not Rated 8.1 (204K)
+  - button "Rate The Handmaiden": Rate
+  - button "Mark The Handmaiden as watched": Mark as watched
+  - button "See more information about The Handmaiden"
+  - group:
+    - img "Network (1976)"
+    - button "Add to Watchlist"
+    - link "View title page for Network":
+      - /url: /title/tt0074958/?ref_=chttp_i_248
+  - text: "#248"
+  - link "Network":
+    - /url: /title/tt0074958/?ref_=chttp_t_248
+    - heading "Network" [level=3]
+  - text: 1976 2h 1m R 8.1 (187K)
+  - button "Rate Network": Rate
+  - button "Mark Network as watched": Mark as watched
+  - button "See more information about Network"
+  - group:
+    - img "Tabu, Ajay Devgn, Shriya Saran, Ishita Dutta, and Mrunal Jadhav in Drishyam (2015)"
+    - button "Add to Watchlist"
+    - link "View title page for Drishyam":
+      - /url: /title/tt4430212/?ref_=chttp_i_249
+  - text: "#249"
+  - link "Drishyam":
+    - /url: /title/tt4430212/?ref_=chttp_t_249
+    - heading "Drishyam" [level=3]
+  - text: 2015 2h 43m Not Rated 8.2 (109K)
+  - button "Rate Drishyam": Rate
+  - button "Mark Drishyam as watched": Mark as watched
+  - button "See more information about Drishyam"
+  - group:
+    - img "Mohanlal, Meena, Ansiba Hassan, and Esther Anil in Drishyam (2013)"
+    - button "Add to Watchlist"
+    - link "View title page for Drishyam":
+      - /url: /title/tt3417422/?ref_=chttp_i_250
+  - text: "#250"
+  - link "Drishyam":
+    - /url: /title/tt3417422/?ref_=chttp_t_250
+    - heading "Drishyam" [level=3]
+  - text: 2013 2h 40m Not Rated 8.4 (48K)
+  - button "Rate Drishyam": Rate
+  - button "Mark Drishyam as watched": Mark as watched
+  - button "See more information about Drishyam"
+  - paragraph: The top rated movie list only includes feature films.
+  - list:
+    - listitem: Shorts, TV movies, and documentaries are not included
+    - listitem: The list is ranked by a formula which includes the number of ratings each movie received from users, and value of ratings received from regular users
+    - listitem: To be included on the list, a movie must receive ratings from at least 25000 users
+  - link "Learn more about how list ranking is determined.":
+    - /url: https://help.imdb.com/article/imdb/featured-content/why-doesn-t-a-title-with-the-average-user-vote-of-9-4-appear-in-your-top-250-movies-or-tv-list/GTU67Q5QQ8W53RJT?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1a264172-ae11-42e4-8ef7-7fed1973bb8f&pf_rd_r=YBZT6MRVGM65WJJZPKR8&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=cons_chttp_learnmore
+  - complementary "Sponsored Content":
+    - iframe
+    - button "Get information, provide feedback or report sponsored ad": SPONSORED
+  - heading "Chart insights" [level=3]
+  - text: Average IMDb rating 8.3
+  - progressbar "The average IMDb rating of titles in this chart is 8.315199999999976."
+  - heading "More to explore" [level=3]
+  - heading "Popular charts" [level=3]
+  - 'link "Top box office (US) From the past weekend 10 titles Pedro Pascal and Grogu in Star Wars: The Mandalorian and Grogu (2026)"':
+    - /url: /chart/boxoffice/?ref_=chttp_ql_1
+    - text: Top box office (US) From the past weekend 10 titles
+    - 'img "Pedro Pascal and Grogu in Star Wars: The Mandalorian and Grogu (2026)"'
+  - link "Most popular movies As determined by IMDb users 100 titles Michael Johnston and Inde Navarrette in Obsession (2025)":
+    - /url: /chart/moviemeter/?ref_=chttp_ql_2
+    - text: Most popular movies As determined by IMDb users 100 titles
+    - img "Michael Johnston and Inde Navarrette in Obsession (2025)"
+  - link "Top rated English movies English-language movies as rated by IMDb users 250 titles Tim Robbins in The Shawshank Redemption (1994)":
+    - /url: /chart/top-english-movies/?ref_=chttp_ql_4
+    - text: Top rated English movies English-language movies as rated by IMDb users 250 titles
+    - img "Tim Robbins in The Shawshank Redemption (1994)"
+  - link "Most popular TV shows As determined by IMDb users 100 titles Jensen Ackles, Antony Starr, Nathan Mitchell, Chace Crawford, Valorie Curry, Colby Minifie, Susan Heyward, and Daveed Diggs in The Boys (2019)":
+    - /url: /chart/tvmeter/?ref_=chttp_ql_5
+    - text: Most popular TV shows As determined by IMDb users 100 titles
+    - img "Jensen Ackles, Antony Starr, Nathan Mitchell, Chace Crawford, Valorie Curry, Colby Minifie, Susan Heyward, and Daveed Diggs in The Boys (2019)"
+  - link "Top 250 TV shows Top 250 as rated by IMDb Users 250 titles Bryan Cranston in Breaking Bad (2008)":
+    - /url: /chart/toptv/?ref_=chttp_ql_6
+    - text: Top 250 TV shows Top 250 as rated by IMDb Users 250 titles
+    - img "Bryan Cranston in Breaking Bad (2008)"
+  - link "Lowest rated movies Bottom 100 as voted by IMDb users 100 titles Carmen Electra, Ike Barinholtz, Tony Cox, Gerard Facchini, Roland Kickinger, Vanessa Lachey, Walter Harris, Nicole Parker, Crista Flanagan, Gary 'G. Thang' Johnson, Matt Lanter, Kim Kardashian, and Devin Crittenden in Disaster Movie (2008)":
+    - /url: /chart/bottom/?ref_=chttp_ql_7
+    - text: Lowest rated movies Bottom 100 as voted by IMDb users 100 titles
+    - img "Carmen Electra, Ike Barinholtz, Tony Cox, Gerard Facchini, Roland Kickinger, Vanessa Lachey, Walter Harris, Nicole Parker, Crista Flanagan, Gary 'G. Thang' Johnson, Matt Lanter, Kim Kardashian, and Devin Crittenden in Disaster Movie (2008)"
+  - link "Most popular celebs As determined by IMDb users 100 people Ella Bright":
+    - /url: /chart/starmeter/?ref_=chttp_ql_8
+    - text: Most popular celebs As determined by IMDb users 100 people
+    - img "Ella Bright"
+  - link "Movie news":
+    - /url: /news/movie/?ref_=chttp_sb_sm
+    - heading "Movie news" [level=3]
+  - text: "‘Paddington 4’: Armando Iannucci to Write Bear’s Next Movie, ‘Paddington in Peru’ Director Dougal Wilson in Talks to Return (Exclusive) 5/26/2026 by Alex Ritman"
+  - link "Variety - Film News":
+    - /url: https://variety.com/2026/film/global/paddington-4-movie-armando-iannucci-dougal-wilson-1236754996/
+  - img "Ben Whishaw in Paddington 2 (2017)"
+  - text: Un Certain Regard prizewinner ‘Everytime’ locks in multiple deals 5/28/2026
+  - link "ScreenDaily":
+    - /url: https://www.screendaily.com/news/un-certain-regard-prizewinner-everytime-locks-in-multiple-deals/5217223.article?referrer=RSS
+  - img "Image"
+  - text: Derek Yee, Keane T.K. Wong’s ‘Afterpiece’ to Open Shanghai Film Festival 5/28/2026 by Naman Ramachandran
+  - link "Variety - Film News":
+    - /url: https://variety.com/2026/film/festivals/derek-yee-afterpiece-shanghai-film-festival-1236760861/
+  - img "Image"
+  - text: "‘Not many people had gay dads who died of Aids’: Andrew Durham and Sofia Coppola on movie memoir Fairyland 5/28/2026 by Ryan Gilbey"
+  - link "The Guardian - Film News":
+    - /url: https://www.theguardian.com/film/2026/may/28/gay-dads-andrew-durham-sofia-coppola-interview-fairyland-aids
+  - img "Fairyland (2023)"
+  - text: "Steven Spielberg Says Hollywood Should Never ‘Use AI as the Final Word on Anything Creative’: ‘That’s Where I Draw the Line’ 5/28/2026 by Jack Dunn"
+  - link "Variety - Film News":
+    - /url: https://variety.com/2026/film/news/steven-spielberg-hollywood-ai-final-word-creative-1236760707/
+  - img "Image"
+  - heading "Top rated movies by genre" [level=3]
+  - link "Action":
+    - /url: /search/title/?genres=Action&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr
+  - link "Adventure":
+    - /url: /search/title/?genres=Adventure&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_1
+  - link "Animation":
+    - /url: /search/title/?genres=Animation&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_2
+  - link "Biography":
+    - /url: /search/title/?genres=Biography&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_3
+  - link "Comedy":
+    - /url: /search/title/?genres=Comedy&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_4
+  - link "Crime":
+    - /url: /search/title/?genres=Crime&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_5
+  - link "Documentary":
+    - /url: /search/title/?genres=Documentary&explore=genres&sort=user_rating%2Cdesc&title_type=Documentary&num_votes=25000&ref_=chttp_gnr_6
+  - link "Drama":
+    - /url: /search/title/?genres=Drama&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_7
+  - link "Family":
+    - /url: /search/title/?genres=Family&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_8
+  - link "Fantasy":
+    - /url: /search/title/?genres=Fantasy&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_9
+  - link "Film-Noir":
+    - /url: /search/title/?genres=Film-Noir&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_10
+  - link "History":
+    - /url: /search/title/?genres=History&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_11
+  - link "Horror":
+    - /url: /search/title/?genres=Horror&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_12
+  - link "Music":
+    - /url: /search/title/?genres=Music&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_13
+  - link "Musical":
+    - /url: /search/title/?genres=Musical&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_14
+  - link "Mystery":
+    - /url: /search/title/?genres=Mystery&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_15
+  - link "Romance":
+    - /url: /search/title/?genres=Romance&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_16
+  - link "Sci-Fi":
+    - /url: /search/title/?genres=Sci-Fi&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_17
+  - link "Short":
+    - /url: /search/title/?genres=Short&explore=genres&sort=user_rating%2Cdesc&title_type=Short&num_votes=25000&ref_=chttp_gnr_18
+  - link "Sport":
+    - /url: /search/title/?genres=Sport&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_19
+  - link "Thriller":
+    - /url: /search/title/?genres=Thriller&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_20
+  - link "War":
+    - /url: /search/title/?genres=War&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_21
+  - link "Western":
+    - /url: /search/title/?genres=Western&explore=genres&sort=user_rating%2Cdesc&title_type=feature&num_votes=25000&ref_=chttp_gnr_22
+- heading "Recently viewed" [level=3]
+- text: You have no recently viewed pages
+- contentinfo:
+  - link "Sign in for more access":
+    - /url: /registration/signin/?u=%2Fchart%2Ftop%2F&ref_=chttp_ftr_reg
+  - text: Follow IMDb on social
+  - link "TikTok":
+    - /url: https://www.tiktok.com/@imdb
+  - link "Instagram":
+    - /url: https://instagram.com/imdb
+  - link "Twitter":
+    - /url: https://twitter.com/imdb
+  - link "YouTube":
+    - /url: https://youtube.com/imdb/
+  - link "Facebook":
+    - /url: https://facebook.com/imdb
+  - text: Get the IMDb app For Android and iOS
+  - group:
+    - img "Get the IMDb app"
+    - link "For Android and iOS":
+      - /url: https://slyb.app.link/Aa96cLcBeAb
+  - link "Help":
+    - /url: https://help.imdb.com/imdb
+  - link "Site Index":
+    - /url: https://help.imdb.com/article/imdb/general-information/imdb-site-index/GNCX7BHNSPBTFALQ#so
+  - link "IMDbPro":
+    - /url: https://pro.imdb.com?ref_=cons_tf_pro&rf=cons_tf_pro
+  - link "Box Office Mojo":
+    - /url: https://www.boxofficemojo.com
+  - link "License IMDb Data":
+    - /url: https://developer.imdb.com/
+  - link "Press Room":
+    - /url: /pressroom/?ref_=chttp_ftr
+  - link "Advertising":
+    - /url: https://advertising.amazon.com/resources/ad-specs/imdb/
+  - link "Jobs":
+    - /url: https://www.amazon.jobs/en/teams/imdb
+  - link "Conditions of Use":
+    - /url: /conditions/?ref_=chttp_ftr
+  - link "Privacy Policy":
+    - /url: /privacy/?ref_=chttp_ftr
+  - link "Your Ads Privacy Choices":
+    - /url: /privacy/redirect/?ref_=chttp_ftr
+    - img
+  - link "Your Ads Privacy Choices":
+    - /url: /privacy/redirect/?ref_=chttp_ftr
+  - img "IMDb, an Amazon company"
+  - paragraph: © 1990-2026 by IMDb.com, Inc.
+- button "Back to top"
+- img
+- status
+- img
+- alert
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect } from '@playwright/test';
+  2   | 
+  3   | test.describe('IMDb Top 250 Movies', () => {
+  4   | test.beforeEach(async ({ page }) => {
+  5   |   await page.goto('https://www.imdb.com/chart/top/');
+  6   | });
+  7   | 
+  8   | test.afterEach(async ({ page }) => {
+  9   |     console.log('Test completed');
+  10  | });
+  11  | 
+  12  |   // // 1. Verify Top 250 page opens successfully
+  13  |   // test('Top 250 page opens', async ({ page }) => {
+  14  |   //   await expect(page).toHaveURL(/top/);
+  15  |   // });
+  16  | 
+  17  |   // // 2. Verify movie list is displayed
+  18  |   // test('Movie list is visible', async ({ page }) => {
+  19  |   //   const movies = page.locator('li.ipc-metadata-list-summary-item');
+  20  |   //   await expect(movies.first()).toBeVisible();
+  21  |   // });
+  22  | 
+  23  |   // // 3. Verify ranking numbers are visible
+  24  |   // test('Ranking numbers are visible', async ({ page }) => {
+  25  |   //   const rank = page.locator('h3').first();
+  26  |   //   await expect(rank).toBeVisible();
+  27  |   // });
+  28  | 
+  29  |   // // 4. Verify movie titles are displayed
+  30  |   // test('Movie titles are displayed', async ({ page }) => {
+  31  |   //   const title = page.locator('h3').first();
+  32  |   //   await expect(title).toContainText(/\w+/);
+  33  |   // });
+  34  | 
+  35  |   // // 5. Verify movie ratings are visible
+  36  |   // test('Movie ratings are visible', async ({ page }) => {
+  37  |   //   const rating = page.locator('[data-testid="ratingGroup--imdb-rating"]');
+  38  |   //   await expect(rating.first()).toBeVisible();
+  39  |   // });
+  40  | 
+  41  |   // // 6. Verify release years are shown
+  42  |   // test('Release year is displayed', async ({ page }) => {
+  43  |   //   const year = page.locator('.cli-title-metadata');
+  44  |   //   await expect(year.first()).toBeVisible();
+  45  |   // });
+  46  | 
+  47  |   // 7. Verify movie posters load correctly
+  48  |   test('movie posters load correctly', async ({ page }) => {
+  49  |     await page.goto('https://www.imdb.com/chart/top/')
+  50  |     await page.getByRole('link', { name: '12 Angry Men', exact: true }).click();
+> 51  |     await expect(page.getByRole('link', { name: 'View ’12 Angry Men’ Poster' })).toBeVisible();
+      |                                                                                  ^ Error: expect(locator).toBeVisible() failed
+  52  |   });
+  53  | 
+  54  | 
+  55  |   // // 8. Verify clicking movie opens detail page
+  56  |   // test('Open movie details page', async ({ page }) => {
+  57  |   //   await page.locator('h3').first().click();
+  58  |   //   await expect(page).toHaveURL(/title/);
+  59  |   // });
+  60  | 
+  61  |   // // 9. Verify ranking order is sequential
+  62  |   // test('Ranking order starts from 1', async ({ page }) => {
+  63  |   //   const firstMovie = await page.locator('h3').first().textContent();
+  64  |   //   expect(firstMovie).toContain('1.');
+  65  |   // });
+  66  | 
+  67  |   // // 10. Verify ratings are valid values
+  68  |   // test('Ratings are valid', async ({ page }) => {
+  69  |   //   const rating = await page.locator('[data-testid="ratingGroup--imdb-rating"]').first().textContent();
+  70  |   //   expect(parseFloat(rating)).toBeGreaterThan(0);
+  71  |   // });
+  72  | 
+  73  |   // // 11. Verify search within Top 250 works
+  74  |   // test('Search movie from Top 250', async ({ page }) => {
+  75  |   //   await page.getByPlaceholder('Search IMDb').fill('The Dark Knight');
+  76  |   //   await page.keyboard.press('Enter');
+  77  |   //   await expect(page).toHaveURL(/find/);
+  78  |   // });
+  79  | 
+  80  |   // // 12. Verify page scroll behavior
+  81  |   // test('Page scroll works', async ({ page }) => {
+  82  |   //   await page.mouse.wheel(0, 3000);
+  83  |   //   await page.waitForTimeout(2000);
+  84  |   // });
+  85  | 
+  86  |   // // 13. Verify page reload keeps data intact
+  87  |   // test('Page reload works properly', async ({ page }) => {
+  88  |   //   await page.reload();
+  89  |   //   const movies = page.locator('li.ipc-metadata-list-summary-item');
+  90  |   //   await expect(movies.first()).toBeVisible();
+  91  |   // });
+  92  | 
+  93  |   // // 14. Verify no duplicate movie entries exist
+  94  |   // test('No duplicate movie titles', async ({ page }) => {
+  95  |   //   const titles = await page.locator('h3').allTextContents();
+  96  |   //   const uniqueTitles = [...new Set(titles)];
+  97  |   //   expect(titles.length).toBe(uniqueTitles.length);
+  98  |   // });
+  99  | 
+  100 |   // // 15. Verify URL is correct after navigation
+  101 |   // test('Correct URL after opening movie', async ({ page }) => {
+  102 |   //   await page.locator('h3').nth(1).click();
+  103 |   //   await expect(page.url()).toContain('/title/');
+  104 |   // });
+  105 | 
+  106 | });
+```
