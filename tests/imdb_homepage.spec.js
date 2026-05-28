@@ -94,7 +94,7 @@ test.afterEach(async ({ page }) => {
 test('Top 10 on IMDb this week', async ({ page }) => {
   await page.goto('https://www.imdb.com/');
   await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
-  await expect(page).not.toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
+  await expect(page).toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
 });
 
 
