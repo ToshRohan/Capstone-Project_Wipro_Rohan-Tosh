@@ -41,7 +41,7 @@
 //   });
 
 //   //5
-//   test('TC15 - Page reload stability', async ({ page }) => {
+//   test('Page reload stability', async ({ page }) => {
 //     await page.reload();
 //     await expect(page).toHaveURL(/what-to-watch/);
 //   });
