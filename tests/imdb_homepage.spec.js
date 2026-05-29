@@ -71,11 +71,12 @@ test('imdb pro', async ({ page }) => {
 test('fan favorites', async ({ page }) => {
   await page.getByRole('link', { name: 'Fan favorites' }).click();
   await page.getByRole('link', { name: 'View title page for Dacoit: A' }).first().click();
-await expect(page).toHaveURL(/fan|favorite/i);
+  await expect(page.getByText('Dacoit: A Love Story20262h 29m')).toBeVisible();
 });
 
+
 //10
-test('test', async ({ page }) => {
+test('cannes red carpet', async ({ page }) => {
   await page.getByRole('link', { name: 'Cannes Red Carpet' }).click();
   await expect(page).toHaveURL(/cannes/);
 });
@@ -91,7 +92,7 @@ test('Mobile apps', async ({ page }) => {
 test('Top 10 on IMDb this week', async ({ page }) => {
   await page.goto('https://www.imdb.com/');
   await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
-  await expect(page).toHaveURL('https://www.imdb.com/search/title/?moviemeter=%2C10&ref_=hm_tenup_sm');
+  await expect(page.getByText('1-10 of 10Sort')).toBeVisible();
 });
 
 
@@ -101,14 +102,13 @@ test('In theaters navigation', async ({ page }) => {
   const inTheatersLink = page.getByRole('link', { name: /In theaters/i }).first();
   await inTheatersLink.click();
 
-  await expect(page).toHaveURL(/.*browse\/cinema/);
+  await expect(page.getByRole('link', { name: 'Theaters' })).toBeVisible();
 });
 
 //14
 test('Born today page navigation', async ({ page }) => {
-  await page.getByRole('link', { name: 'Born today' }).click();
-  const heading = page.getByRole('heading', { name: 'Born today', exact: true });
-  await expect(heading).toBeVisible();
+    await page.getByRole('link', { name: 'Born today' }).click();
+    await expect(page.getByTestId('accordion-item-birthdayAccordion')).toBeVisible();
 });
 
 //15
