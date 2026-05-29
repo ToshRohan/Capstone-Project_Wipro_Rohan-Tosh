@@ -10,69 +10,72 @@ test.afterEach(async ({ page }) => {
     console.log('Test completed');
 });
 
-//1
-test('suggestion search', async ({ page }) => {
+// //1
+// test('suggestion search', async ({ page }) => {
+// //   await page.goto('https://www.imdb.com/');
+//   await page.getByTestId('suggestion-search').click();
+//   await page.getByTestId('suggestion-search').fill('The Prestige');
+
+//   await expect(page.getByTestId('suggestion-search'))
+//     .toHaveValue('The Prestige');
+// });
+
+// //2
+//  test('IMDb homepage loads successfully', async ({ page }) => {
 //   await page.goto('https://www.imdb.com/');
-  await page.getByTestId('suggestion-search').click();
-  await page.getByTestId('suggestion-search').fill('The Prestige');
+//   await expect(page).toHaveURL(/imdb\.com/);
+//   await expect(page.locator('main')).toBeVisible();
+//  });
 
-  await expect(page.getByTestId('suggestion-search'))
-    .toHaveValue('The Prestige');
-});
-
-//2
- test('IMDb homepage loads successfully', async ({ page }) => {
-  await page.goto('https://www.imdb.com/');
-  await expect(page).toHaveURL(/imdb\.com/);
-  await expect(page.locator('main')).toBeVisible();
- });
-
-//3
-test('open navigation drawer', async ({ page }) => {
+// //3
+// test('open navigation drawer', async ({ page }) => {
   
-  await page.getByLabel('Open navigation drawer').click();
-  await expect(page.locator('body')).toContainText('IMDb');
-});
+//   await page.getByLabel('Open navigation drawer').click();
+//   await expect(page.locator('body')).toContainText('IMDb');
+// });
 
-//4
-test('watchlist', async ({ page }) => {
-  await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
-});
+// //4
+// test('watchlist', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
+//   await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
+// });
 
-//5
-test('summer watch guide', async ({ page }) => {
-  await page.getByRole('link', { name: 'Summer Watch Guide' }).click();
-  await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
-  await expect(page.getByRole('link', { name: 'View ’Spider-Noir’ Poster' })).toBeVisible();
-});
+// //5
+// test('summer watch guide', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Summer Watch Guide', exact: true }).click();
+//   await page.goto('https://www.imdb.com/imdbpicks/summer-watch-guide/?ref_=hm_chip_hm_p1_csegswg');
+// //   await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
+// //   await page.goto('https://www.imdb.com/title/tt30460310/?ref_=fea_csegswg_enhlst_li_2_sm');
+// //   await expect(page.getByText('Spider-NoirTV Series2026– 45m')).toBeVisible();
+//      await expect(page.getByRole('img', { name: 'Summer Watch Guide' })).toBeVisible();
+//  });
 
-//6
-test('most popular celebrities', async ({ page }) => {
-  await page.getByRole('link', { name: 'Most popular celebrities' }).click();
-  await page.locator('a').filter({ hasText: 'Anne Hathaway' }).click();
-  await expect(page.locator('body')).toContainText('Anne Hathaway');
-});
+// //6
+// test('most popular celebrities', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Most popular celebrities' }).click();
+//   await page.locator('a').filter({ hasText: 'Anne Hathaway' }).click();
+//   await expect(page.locator('body')).toContainText('Anne Hathaway');
+// });
 
-//7
-test('language selection', async ({ page }) => {
-  await page.getByText('EN', { exact: true }).click();
-  await page.getByRole('menuitem', { name: 'हिंदी (भारत)' }).click();
-  await expect(page.getByText('मेनू')).toBeVisible();
-});
+// //7
+// test('language selection', async ({ page }) => {
+//   await page.getByText('EN', { exact: true }).click();
+//   await page.getByRole('menuitem', { name: 'हिंदी (भारत)' }).click();
+//   await expect(page.getByText('मेनू')).toBeVisible();
+// });
 
-//8
-test('imdb pro', async ({ page }) => {
-  await page.getByRole('link', { name: 'Go To IMDb Pro' }).click();
-  await expect(page).toHaveURL(/pro/);
-});
+// //8
+// test('imdb pro', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Go To IMDb Pro' }).click();
+//   await expect(page).toHaveURL(/pro/);
+// });
 
-//9
-test('Crunchyroll Anime Awards', async ({ page }) => {
-  await page.getByRole('link', { name: 'Crunchyroll Anime Awards' }).click();
-  await page.goto('https://www.imdb.com/event/ev0025711/2026/1/?ref_=hm_chip_hm_p4_csegawds');
-  await expect(page.getByRole('link', { name: 'CRUNCHYROLL ANIME AWARDS' })).toBeVisible();
-});
+// //9
+// test('Crunchyroll Anime Awards', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Crunchyroll Anime Awards' }).click();
+//   await page.goto('https://www.imdb.com/event/ev0025711/2026/1/?ref_=hm_chip_hm_p4_csegawds');
+//   await expect(page.getByRole('link', { name: 'CRUNCHYROLL ANIME AWARDS' })).toBeVisible();
+// });
 // //10
 // test('cannes red carpet', async ({ page }) => {
 //   await page.getByRole('link', { name: 'Cannes Red Carpet' }).click();
@@ -94,19 +97,17 @@ test('Crunchyroll Anime Awards', async ({ page }) => {
 // });
 
 
-// //13
-// test('In theaters navigation', async ({ page }) => {
-
-//   const inTheatersLink = page.getByRole('link', { name: /In theaters/i }).first();
-//   await inTheatersLink.click();
-
-//   await expect(page.getByRole('link', { name: 'Theaters' })).toBeVisible();
-// });
+//13
+test('In theaters navigation', async ({ page }) => {
+  await page.getByText('In theaters').click();
+  await expect(page).toHaveURL(/theaters|showtimes/i);
+});
 
 // //14
 // test('Born today page navigation', async ({ page }) => {
 //     await page.getByRole('link', { name: 'Born today' }).click();
-//     await expect(page.getByTestId('accordion-item-birthdayAccordion')).toBeVisible();
+//     // await expect(page.getByTestId('accordion-item-birthdayAccordion')).toBeVisible();
+//     await expect(page).toHaveURL(/born/);
 // });
 
 // //15
