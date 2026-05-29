@@ -82,19 +82,19 @@ test.afterEach(async ({ page }) => {
 //   await expect(page).toHaveURL(/cannes/);
 // });
 
-// //11
-// test('Mobile apps', async ({ page }) => {
-//   await page.getByRole('link', { name: 'For Android and iOS' }).click();
-//   await page.goto('https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525');
-//   await expect(page).toHaveURL(/apple/);
-// });
+//11
+test('Mobile apps', async ({ page }) => {
+  await page.getByRole('link', { name: 'For Android and iOS' }).click();
+  await page.goto('https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525');
+  await expect(page).toHaveURL(/apple/);
+});
 
-// //12
-// test('Top 10 on IMDb this week', async ({ page }) => {
-//   await page.goto('https://www.imdb.com/');
-//   await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
-//   await expect(page.getByText('1-10 of 10Sort')).toBeVisible();
-// });
+//12
+test('Top 10 on IMDb this week', async ({ page }) => {
+  await page.goto('https://www.imdb.com/');
+  await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
+  await expect(page.getByText('1-10 of 10Sort')).toBeVisible();
+});
 
 
 //13
