@@ -9,6 +9,13 @@ The goal is to validate core user flows and ensure key features work correctly a
 
 ---
 
+# 📊 GitHub Stats:
+![](https://github-readme-stats.shion.dev/api?username=ToshRohan&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
+![](https://streak-stats.demolab.com/?user=ToshRohan&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=ToshRohan&theme=dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
+
+---
+
 ## 🧪 Test Planner
 - Identify major IMDb services and user flows
 - Design test scenarios for each service
@@ -23,6 +30,11 @@ The goal is to validate core user flows and ensure key features work correctly a
 - Playwright
 - npm / yarn
 - Modern browser (Chromium/Firefox/WebKit via Playwright)
+
+---
+
+- # 💻 Tech Stack:
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Playwright](https://img.shields.io/badge/-playwright-%232EAD33?style=for-the-badge&logo=playwright&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 ---
 
@@ -60,16 +72,6 @@ The goal is to validate core user flows and ensure key features work correctly a
 
 ---
 
-# 💻 Tech Stack:
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Playwright](https://img.shields.io/badge/-playwright-%232EAD33?style=for-the-badge&logo=playwright&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.shion.dev/api?username=ToshRohan&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
-![](https://streak-stats.demolab.com/?user=ToshRohan&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.shion.dev/api/top-langs/?username=ToshRohan&theme=dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
-
----
 [![](https://komarev.com/ghpvc/?username=ToshRohan&icon=4&color=0)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 ```bash
