@@ -10,42 +10,42 @@ test.afterEach(async ({ page }) => {
     console.log('Test completed');
 });
 
-// //1
-// test('suggestion search', async ({ page }) => {
-// //   await page.goto('https://www.imdb.com/');
-//   await page.getByTestId('suggestion-search').click();
-//   await page.getByTestId('suggestion-search').fill('The Prestige');
-
-//   await expect(page.getByTestId('suggestion-search'))
-//     .toHaveValue('The Prestige');
-// });
-
-// //2
-//  test('IMDb homepage loads successfully', async ({ page }) => {
+//1
+test('suggestion search', async ({ page }) => {
 //   await page.goto('https://www.imdb.com/');
-//   await expect(page).toHaveURL(/imdb\.com/);
-//   await expect(page.locator('main')).toBeVisible();
-//  });
+  await page.getByTestId('suggestion-search').click();
+  await page.getByTestId('suggestion-search').fill('The Prestige');
 
-// //3
-// test('open navigation drawer', async ({ page }) => {
+  await expect(page.getByTestId('suggestion-search'))
+    .toHaveValue('The Prestige');
+});
+
+//2
+ test('IMDb homepage loads successfully', async ({ page }) => {
+  await page.goto('https://www.imdb.com/');
+  await expect(page).toHaveURL(/imdb\.com/);
+  await expect(page.locator('main')).toBeVisible();
+ });
+
+//3
+test('open navigation drawer', async ({ page }) => {
   
-//   await page.getByLabel('Open navigation drawer').click();
-//   await expect(page.locator('body')).toContainText('IMDb');
-// });
+  await page.getByLabel('Open navigation drawer').click();
+  await expect(page.locator('body')).toContainText('IMDb');
+});
 
-// //4
-// test('watchlist', async ({ page }) => {
-//   await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
-//   await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
-// });
+//4
+test('watchlist', async ({ page }) => {
+  await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
+});
 
-// //5
-// test('summer watch guide', async ({ page }) => {
-//   await page.getByRole('link', { name: 'Summer Watch Guide' }).click();
-//   await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
-//   await expect(page.getByRole('link', { name: 'View ’Spider-Noir’ Poster' })).toBeVisible();
-// });
+//5
+test('summer watch guide', async ({ page }) => {
+  await page.getByRole('link', { name: 'Summer Watch Guide' }).click();
+  await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'View ’Spider-Noir’ Poster' })).toBeVisible();
+});
 
 // //6
 // test('most popular celebrities', async ({ page }) => {
