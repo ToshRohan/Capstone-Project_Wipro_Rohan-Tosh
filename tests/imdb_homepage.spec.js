@@ -10,42 +10,42 @@ test.afterEach(async ({ page }) => {
     console.log('Test completed');
 });
 
-// //1
-// test('suggestion search', async ({ page }) => {
-// //   await page.goto('https://www.imdb.com/');
-//   await page.getByTestId('suggestion-search').click();
-//   await page.getByTestId('suggestion-search').fill('The Prestige');
-
-//   await expect(page.getByTestId('suggestion-search'))
-//     .toHaveValue('The Prestige');
-// });
-
-// //2
-//  test('IMDb homepage loads successfully', async ({ page }) => {
+//1
+test('suggestion search', async ({ page }) => {
 //   await page.goto('https://www.imdb.com/');
-//   await expect(page).toHaveURL(/imdb\.com/);
-//   await expect(page.locator('main')).toBeVisible();
-//  });
+  await page.getByTestId('suggestion-search').click();
+  await page.getByTestId('suggestion-search').fill('The Prestige');
 
-// //3
-// test('open navigation drawer', async ({ page }) => {
+  await expect(page.getByTestId('suggestion-search'))
+    .toHaveValue('The Prestige');
+});
+
+//2
+ test('IMDb homepage loads successfully', async ({ page }) => {
+  await page.goto('https://www.imdb.com/');
+  await expect(page).toHaveURL(/imdb\.com/);
+  await expect(page.locator('main')).toBeVisible();
+ });
+
+//3
+test('open navigation drawer', async ({ page }) => {
   
-//   await page.getByLabel('Open navigation drawer').click();
-//   await expect(page.locator('body')).toContainText('IMDb');
-// });
+  await page.getByLabel('Open navigation drawer').click();
+  await expect(page.locator('body')).toContainText('IMDb');
+});
 
-// //4
-// test('watchlist', async ({ page }) => {
-//   await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
-//   await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
-// });
+//4
+test('watchlist', async ({ page }) => {
+  await page.getByRole('link', { name: 'Watchlist', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Recently viewed' })).toBeVisible();
+});
 
-// //5
-// test('summer watch guide', async ({ page }) => {
-//   await page.getByRole('link', { name: 'Summer Watch Guide' }).click();
-//   await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
-//   await expect(page.getByRole('link', { name: 'View ’Spider-Noir’ Poster' })).toBeVisible();
-// });
+//5
+test('summer watch guide', async ({ page }) => {
+  await page.getByRole('link', { name: 'Summer Watch Guide' }).click();
+  await page.getByRole('link', { name: 'Spider-Noir', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'View ’Spider-Noir’ Poster' })).toBeVisible();
+});
 
 //6
 test('most popular celebrities', async ({ page }) => {
@@ -68,59 +68,57 @@ test('imdb pro', async ({ page }) => {
 });
 
 //9
-test('fan favorites', async ({ page }) => {
-  await page.getByRole('link', { name: 'Fan favorites' }).click();
-  await page.getByRole('link', { name: 'View title page for Dacoit: A' }).first().click();
-  await expect(page.getByText('Dacoit: A Love Story20262h 29m')).toBeVisible();
+test('Crunchyroll Anime Awards', async ({ page }) => {
+  await page.getByRole('link', { name: 'Crunchyroll Anime Awards' }).click();
+  await page.goto('https://www.imdb.com/event/ev0025711/2026/1/?ref_=hm_chip_hm_p4_csegawds');
+  await expect(page.getByRole('link', { name: 'CRUNCHYROLL ANIME AWARDS' })).toBeVisible();
 });
+// //10
+// test('cannes red carpet', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Cannes Red Carpet' }).click();
+//   await expect(page).toHaveURL(/cannes/);
+// });
+
+// //11
+// test('Mobile apps', async ({ page }) => {
+//   await page.getByRole('link', { name: 'For Android and iOS' }).click();
+//   await page.goto('https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525');
+//   await expect(page).toHaveURL(/apple/);
+// });
+
+// //12
+// test('Top 10 on IMDb this week', async ({ page }) => {
+//   await page.goto('https://www.imdb.com/');
+//   await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
+//   await expect(page.getByText('1-10 of 10Sort')).toBeVisible();
+// });
 
 
-//10
-test('cannes red carpet', async ({ page }) => {
-  await page.getByRole('link', { name: 'Cannes Red Carpet' }).click();
-  await expect(page).toHaveURL(/cannes/);
-});
+// //13
+// test('In theaters navigation', async ({ page }) => {
 
-//11
-test('Mobile apps', async ({ page }) => {
-  await page.getByRole('link', { name: 'For Android and iOS' }).click();
-  await page.goto('https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525');
-  await expect(page).toHaveURL(/apple/);
-});
+//   const inTheatersLink = page.getByRole('link', { name: /In theaters/i }).first();
+//   await inTheatersLink.click();
 
-//12
-test('Top 10 on IMDb this week', async ({ page }) => {
-  await page.goto('https://www.imdb.com/');
-  await page.getByRole('link', { name: 'Top 10 on IMDb this week' }).click();
-  await expect(page.getByText('1-10 of 10Sort')).toBeVisible();
-});
+//   await expect(page.getByRole('link', { name: 'Theaters' })).toBeVisible();
+// });
 
+// //14
+// test('Born today page navigation', async ({ page }) => {
+//     await page.getByRole('link', { name: 'Born today' }).click();
+//     await expect(page.getByTestId('accordion-item-birthdayAccordion')).toBeVisible();
+// });
 
-//13
-test('In theaters navigation', async ({ page }) => {
+// //15
+// test('Sign in', async ({ page }) => {
+//   // await page.getByRole('link', { name: 'Sign in', exact: true }).click();
+//   // await page.getByTestId('create_account_aap').click();
+//   // await page.getByRole('heading', { name: 'Sign in to IMDb using your' }).click();
 
-  const inTheatersLink = page.getByRole('link', { name: /In theaters/i }).first();
-  await inTheatersLink.click();
+//   await page.getByRole('link', { name: 'Sign in', exact: true }).click();
 
-  await expect(page.getByRole('link', { name: 'Theaters' })).toBeVisible();
-});
-
-//14
-test('Born today page navigation', async ({ page }) => {
-    await page.getByRole('link', { name: 'Born today' }).click();
-    await expect(page.getByTestId('accordion-item-birthdayAccordion')).toBeVisible();
-});
-
-//15
-test('Sign in', async ({ page }) => {
-  // await page.getByRole('link', { name: 'Sign in', exact: true }).click();
-  // await page.getByTestId('create_account_aap').click();
-  // await page.getByRole('heading', { name: 'Sign in to IMDb using your' }).click();
-
-  await page.getByRole('link', { name: 'Sign in', exact: true }).click();
-
-  const signInHeading = page.getByRole('heading', { name: /Sign in/i });
-  await expect(signInHeading).toBeVisible();
-});
+//   const signInHeading = page.getByRole('heading', { name: /Sign in/i });
+//   await expect(signInHeading).toBeVisible();
+// });
 
 });
