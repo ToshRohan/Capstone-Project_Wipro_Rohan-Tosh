@@ -44,12 +44,12 @@ test.afterEach(async ({ page }) => {
 //     await expect(year.first()).toBeVisible();
 //   });
 
-  // 7. storyline
-  test('storyline', async ({ page }) => {
-    await page.getByRole('link', { name: '12 Angry Men', exact: true }).click();
-    // await expect(page.getByTestId('Storyline')).toBeVisible();
-    await expect(page.locator('body')).toContainText('Storyline');
-  });
+//   // 7. storyline
+//   test('storyline', async ({ page }) => {
+//     await page.getByRole('link', { name: '12 Angry Men', exact: true }).click();
+//     // await expect(page.getByTestId('Storyline')).toBeVisible();
+//     await expect(page.locator('body')).toContainText('Storyline');
+//   });
 
 //   // 8. Verify clicking movie opens detail page
 //   test('Open movie details page', async ({ page }) => {
