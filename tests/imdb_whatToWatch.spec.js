@@ -66,22 +66,26 @@ test.describe('IMDb What to Watch - Functional Tests', () => {
 //     await expect(page.locator('a').first()).toBeVisible();
 //   });
 
-  //10
-    test('TC08 - Back navigation works', async ({ page }) => {
-    // const firstTitle = page.locator('a[href*="/title/"]').first();
-    // await firstTitle.click();
-    await page.goto('https://www.imdb.com/what-to-watch/');
-    await page.getByRole('tab', { name: 'FAN FAVORITES' }).click();
-    await page.goBack();
-    // await page.goto('https://www.imdb.com/what-to-watch/');
-    await expect(page).toHaveURL(/what-to-watch/);
-  });
-
-//   //11
-//   test('TC16 - Recommendation sections exist', async ({ page }) => {
-//   const sections = page.locator('section');
-//   expect(await sections.count()).toBeGreaterThan(0);
+// //10
+// test('Search functionality works', async ({ page }) => {
+//   await page.getByTestId('suggestion-search').click();
+//   await page.getByTestId('suggestion-search').fill('punisher');
+//   await page.goto('https://www.imdb.com/title/tt5675620/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_punisher');
+//   await expect(page.locator('h1')).toContainText('The Punisher');
 // });
+
+//11
+test('Prime Video links are functional', async ({ page }) => {
+  await page.getByRole('link', { name: 'Everything New on Prime Video' }).click();
+  await page.locator('ul').filter({ hasText: /^1\. A Shot in the Dark$/ }).click();
+  await expect(page.getByRole('link', { name: 'Watch on Prime Video' }).first()).toBeVisible(); 
+});
+
+//12
+test('Fan Favorites section is visible', async ({ page }) => {
+    await page.getByRole('tab', { name: 'FAN FAVORITES' }).click();
+    await expect(page).toHaveURL(/what-to-watch\/fan-favorites/);
+});
 
 
 
