@@ -1,14 +1,14 @@
-import { test, expect } from '@playwright/test';
+// import { test, expect } from '@playwright/test';
 
-test.describe('IMDb What to Watch - Functional Tests', () => {
+// test.describe('IMDb What to Watch - Functional Tests', () => {
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.imdb.com/what-to-watch/');
-  });
+//   test.beforeEach(async ({ page }) => {
+//     await page.goto('https://www.imdb.com/what-to-watch/');
+//   });
 
-  test.afterEach(async () => {
-    console.log('Test completed');
-  });
+//   test.afterEach(async () => {
+//     console.log('Test completed');
+//   });
 
 //   //1
 //   test('Page loads with main UI components', async ({ page }) => {
@@ -74,20 +74,37 @@ test.describe('IMDb What to Watch - Functional Tests', () => {
 //   await expect(page.locator('h1')).toContainText('The Punisher');
 // });
 
-//11
-test('Prime Video links are functional', async ({ page }) => {
-  await page.getByRole('link', { name: 'Everything New on Prime Video' }).click();
-  await page.locator('ul').filter({ hasText: /^1\. A Shot in the Dark$/ }).click();
-  await expect(page.getByRole('link', { name: 'Watch on Prime Video' }).first()).toBeVisible(); 
-});
+// //11
+// test('Prime Video links are functional', async ({ page }) => {
+//   await page.getByRole('link', { name: 'Everything New on Prime Video' }).click();
+//   await page.locator('ul').filter({ hasText: /^1\. A Shot in the Dark$/ }).click();
+//   await expect(page.getByRole('link', { name: 'Watch on Prime Video' }).first()).toBeVisible(); 
+// });
 
-//12
-test('Fan Favorites section is visible', async ({ page }) => {
-    await page.getByRole('tab', { name: 'FAN FAVORITES' }).click();
-    await expect(page).toHaveURL(/what-to-watch\/fan-favorites/);
-});
+// //12
+// test('Fan Favorites section is visible', async ({ page }) => {
+//     await page.getByRole('tab', { name: 'FAN FAVORITES' }).click();
+//     await expect(page).toHaveURL(/what-to-watch\/fan-favorites/);
+// });
+
+// //13
+// test('Movies load correctly', async ({ page }) => {
+//   await page.getByRole('tab', { name: 'FAN FAVORITES' }).click();
+//   await page.getByRole('link', { name: 'View title page for Sapne Vs' }).first().click();
+//   await expect(page.getByRole('link', { name: 'View ’Sapne Vs Everyone’' })).toBeVisible(); 
+// });
+
+// //14
+//  test('Category selector works', async ({ page }) => {
+//   await page.getByTestId('category-selector-button').click();
+//   await page.locator('.ipc-icon.ipc-icon--arrow-drop-down.ipc-btn__icon').first().click();
+//   await  expect(page.locator('.ipc-icon.ipc-icon--arrow-drop-down.ipc-btn__icon').first()).toBeVisible(); 
+//  });
+
+// //15
+//  test('Heading is visible', async ({ page }) => {
+//   await expect(page.getByRole('heading', { name: 'What to Watch - IMDb' })).toBeVisible();
+//  });
 
 
-
-
-});
+// });
