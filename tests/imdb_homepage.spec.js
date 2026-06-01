@@ -62,9 +62,8 @@ test('imdb pro', async ({ page }) => {
 
 //8
 test('Crunchyroll Anime Awards', async ({ page }) => {
-  await page.getByRole('link', { name: 'Crunchyroll Anime Awards' }).click();
-  await page.goto('https://www.imdb.com/event/ev0025711/2026/1/?ref_=hm_chip_hm_p4_csegawds');
-  await expect(page.getByRole('link', { name: 'CRUNCHYROLL ANIME AWARDS' })).toBeVisible();
+  await page.getByRole('link', { name: 'Coming soon to theaters' }).click();
+  await expect(page.locator('li').filter({ hasText: 'Toxic (2026)' })).toBeVisible(); 
 });
 
 //9
