@@ -1,5 +1,3 @@
-// //https://www.imdb.com/event/all/
-
 // import { test, expect } from '@playwright/test';
 
 // test.describe('IMDb Events - Functional Tests', () => { 
@@ -81,14 +79,12 @@
 //         await expect(page.getByText('WinnerDollhouse9.0 (9)Rate')).toBeVisible();
 //     });
 
-// //10
-    
-
-
- 
-
-
-
-
+// // //10
+//     test('test', async ({ page }) => {
+//         await page.goto('https://www.imdb.com/event/all/');
+//         await page.locator('[data-test-id="right-rail-content-block"]').getByRole('link', { name: 'Cannes Film Festival' }).click();
+//         await page.goto('https://www.imdb.com/event/ev0000147/2026/1/');
+//         await expect(page.getByText('Palme d\'OrEdit')).toBeVisible();
+//     });
 
 // });
