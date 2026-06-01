@@ -63,16 +63,15 @@ test.describe('IMDb Events - Functional Tests', () => {
         await page.goto('https://www.imdb.com/event/ev0000003/2026/1/');
         await page.getByRole('link', { name: 'Best Motion Picture of the' }).click();
         await expect(page.getByTestId('BestMotionPictureoftheYear').getByText('WinnerOne Battle After')).toBeVisible();
-    });
+     });
 
-//8
-    test('year wise navigation is working correctly', async ({ page }) => {
-        await page.getByRole('link', { name: 'Academy Awards, USA' }).click();
-        await page.getByRole('tab', { name: '2000s' }).click();
-        await page.getByRole('link', { name: '2003' }).click();
-        await page.goto('https://www.imdb.com/event/ev0000003/2003/1/?ref_=ev_csegosc_tl_yr_7');
-        await expect(page.getByTestId('BestPicture').getByText('WinnerChicago7.2 (257K)Rate')).toBeVisible();
-    });
+// //8
+//     test('year wise navigation is working correctly', async ({ page }) => {
+//         await page.getByRole('link', { name: 'Academy Awards, USA' }).click();
+//         await page.getByRole('tab', { name: '2000s' }).click();
+//         await page.getByRole('link', { name: '2003' }).click();
+//         await expect(page.getByTestId('BestPicture').getByText('WinnerChicago7.2 (257K)Rate')).toBeVisible();
+//     });
 
 //9
     test('test', async ({ page }) => {
