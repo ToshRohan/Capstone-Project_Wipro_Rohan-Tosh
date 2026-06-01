@@ -63,16 +63,14 @@ test.describe('IMDb Events - Functional Tests', () => {
         await expect(page.getByTestId('BestMotionPictureoftheYear').getByText('WinnerOne Battle After')).toBeVisible();
      });
 
-// //8
-//     test('year wise navigation is working correctly', async ({ page }) => {
-//         await page.getByRole('link', { name: 'Academy Awards, USA' }).click();
-//         await page.getByRole('tab', { name: '2000s' }).click();
-//         await page.getByRole('link', { name: '2003' }).click();
-//         await expect(page.getByTestId('BestPicture').getByText('WinnerChicago7.2 (257K)Rate')).toBeVisible();
-//     });
+//8
+    test('Mumbai Film Festival event', async ({ page }) => {
+        await page.locator('[data-test-id="right-rail-content-block"]').getByRole('link', { name: 'Mumbai Film Festival' }).click();
+        await expect(page.getByRole('link', { name: 'Golden Gateway of India for Best Film', exact: true })).toBeVisible();
+    });
 
 //9
-    test('test', async ({ page }) => {
+    test('Event details for Best Horror Baddy are visible', async ({ page }) => {
         await page.goto('https://www.imdb.com/event/all/');
         await page.getByTestId('event-link-ev0006330').click();
         await page.getByRole('link', { name: 'Best Horror Baddy' }).first().click();
