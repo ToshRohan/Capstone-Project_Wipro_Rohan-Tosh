@@ -30,7 +30,7 @@ test.describe('IMDb Satyajit Ray - Functional Tests', () => {
         await expect(page.getByRole('link', { name: 'Satyajit Ray' }).first()).toBeVisible();
     });
 //4
-    test('Awards and nominations', async ({ page }) => {
+    test('Awards and nominations contain correct information', async ({ page }) => {
         await page.getByText('wins & 23 nominations total').click();
         await expect(page.locator('ul').filter({ hasText: '1992 Winner Honorary AwardFor' })).toBeVisible();
     });
@@ -48,26 +48,26 @@ test.describe('IMDb Satyajit Ray - Functional Tests', () => {
     });
 
 //7   
-    test('Trivia section', async ({ page }) => {
+    test('Trivia section is visible', async ({ page }) => {
         await page.getByRole('link', { name: 'Trivia' }).click();
         await expect(page.locator('div').filter({ hasText: /^Was very fond of actor Nana Patekar\. Wanted to direct him before he died\.$/ }).nth(2)).toBeVisible();
     });
 
 //8
-    test('Quotes section', async ({ page }) => {
+    test('Quotes section contains correct information', async ({ page }) => {
         await page.getByTestId('faq-title').getByRole('link', { name: 'FAQ' }).click();
         await expect(page.getByText('When was Satyajit Ray born?')).toBeVisible();
         await expect(page.getByTestId('faq_md_list_4').getByText('May 2,')).toBeVisible();
      });
 
 //9
-    test('Photos section', async ({ page }) => {
+    test('Photos section loads correctly', async ({ page }) => {
         await page.getByRole('link', { name: 'Photos' }).click();
         await page.getByTestId('mv-gallery-button').click();
         await expect(page.getByTestId('mosaic-img-1-1').getByRole('img')).toBeVisible();
 });
 //10
-    test('test', async ({ page }) => {
+    test('Composer section is visible', async ({ page }) => {
         await page.getByRole('heading', { name: 'Composer' }).click();
         await page.getByTestId('accordion-item-amzn1.imdb.concept.name_credit_category.00f5faa0-5f76-4eb5-87a1-ec8d484d1779-Previous').click();
         await expect(page.getByTestId('cred_amzn1.imdb.concept.name_credit_category.00f5faa0-5f76-4eb5-87a1-ec8d484d1779_10').getByText('An Enemy of the People')).toBeVisible();

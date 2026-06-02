@@ -57,12 +57,12 @@ test.describe('IMDb What to Watch - Functional Tests', () => {
   });
 
   //8
-    test('TC09 - Page scroll works', async ({ page }) => {
+    test('Page scroll works', async ({ page }) => {
     await page.mouse.wheel(0, 2000);
   });
 
   //9
-    test('TC11 - Links are present and clickable', async ({ page }) => {
+    test('Links are present and clickable', async ({ page }) => {
     await expect(page.locator('a').first()).toBeVisible();
   });
 

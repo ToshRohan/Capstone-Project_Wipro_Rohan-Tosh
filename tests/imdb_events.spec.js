@@ -64,7 +64,7 @@ test.describe('IMDb Events - Functional Tests', () => {
      });
 
 //8
-    test('Mumbai Film Festival event', async ({ page }) => {
+    test('Mumbai Film Festival event page loads', async ({ page }) => {
         await page.locator('[data-test-id="right-rail-content-block"]').getByRole('link', { name: 'Mumbai Film Festival' }).click();
         await expect(page.getByRole('link', { name: 'Golden Gateway of India for Best Film', exact: true })).toBeVisible();
     });
@@ -78,7 +78,7 @@ test.describe('IMDb Events - Functional Tests', () => {
     });
 
 // //10
-    test('test', async ({ page }) => {
+    test('Cannes Film Festival event page loads', async ({ page }) => {
         await page.goto('https://www.imdb.com/event/all/');
         await page.locator('[data-test-id="right-rail-content-block"]').getByRole('link', { name: 'Cannes Film Festival' }).click();
         await page.goto('https://www.imdb.com/event/ev0000147/2026/1/');

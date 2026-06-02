@@ -17,26 +17,26 @@ test('IMDb popular celebs page launched', async ({ page }) => {
 });
 
 //2
-test('Anne Hathaway profile', async ({ page }) => {
+test('Anne Hathaway profile visible', async ({ page }) => {
   await page.locator('a').filter({ hasText: 'Anne Hathaway' }).click();
   await expect(page.locator('body')).toContainText('Anne Hathaway');
 });
 
 //3
-test('navigation bar', async ({ page }) => {
+test('navigation bar opens', async ({ page }) => {
    await page.getByLabel('Open navigation drawer').click();
    await expect(page.getByLabel('Go to Top 250 movies')).toBeVisible();
 });
 
 //4
-test('Sally Field biography', async ({ page }) => {
+test('Sally Field biography contains correct information', async ({ page }) => {
   await page.locator('a').filter({ hasText: 'Sally Field' }).click();
   await page.getByRole('link', { name: 'Biography' }).click();
   await expect(page.getByText('BornNovember 6, 1946 ·')).toBeVisible();
 });
 
 //5
-test('search bar', async ({ page }) => {
+test('search bar works', async ({ page }) => {
   await page.getByTestId('suggestion-search').click();
   await page.getByTestId('suggestion-search').press('CapsLock');
   await page.getByTestId('suggestion-search').fill('S');
@@ -74,13 +74,13 @@ test('more to explore', async ({ page }) => {
 });
 
 //9
-test('sally field profile', async ({ page }) => {
+test('sally field profile loads correctly', async ({ page }) => {
   await page.getByLabel('Sally Field').click();
   await expect(page.getByTestId('hero__placeholder').getByRole('link', { name: 'Sally Field' })).toBeVisible();
 });
 
 //10
-test('grid', async ({ page }) => {
+test('grid view works', async ({ page }) => {
   await page.getByRole('button', { name: 'Grid view' }).click();
   await expect(page.getByRole('button', { name: 'Detailed view' })).toBeVisible();
 });
@@ -111,7 +111,7 @@ test('search category', async ({ page }) => {
 });
 
 // //15
-test('celeb news', async ({ page }) => {
+test('celeb news page loads', async ({ page }) => {
   await page.getByRole('link', { name: 'Celebrity news' }).click();
 // //   const page1Promise = page.waitForEvent('popup');
 // //   await page.getByRole('link', { name: 'Taylor Swift & Travis Kelce' }).click();

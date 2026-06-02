@@ -45,7 +45,7 @@ test.afterEach(async ({ page }) => {
   });
 
   // 7. storyline
-  test('storyline', async ({ page }) => {
+  test('storyline is visible', async ({ page }) => {
     await page.getByRole('link', { name: '12 Angry Men', exact: true }).click();
     // await expect(page.getByTestId('Storyline')).toBeVisible();
     await expect(page.locator('body')).toContainText('Storyline');
@@ -58,7 +58,7 @@ test.afterEach(async ({ page }) => {
   });
 
   // 9. user reviews
-  test('reviews', async ({ page }) => {
+  test('User reviews are visible', async ({ page }) => {
     await page.goto('https://www.imdb.com/chart/top/');
     await page.getByRole('link', { name: '12 Angry Men', exact: true }).click();
     await page.getByTestId('hero-subnav-bar-topic-links').getByRole('link', { name: 'User reviews' }).click();
