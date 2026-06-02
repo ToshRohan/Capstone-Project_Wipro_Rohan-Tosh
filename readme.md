@@ -1,7 +1,7 @@
-IMDb website testing framework project by Rohan Tosh.
+IMDb Web Automation Testing Framework project by Rohan Tosh.
 
 
-# 🎬 IMDb Testing using Playwright
+# 🎬 IMDb Functional Testing Automation Framework Using Playwright
 
 ## 📌 Overview
 This project contains end-to-end automation tests for the IMDb website using Playwright.  
@@ -40,37 +40,48 @@ The goal is to validate core user flows and ensure key features work correctly a
 
 ## 🧩 Services Covered in Testing
 
-| Service Area        | Description                          |
-|---------------------|--------------------------------------|
-| Home Page           | Navigation and main sections         |
-| Movies              | Movie listings and details           |
-| TV Shows            | TV show navigation and details       |
-| Born Today          | Birthday and celebrity listings      |
-| In Theaters         | Currently running movies             |
+
+| Service No. | IMDb Service                |
+|-------------|----------------------------|
+| 1           | IMDb Homepage              |
+| 2           | IMDb Top 250 Movies        |
+| 3           | IMDb Popular Celebrities   |
+| 4           | IMDb What To Watch         |
+| 5           | IMDb Events                |
+| 6           | IMDb Satyajit Ray Profile  |
+| 7           | IMDb Showtimes & Tickets   |
 
 ---
 
-## 🧾 Test Cases (15 Total)
+## 🔄 CI/CD Pipeline (GitHub Actions)
 
-| TC ID | Service Area   | Test Case Description                          |
-|------|----------------|----------------------------------------------|
-| TC01 | Home Page      | Verify homepage loads successfully           |
-| TC02 | Home Page      | Validate navigation menu visibility          |
-| TC03 | Movies         | Verify movies page opens                     |
-| TC04 | Movies         | Validate movie search functionality          |
-| TC05 | Movies         | Check movie details page loads               |
-| TC06 | TV Shows       | Verify TV shows page opens                  |
-| TC07 | TV Shows       | Validate show details navigation             |
-| TC08 | Born Today     | Verify Born Today page navigation           |
-| TC09 | Born Today     | Validate birthday list visibility            |
-| TC10 | In Theaters    | Verify In Theaters page navigation          |
-| TC11 | In Theaters    | Validate movie listings visibility           |
-| TC12 | Navigation     | Verify footer links working                 |
-| TC13 | Navigation     | Validate header links working               |
-| TC14 | UI             | Check page title consistency                |
-| TC15 | UI             | Verify basic page load stability            |
+This project uses **GitHub Actions** for Continuous Integration. Every push or pull request automatically triggers test execution to ensure code quality and stability.
 
 ---
+
+### ⚙️ Flow:
+- Code pushed to GitHub  
+- GitHub Actions workflow triggers  
+- Node.js environment is set up  
+- Dependencies and Playwright browsers are installed  
+- Test cases are executed in headless mode  
+- Allure results are generated for reporting  
+
+---
+
+### 🧪 Key Commands Used:
+```bash
+npm install
+npx playwright install
+npx playwright test
+npm run allure:generate
+npm run allure:open
+
+---
+
+## 📌 Conclusion
+
+This project successfully implements an end-to-end automation testing framework for IMDb using Playwright. It validates key user flows across 7 major services with reliable and repeatable test execution. The framework improves regression testing speed, ensures UI stability, and supports CI/CD integration through GitHub Actions with detailed reporting via Allure.
 
 [![](https://komarev.com/ghpvc/?username=ToshRohan&icon=4&color=0)](https://visitcount.itsvg.in)
 
