@@ -83,6 +83,5 @@ npm run allure:open
 
 This project successfully implements an end-to-end automation testing framework for IMDb using Playwright. It validates key user flows across 7 major services with reliable and repeatable test execution. The framework improves regression testing speed, ensures UI stability, and supports CI/CD integration through GitHub Actions with detailed reporting via Allure.
 
-[![](https://komarev.com/ghpvc/?username=ToshRohan&icon=4&color=0)](https://visitcount.itsvg.in)
 
 ```bash
