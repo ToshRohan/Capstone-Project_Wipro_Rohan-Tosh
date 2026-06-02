@@ -76,7 +76,7 @@ npx playwright install
 npx playwright test
 npm run allure:generate
 npm run allure:open
-
+```
 ---
 
 ## 📌 Conclusion
