@@ -131,7 +131,7 @@ module.exports = defineConfig({
     //     ...devices['Desktop Safari'],
     //     browserName: 'webkit'
     //   }
-    // }
+    }
 
   ]
 
