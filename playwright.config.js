@@ -115,23 +115,23 @@ module.exports = defineConfig({
         ...devices['Desktop Chrome'],
         browserName: 'chromium'
       }
-    },
+    
 
-    {
-      name: 'Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        browserName: 'firefox'
-      }
-    },
+    // {
+    //   name: 'Firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //     browserName: 'firefox'
+    //   }
+    // },
 
-    {
-      name: 'WebKit',
-      use: {
-        ...devices['Desktop Safari'],
-        browserName: 'webkit'
-      }
-    }
+    // {
+    //   name: 'WebKit',
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //     browserName: 'webkit'
+    //   }
+    // }
 
   ]
 
